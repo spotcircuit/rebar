@@ -64,6 +64,17 @@ agents:
     heartbeat_schedule: "*/30 * * * *"  # every 30 minutes
     budget_cents: 300
 
+  discord-scout-agent:
+    name: Discord Scout Agent
+    description: >
+      Scans Discord servers for relevant messages about agentic AI.
+      Classifies service fit, generates humanized replies, saves
+      to Postgres for human review via extension popup.
+    role: engineer
+    definition_file: agents/discord-scout-agent.yaml
+    heartbeat_schedule: "0 */2 * * *"   # every 2 hours
+    budget_cents: 200
+
   triage-agent:
     name: Triage Agent
     description: >
