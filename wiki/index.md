@@ -27,6 +27,7 @@
 | [[ecs-health-check-grace-period]] | patterns | Health endpoints fail during ECS cold start when Redis isn't reachable yet |
 | [[error-handling]] | patterns | Structured approach to catching, logging, and recovering from errors in multi-step flows |
 | [[getrankedlocal]] | examples | Google Maps ranking analysis with 169-point grid searches for local SEO leads |
+| [[grid-search-system]] | platform | 169-point geographic market intelligence system for Google Maps ranking analysis |
 | [[getting-started]] | how-it-works | 15-minute walkthrough from clone to working framework with prerequisites |
 | [[github-integration]] | tools | Rebar works with GitHub through MCP GitHub server for repo structure and CI results |
 | [[headless-detection-bypass]] | patterns | Three lines of JS to detect headless Chrome using CSS system colors |
@@ -51,6 +52,7 @@
 | [[managed-agents-setup]] | platform | Anthropic `ant` CLI for managed agents — scout + comment + post pipeline |
 | [[mock-data-strategy]] | patterns | Testing integration flows without real API calls using config-controlled mock toggles |
 | [[multi-format-ingest-strategy]] | decisions | Handling incoming data in multiple formats with config-driven mapping or AI drafting |
+| [[neon-postgres-patterns]] | platform | Neon serverless PostgreSQL patterns: bulk inserts, dedup, connection, schema |
 | [[obsidian]] | tools | Rebar wiki folder is fully compatible Obsidian vault with graph view |
 | [[orchestrator-3-stream]] | examples | Multi-agent orchestration with real-time WebSocket streaming and PostgreSQL persistence |
 | [[paperclip]] | tools | Local agent management running Rebar's 7 autonomous agents with heartbeat schedules |
@@ -68,6 +70,7 @@
 | [[redis-circuit-breaker]] | patterns | Fall back to direct Okta validation when Redis/ElastiCache is unreachable |
 | [[scout-build-verify]] | patterns | Three-agent workflow: scout analyzes, builder implements, verifier validates |
 | [[self-learn-loop]] | how-it-works | Core feedback mechanism where raw observations accumulate through normal work |
+| [[session-2026-04-14]] | decisions | Discord scout build, LinkedIn reply fix, Paperclip agent sync, scout server resilience |
 | [[seosnap]] | examples | AI-powered SEO audit with Playwright analysis and Google Lighthouse Core Web Vitals |
 | [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
 | [[service-marketplace]] | examples | Niche-agnostic service marketplace with JSON-based vertical config and Stripe |

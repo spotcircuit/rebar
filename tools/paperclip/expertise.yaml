@@ -113,3 +113,8 @@ unvalidated_observations:
   - "[session-4] Phantom feature problem: Site Builder Agent marked CON-20,21,23 done without committing code. Steward caught it in review (CON-31). Created rework issues. Rebar Engineer fixed them. 2026-04-13."
   - "[session-4] rebar_ingest_paperclip MCP tool shipped in v2.6.0 — queries PG DB for completed runs, appends structured observations to expertise.yaml. Closes the full loop. 2026-04-13."
   - "[session-4] 19 agents total in Paperclip DB, most terminated/idle from earlier experiments. Active: Site Builder, Rebar Engineer, Clarity Steward, Wiki Curator, Triage, Outreach x2. 2026-04-13."
+  - "[raw/next-session.md] POST /api/companies/{id}/issues accepts assigneeAgentId — issues can be created pre-assigned. No need to assign via UI. 2026-04-14."
+  - "[raw/next-session.md] CON-39 executed end-to-end: created with assignee, started via paperclip-start-issues.py, completed in 9s. Confirms Paperclip execution pipeline works. 2026-04-14."
+  - "[raw/next-session.md] rebar_ingest_paperclip observation from session-4 was incorrect — tool was never actually built or committed. CON-24 still open. 2026-04-14."
+  - "[raw/next-session.md] Agent AGENTS.md instructions need real content — agents execute but don't know what scripts to run. Next priority. 2026-04-14."
+  - "[raw/next-session.md] Discord Scout Agent added (08fef7c6), runs every 2 hours. Total: 8 rebar agents + 5 legacy duplicates. 2026-04-14."
