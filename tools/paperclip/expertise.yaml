@@ -5,13 +5,19 @@
 meta:
   tool: paperclip
   display_name: Paperclip
-  last_updated: "2026-04-13"
+  last_updated: "2026-04-14"
+
+company:
+  name: Rebar
+  id: d7dfb458-5fbc-4afd-8b9e-f765d253726f
+  renamed_from: Clarity Framework (2026-04-13)
 
 agents:
   rebar-steward:
     role: maintenance
     schedule: "every 4 hours"
     budget: "$5/mo"
+    id: 8e8f8e65-d971-4694-814e-762e2742087b
     does: "Validates expertise.yaml health, runs /improve when >10 observations pending, compresses bloated files"
     reads: "clients/*/expertise.yaml, apps/*/expertise.yaml, tools/*/expertise.yaml"
     writes: "same"
@@ -20,6 +26,7 @@ agents:
     role: maintenance
     schedule: "every 30 minutes"
     budget: "$3/mo"
+    id: a38b462b-9160-47c1-b711-0a5d6fd1072b
     does: "Checks raw/ for files, runs /wiki-ingest or /wiki-lint, auto-fixes up to 5 issues per run"
     reads: "raw/*, wiki/**/*.md"
     writes: "wiki/**/*.md"
@@ -28,31 +35,50 @@ agents:
     role: engineer
     schedule: "every 6 hours"
     budget: "$8/mo"
+    id: 8e4cfcfe-a869-4f4a-8528-8df88df0dd6a
     does: "Picks up build requests, executes pipeline, records results in expertise.yaml"
 
   social-media-agent:
     role: cmo
     schedule: "weekdays 9am"
     budget: "$2/mo"
+    id: 49639b17-3759-4271-9232-436fa0fbd22f
     does: "Topic rotation, draft generation, humanization, image cards, post to LinkedIn + Facebook"
 
   outreach-agent:
     role: engineer
     schedule: "every 30 minutes"
     budget: "$3/mo"
-    does: "Monitors posts for comments, classifies, generates replies, humanizes, posts. Alternates LinkedIn/Reddit per heartbeat."
+    id: 8ab06d49-deff-4d47-99f9-eab640932df4
+    does: "Monitors posts for comments, classifies, generates replies, humanizes, posts. Alternates LinkedIn/Reddit. Watchdog for scout server."
+
+  discord-scout-agent:
+    role: engineer
+    schedule: "every 2 hours"
+    budget: "$2/mo"
+    id: 08fef7c6-8f4e-4286-b83a-13d1b7004a9c
+    does: "Scans Discord servers via bot API, classifies service fit, generates humanized replies, saves to Postgres."
 
   gtm-agent:
     role: cmo
     schedule: "weekdays 8am"
     budget: "$4/mo"
+    id: aaef9038-1a15-47f1-a0f8-192243d500b6
     does: "Metrics pull, prospect identification, content calendar, coordinates other agents, weekly GTM report Fridays"
 
   triage-agent:
     role: pm
     schedule: "every 5 minutes"
     budget: "$1/mo"
+    id: 46570da3-f503-4a02-93b9-6963ba845090
     does: "Reads unassigned issues, classifies by keyword, routes to correct agent"
+
+  # Legacy — still in Paperclip DB, cannot delete via API
+  legacy_duplicates:
+    - "Clarity Steward (c983798b) — replaced by Rebar Steward"
+    - "Outreach Agent (7c7206b0) — replaced by 8ab06d49"
+    - "Social Media Agent (6c831110) — replaced by 49639b17"
+    - "Rebar Engineer (2b395df7) — one-off for MCP development"
 
 integration:
   description: >
@@ -68,6 +94,13 @@ integration:
     check_status: "bash tools/paperclip-sync.sh status"
     trigger_heartbeat: "bash tools/paperclip-sync.sh heartbeat {agent-name}"
     create_issue: "bash tools/paperclip-sync.sh issue \"{title}\" {agent-name}"
+    create_assigned_issue: >
+      POST /api/companies/{id}/issues with assigneeAgentId in body.
+      Issues can be created pre-assigned — no need to assign via UI.
+    start_issue: "python3 scripts/paperclip-start-issues.py --issues CON-XX"
+  confirmed_flows:
+    - "CON-39: created with assigneeAgentId → started via paperclip-start-issues.py → completed in 9s (2026-04-14)"
+    - "Rebar MCP Features project: CON-18 through CON-36, 16 issues for MCP development (2026-04-13)"
 
 event_hooks:
   raw_file_added:
@@ -79,15 +112,35 @@ event_hooks:
   build_requested:
     creates: "Build: {app_name}"
     assigns_to: site-builder-agent
+  scout_server_down:
+    creates: "Scout server down"
+    assigns_to: outreach-agent
 
 known_issues:
-  - issue: "Agent definitions still reference 'clarity-steward' and 'clarity-framework' paths"
-    status: partial
-    fix: "Company renamed to Rebar. Clarity Steward still named in DB but functional. Agent YAMLs in rebar repo already point to /home/spotcircuit/rebar."
+  - issue: "GTM agent still references 'clarity-framework' — cwd, GitHub refs, service names, branding"
+    status: open
+    fix: "Update system/agents/gtm-agent.yaml and system/outreach/services.yaml to use 'rebar'"
+    files: "system/agents/gtm-agent.yaml, system/outreach/services.yaml"
 
   - issue: "Steward only scans clients/ and apps/ — doesn't check tools/"
     status: open
     fix: "Update heartbeat_routine to include tools/*/expertise.yaml"
+
+  - issue: "rebar_ingest_paperclip MCP tool never built (CON-24 still open)"
+    status: open
+    fix: "Implement in rebar-mcp/index.js — query Paperclip Postgres for execution history, append observations"
+
+  - issue: "Agent AGENTS.md instructions are empty — agents execute but don't know what scripts to run"
+    status: open
+    fix: "Configure AGENTS.md at ~/.paperclip/instances/default/companies/{id}/agents/{agent-id}/instructions/"
+
+  - issue: "Phantom feature problem — agents mark issues done without committing code"
+    status: resolved
+    fix: "Steward caught it in review (CON-31). Created rework issues. Pattern: always verify git diff after agent claims completion."
+
+  - issue: "5 legacy duplicate agents in DB, cannot delete via API"
+    status: wontfix
+    fix: "Harmless — idle duplicates. Delete directly in Postgres if needed."
 
 implementation_patterns:
   source_of_truth: >
@@ -95,26 +148,14 @@ implementation_patterns:
     Paperclip API is a downstream consumer. Edit YAML, then sync.
   budget_enforcement: >
     Each agent has a monthly budget in cents. Paperclip tracks usage
-    and pauses agents that exceed their cap.
+    and pauses agents that exceed their cap. Total: $28/mo across 8 agents.
   issue_routing: >
     Triage agent classifies by keyword matching on title/description.
     Unknown issues stay unassigned with a clarification comment.
+  agent_execution: >
+    Commenting "start" on an issue in Paperclip UI triggers agent execution.
+    Paperclip spawns Claude Code subprocess with AGENTS.md context.
+    paperclip-start-issues.py automates this via headless Playwright.
 
 unvalidated_observations:
-  - "Agent YAML files in clarity-framework use cwd: /home/spotcircuit/clarity-framework — needs update to rebar path. 2026-04-13."
-  - "Rebar steward heartbeat_routine should scan tools/*/expertise.yaml in addition to clients/ and apps/. 2026-04-13."
-  - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week, ingested 12 files' could auto-append to rebar's expertise.yaml. 2026-04-13."
-  - "GTM agent references services.yaml with 'Clarity Framework' branding — needs rename to 'Rebar'. 2026-04-13."
-  - "Total monthly agent budget: $26/mo across 7 agents. 2026-04-13."
-  - "[session-4] Paperclip company renamed from 'Clarity Framework' to 'Rebar' via API. 2026-04-13."
-  - "[session-4] Created 'Rebar Engineer' agent (claude_local adapter) for rebar-mcp development. Built AGENTS.md instructions, linked to project workspace. 2026-04-13."
-  - "[session-4] Created 'Rebar MCP Features' project with workspace at /home/spotcircuit/rebar. 16 issues created (CON-18 through CON-36). 2026-04-13."
-  - "[session-4] Built scripts/paperclip-start-issues.py — headless Playwright that comments 'start' on issues to trigger agent execution. 2026-04-13."
-  - "[session-4] Phantom feature problem: Site Builder Agent marked CON-20,21,23 done without committing code. Steward caught it in review (CON-31). Created rework issues. Rebar Engineer fixed them. 2026-04-13."
-  - "[session-4] rebar_ingest_paperclip MCP tool shipped in v2.6.0 — queries PG DB for completed runs, appends structured observations to expertise.yaml. Closes the full loop. 2026-04-13."
-  - "[session-4] 19 agents total in Paperclip DB, most terminated/idle from earlier experiments. Active: Site Builder, Rebar Engineer, Clarity Steward, Wiki Curator, Triage, Outreach x2. 2026-04-13."
-  - "[raw/next-session.md] POST /api/companies/{id}/issues accepts assigneeAgentId — issues can be created pre-assigned. No need to assign via UI. 2026-04-14."
-  - "[raw/next-session.md] CON-39 executed end-to-end: created with assignee, started via paperclip-start-issues.py, completed in 9s. Confirms Paperclip execution pipeline works. 2026-04-14."
-  - "[raw/next-session.md] rebar_ingest_paperclip observation from session-4 was incorrect — tool was never actually built or committed. CON-24 still open. 2026-04-14."
-  - "[raw/next-session.md] Agent AGENTS.md instructions need real content — agents execute but don't know what scripts to run. Next priority. 2026-04-14."
-  - "[raw/next-session.md] Discord Scout Agent added (08fef7c6), runs every 2 hours. Total: 8 rebar agents + 5 legacy duplicates. 2026-04-14."
+  - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week' could auto-append to expertise.yaml. Design idea, not yet implemented. 2026-04-13."
