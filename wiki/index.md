@@ -61,6 +61,7 @@
 | [[paperclip-integration]] | how-it-works | Paperclip AI agent orchestration managing Claude Code child processes |
 | [[persistent-browser-context]] | patterns | Google Maps requires session cookies; use persistent browser context |
 | [[pre-release-checklist]] | patterns | Minimum checklist before releasing any integration or service to production |
+| [[prepitch]] | examples | AI roleplay for sales, VC, PE, and interview practice with Claude personas + voice |
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
 | [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
