@@ -19,6 +19,7 @@
 | [[config-driven-routing]] | patterns | Routing logic as data with processing rules in configuration rather than code branches |
 | [[correlation-id]] | patterns | Unique identifier passed through every step for traceable execution across services |
 | [[demo-corp]] | examples | Synthesized knowledge from sprint planning, Slack, and Jira for deployment automation |
+| [[power-platform-dashboard]] | clients | Internal ops dashboard on Microsoft Power Platform, replacing Excel tools |
 | [[demo-corp-sprint-14]] | clients | Sprint 14 overview: DORA metrics, notifications, audit trail, transcript ingestion |
 | [[demo-corp-team]] | people | Sarah Chen (CTO), Marcus Rivera (TL), Priya Patel, James Kim, Brian |
 | [[dora-denormalization]] | decisions | Denormalize Jira ticket numbers into deployments table at write time for fast DORA queries |
@@ -26,6 +27,7 @@
 | [[drcoins]] | examples | E-commerce platform for LiveMe Coins and Nobility Points with Next.js 15.5 |
 | [[ecs-health-check-grace-period]] | patterns | Health endpoints fail during ECS cold start when Redis isn't reachable yet |
 | [[error-handling]] | patterns | Structured approach to catching, logging, and recovering from errors in multi-step flows |
+| [[excel-to-platform-migration]] | patterns | Methodology for replacing Excel-based tools with centralized platform |
 | [[getrankedlocal]] | examples | Google Maps ranking analysis with 169-point grid searches for local SEO leads |
 | [[grid-search-system]] | platform | 169-point geographic market intelligence system for Google Maps ranking analysis |
 | [[getting-started]] | how-it-works | 15-minute walkthrough from clone to working framework with prerequisites |
