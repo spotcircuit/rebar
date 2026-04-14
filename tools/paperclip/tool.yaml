@@ -1,0 +1,35 @@
+# tools/paperclip/tool.yaml
+# Agent orchestration runtime with visual UI and persistent database
+
+tool:
+  name: paperclip
+  display_name: Paperclip
+  type: orchestration
+
+purpose: >
+  Local agent management system that runs rebar's autonomous agents.
+  Visual UI for monitoring. Persistent database for execution history,
+  issue tracking, and audit trails. Claude Code can orchestrate agents
+  through the API and query the database for historical context.
+
+config:
+  location: system/paperclip.yaml
+  agent_definitions: system/agents/*.yaml
+  cached_ids: system/.paperclip-ids.json
+  docs: https://docs.paperclip.dev
+
+runtime:
+  how_to_start: "npx paperclipai run"
+  port: 3100
+  api_base: http://127.0.0.1:3100
+  database: "Paperclip internal DB — queryable via API"
+
+sync:
+  command: "bash tools/paperclip-sync.sh agents"
+  status: "bash tools/paperclip-sync.sh status"
+  heartbeat: "bash tools/paperclip-sync.sh heartbeat {agent-name}"
+  issue: "bash tools/paperclip-sync.sh issue \"{title}\" {agent-name}"
+
+dependencies:
+  - "Node.js (npx)"
+  - "paperclipai npm package"

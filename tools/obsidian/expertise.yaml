@@ -1,0 +1,23 @@
+# Obsidian — expertise.yaml
+
+meta:
+  tool: obsidian
+  display_name: Obsidian
+  last_updated: "2026-04-13"
+
+integration:
+  description: >
+    wiki/ directory is the Obsidian vault. All wiki pages use Obsidian-compatible
+    format: [[wiki links]], #tags, markdown. Graph view reveals knowledge connections.
+  data_flow: >
+    Rebar /wiki-* commands → write wiki/*.md → Obsidian reads them live.
+    User edits in Obsidian → rebar commands see changes on next read.
+
+implementation_patterns:
+  page_format: >
+    Title, #tags on line 2, content, ## Related with [[links]], source attribution.
+    One concept per page. This format works in both Obsidian and plain markdown.
+
+known_issues: []
+
+unvalidated_observations: []

@@ -1,0 +1,25 @@
+# tools/quartz/tool.yaml
+# Render wiki as a searchable website via GitHub Pages
+
+tool:
+  name: quartz
+  display_name: Quartz
+  type: publishing
+
+purpose: >
+  Renders the wiki/ vault as a static searchable website via GitHub Pages.
+  Full-text search, graph view, backlinks, and tag filtering.
+  Publishes the wiki for team access without requiring Obsidian.
+
+config:
+  docs: https://quartz.jzhao.xyz
+
+runtime:
+  how_to_start: "npx quartz build --serve"
+  port: 8080
+  api_base: ~
+  database: ~
+
+dependencies:
+  - "Node.js"
+  - "GitHub Pages (for deployment)"

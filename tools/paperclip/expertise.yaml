@@ -1,0 +1,115 @@
+# Paperclip — expertise.yaml
+# Operational knowledge for agent orchestration
+# Run /improve paperclip to validate observations
+
+meta:
+  tool: paperclip
+  display_name: Paperclip
+  last_updated: "2026-04-13"
+
+agents:
+  rebar-steward:
+    role: maintenance
+    schedule: "every 4 hours"
+    budget: "$5/mo"
+    does: "Validates expertise.yaml health, runs /improve when >10 observations pending, compresses bloated files"
+    reads: "clients/*/expertise.yaml, apps/*/expertise.yaml, tools/*/expertise.yaml"
+    writes: "same"
+
+  wiki-curator:
+    role: maintenance
+    schedule: "every 30 minutes"
+    budget: "$3/mo"
+    does: "Checks raw/ for files, runs /wiki-ingest or /wiki-lint, auto-fixes up to 5 issues per run"
+    reads: "raw/*, wiki/**/*.md"
+    writes: "wiki/**/*.md"
+
+  site-builder-agent:
+    role: engineer
+    schedule: "every 6 hours"
+    budget: "$8/mo"
+    does: "Picks up build requests, executes pipeline, records results in expertise.yaml"
+
+  social-media-agent:
+    role: cmo
+    schedule: "weekdays 9am"
+    budget: "$2/mo"
+    does: "Topic rotation, draft generation, humanization, image cards, post to LinkedIn + Facebook"
+
+  outreach-agent:
+    role: engineer
+    schedule: "every 30 minutes"
+    budget: "$3/mo"
+    does: "Monitors posts for comments, classifies, generates replies, humanizes, posts. Alternates LinkedIn/Reddit per heartbeat."
+
+  gtm-agent:
+    role: cmo
+    schedule: "weekdays 8am"
+    budget: "$4/mo"
+    does: "Metrics pull, prospect identification, content calendar, coordinates other agents, weekly GTM report Fridays"
+
+  triage-agent:
+    role: pm
+    schedule: "every 5 minutes"
+    budget: "$1/mo"
+    does: "Reads unassigned issues, classifies by keyword, routes to correct agent"
+
+integration:
+  description: >
+    Rebar defines agents declaratively in YAML. Paperclip-sync pushes definitions
+    to the API. Paperclip manages heartbeats, budget enforcement, and issue routing.
+    Claude Code can trigger heartbeats, create issues, and query execution history
+    through the API.
+  data_flow: >
+    Rebar → Paperclip: agent definitions, issue creation, manual heartbeat triggers.
+    Paperclip → Rebar: execution history, issue status, agent activity logs, budget usage.
+  api_patterns:
+    sync_agents: "bash tools/paperclip-sync.sh agents"
+    check_status: "bash tools/paperclip-sync.sh status"
+    trigger_heartbeat: "bash tools/paperclip-sync.sh heartbeat {agent-name}"
+    create_issue: "bash tools/paperclip-sync.sh issue \"{title}\" {agent-name}"
+
+event_hooks:
+  raw_file_added:
+    creates: "Ingest: {filename}"
+    assigns_to: wiki-curator
+  self_improve_due:
+    creates: "Self-improve: {target}"
+    assigns_to: rebar-steward
+  build_requested:
+    creates: "Build: {app_name}"
+    assigns_to: site-builder-agent
+
+known_issues:
+  - issue: "Agent definitions still reference 'clarity-steward' and 'clarity-framework' paths"
+    status: partial
+    fix: "Company renamed to Rebar. Clarity Steward still named in DB but functional. Agent YAMLs in rebar repo already point to /home/spotcircuit/rebar."
+
+  - issue: "Steward only scans clients/ and apps/ — doesn't check tools/"
+    status: open
+    fix: "Update heartbeat_routine to include tools/*/expertise.yaml"
+
+implementation_patterns:
+  source_of_truth: >
+    system/paperclip.yaml and system/agents/*.yaml are the source of truth.
+    Paperclip API is a downstream consumer. Edit YAML, then sync.
+  budget_enforcement: >
+    Each agent has a monthly budget in cents. Paperclip tracks usage
+    and pauses agents that exceed their cap.
+  issue_routing: >
+    Triage agent classifies by keyword matching on title/description.
+    Unknown issues stay unassigned with a clarification comment.
+
+unvalidated_observations:
+  - "Agent YAML files in clarity-framework use cwd: /home/spotcircuit/clarity-framework — needs update to rebar path. 2026-04-13."
+  - "Rebar steward heartbeat_routine should scan tools/*/expertise.yaml in addition to clients/ and apps/. 2026-04-13."
+  - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week, ingested 12 files' could auto-append to rebar's expertise.yaml. 2026-04-13."
+  - "GTM agent references services.yaml with 'Clarity Framework' branding — needs rename to 'Rebar'. 2026-04-13."
+  - "Total monthly agent budget: $26/mo across 7 agents. 2026-04-13."
+  - "[session-4] Paperclip company renamed from 'Clarity Framework' to 'Rebar' via API. 2026-04-13."
+  - "[session-4] Created 'Rebar Engineer' agent (claude_local adapter) for rebar-mcp development. Built AGENTS.md instructions, linked to project workspace. 2026-04-13."
+  - "[session-4] Created 'Rebar MCP Features' project with workspace at /home/spotcircuit/rebar. 16 issues created (CON-18 through CON-36). 2026-04-13."
+  - "[session-4] Built scripts/paperclip-start-issues.py — headless Playwright that comments 'start' on issues to trigger agent execution. 2026-04-13."
+  - "[session-4] Phantom feature problem: Site Builder Agent marked CON-20,21,23 done without committing code. Steward caught it in review (CON-31). Created rework issues. Rebar Engineer fixed them. 2026-04-13."
+  - "[session-4] rebar_ingest_paperclip MCP tool shipped in v2.6.0 — queries PG DB for completed runs, appends structured observations to expertise.yaml. Closes the full loop. 2026-04-13."
+  - "[session-4] 19 agents total in Paperclip DB, most terminated/idle from earlier experiments. Active: Site Builder, Rebar Engineer, Clarity Steward, Wiki Curator, Triage, Outreach x2. 2026-04-13."

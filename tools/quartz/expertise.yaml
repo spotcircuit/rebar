@@ -1,0 +1,17 @@
+# Quartz — expertise.yaml
+
+meta:
+  tool: quartz
+  display_name: Quartz
+  last_updated: "2026-04-13"
+
+integration:
+  description: >
+    Quartz reads wiki/ and builds a static site. GitHub Actions can auto-publish
+    on push. Gives team members read access to the wiki without Obsidian.
+  data_flow: >
+    wiki/*.md → Quartz build → static HTML → GitHub Pages.
+
+known_issues: []
+
+unvalidated_observations: []

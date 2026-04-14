@@ -1,0 +1,56 @@
+# Credentials -- never commit
+clients/*/client.yaml
+!clients/_templates/client.yaml
+clients/*/.env
+apps/*/app.yaml
+!apps/_templates/app.yaml
+system/.env
+system/.paperclip-ids.json
+system/.venv/
+
+# Per-client/app working docs
+clients/*/comments.md
+clients/*/research/
+apps/*/research/
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Apps -- same pattern as clients
+apps/*/app.yaml
+!apps/_templates/app.yaml
+
+# Private apps -- not part of public release
+apps/social-scout/
+
+# Tools -- tool.yaml is NOT gitignored (no secrets, just config)
+# But tool-specific research dirs are
+tools/*/research/
+
+# Paperclip runtime state
+system/.paperclip-ids.json
+
+# GTM sensitive data
+system/gtm/prospects.yaml
+system/gtm/metrics-log.jsonl
+
+# Drafts and research (working docs, not source of truth)
+system/drafts/
+docs/research/
+
+# Scout CSV reports
+raw/*.csv

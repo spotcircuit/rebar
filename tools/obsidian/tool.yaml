@@ -1,0 +1,26 @@
+# tools/obsidian/tool.yaml
+# Wiki as an Obsidian vault with bidirectional sync
+
+tool:
+  name: obsidian
+  display_name: Obsidian
+  type: publishing
+
+purpose: >
+  The wiki/ directory is an Obsidian-compatible vault. Obsidian provides
+  visual navigation, graph view, backlink discovery, and local editing.
+  [[wiki links]] and #tags work natively. Changes sync bidirectionally
+  — edit in Obsidian or via /wiki-* commands and both stay current.
+
+config:
+  vault_path: wiki/
+  docs: https://obsidian.md
+
+runtime:
+  how_to_start: "Open wiki/ as vault in Obsidian"
+  port: ~
+  api_base: ~
+  database: "Local vault metadata (.obsidian/)"
+
+dependencies:
+  - "Obsidian desktop app"
