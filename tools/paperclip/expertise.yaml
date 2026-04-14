@@ -159,3 +159,5 @@ implementation_patterns:
 
 unvalidated_observations:
   - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week' could auto-append to expertise.yaml. Design idea, not yet implemented. 2026-04-13."
+  - "[CON-40] Chrome tabs.sendMessage requires waiting for tab 'complete' status + ~3s delay for content script init. Without delay, message arrives before content script is ready. 2026-04-14."
+  - "[CON-40] Reddit has no visible editor until user clicks Reply. PASTE_COMMENT handler auto-clicks Reply button and waits 1.5s for editor to appear before pasting. 2026-04-14."
