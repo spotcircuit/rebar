@@ -62,6 +62,10 @@
 | [[persistent-browser-context]] | patterns | Google Maps requires session cookies; use persistent browser context |
 | [[pre-release-checklist]] | patterns | Minimum checklist before releasing any integration or service to production |
 | [[prepitch]] | examples | AI roleplay for sales, VC, PE, and interview practice with Claude personas + voice; 44-criteria rubrics per vertical |
+| [[prepitch-competitors]] | examples | 13 AI roleplay competitors profiled: Second Nature, Hyperbound, Quantified, Yoodli, Gong, Outdoo, and more |
+| [[prepitch-feature-gaps]] | examples | Feature matrix vs top 5 competitors — what PrePitch uniquely has and what gaps remain |
+| [[prepitch-saas-strategy]] | examples | Pricing tiers, target segments, feature roadmap, and strategic positioning for PrePitch SaaS |
+| [[prepitch-voice-avatar-roadmap]] | decisions | Migration plan from broken D-ID (45s delay) to ElevenLabs Flash v2.5 + Tavus; phased avatar strategy |
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
 | [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
