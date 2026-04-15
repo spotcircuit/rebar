@@ -64,6 +64,16 @@ agents:
     heartbeat_schedule: "*/30 * * * *"  # every 30 minutes
     budget_cents: 300
 
+  prepitch-agent:
+    name: PrePitch Agent
+    description: >
+      Manages prepitch app lifecycle. Monitors session quality, runs tests,
+      checks debrief scoring, updates expertise.yaml with findings.
+    role: engineer
+    definition_file: agents/prepitch-agent.yaml
+    heartbeat_schedule: "0 */6 * * *"   # every 6 hours
+    budget_cents: 300
+
   discord-scout-agent:
     name: Discord Scout Agent
     description: >

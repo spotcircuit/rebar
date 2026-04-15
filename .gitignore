@@ -43,6 +43,11 @@ apps/*/app.yaml
 
 # Private apps -- not part of public release
 apps/social-scout/
+apps/prepitch/backend/
+apps/prepitch/frontend/
+apps/prepitch/e2e/
+apps/prepitch/docker-compose.yml
+apps/prepitch/MA_ACQUISITION_KNOWLEDGE_BASE.md
 
 # Tools -- tool.yaml is NOT gitignored (no secrets, just config)
 # But tool-specific research dirs are
