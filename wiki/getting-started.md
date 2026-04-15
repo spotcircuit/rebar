@@ -215,3 +215,12 @@ This creates a permanent wiki page so the knowledge never has to be rediscovered
 - Run `/wiki-lint` periodically to keep the wiki healthy
 - See [Commands](how-it-works/commands.md) for all 23 slash commands
 - See [Paperclip](tools/paperclip.md) for autonomous agent orchestration
+
+Source: CLAUDE.md, wiki/README.md | Filed: 2026-04-15
+
+## Related
+
+- [[commands]] -- all 23 slash commands with descriptions and examples
+- [[three-systems]] -- why the framework uses YAML + memory + wiki
+- [[self-learn-loop]] -- how expertise.yaml compounds over time
+- [[paperclip-integration]] -- autonomous agent orchestration layer
