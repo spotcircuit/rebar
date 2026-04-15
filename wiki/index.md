@@ -61,7 +61,7 @@
 | [[paperclip-integration]] | how-it-works | Paperclip AI agent orchestration managing Claude Code child processes |
 | [[persistent-browser-context]] | patterns | Google Maps requires session cookies; use persistent browser context |
 | [[pre-release-checklist]] | patterns | Minimum checklist before releasing any integration or service to production |
-| [[prepitch]] | examples | AI roleplay for sales, VC, PE, and interview practice with Claude personas + voice |
+| [[prepitch]] | examples | AI roleplay for sales, VC, PE, and interview practice with Claude personas + voice; 44-criteria rubrics per vertical |
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
 | [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
@@ -74,6 +74,7 @@
 | [[scout-build-verify]] | patterns | Three-agent workflow: scout analyzes, builder implements, verifier validates |
 | [[self-learn-loop]] | how-it-works | Core feedback mechanism where raw observations accumulate through normal work |
 | [[session-2026-04-14]] | decisions | Discord scout build, LinkedIn reply fix, Paperclip agent sync, scout server resilience |
+| [[session-2026-04-15]] | decisions | PrePitch rubrics (44 criteria), debrief disconnect fix, wiki-private, app onboarding, next-session plan |
 | [[seosnap]] | examples | AI-powered SEO audit with Playwright analysis and Google Lighthouse Core Web Vitals |
 | [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
 | [[service-marketplace]] | examples | Niche-agnostic service marketplace with JSON-based vertical config and Stripe |

@@ -158,6 +158,9 @@ implementation_patterns:
     paperclip-start-issues.py automates this via headless Playwright.
 
 unvalidated_observations:
+  - "[raw/next-session.md] PrePitch Agent added (id: 4c67e610, every 6 hours). Total active agents now 8 confirmed. 2026-04-15."
+  - "[raw/next-session.md] Claude Code routines registered: wiki-ingest every 4h, wiki-lint daily at 8am. 2026-04-15."
+  - "[raw/next-session.md] Duplicate agents from clarity migration terminated — 8 clean active agents remain. 2026-04-15."
   - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week' could auto-append to expertise.yaml. Design idea, not yet implemented. 2026-04-13."
   - "[CON-40] Chrome tabs.sendMessage requires waiting for tab 'complete' status + ~3s delay for content script init. Without delay, message arrives before content script is ready. 2026-04-14."
   - "[CON-40] Reddit has no visible editor until user clicks Reply. PASTE_COMMENT handler auto-clicks Reply button and waits 1.5s for editor to appear before pasting. 2026-04-14."
