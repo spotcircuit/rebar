@@ -12,10 +12,17 @@ system/.venv/
 clients/*/comments.md
 clients/*/research/
 apps/*/research/
+apps/**/backend/.env
+apps/**/.env
 
 # Node
 node_modules/
 package-lock.json
+bun.lock
+
+# App build artifacts
+dist/
+.prisma/
 
 # Python
 __pycache__/
