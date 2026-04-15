@@ -49,6 +49,9 @@ apps/prepitch/e2e/
 apps/prepitch/docker-compose.yml
 apps/prepitch/MA_ACQUISITION_KNOWLEDGE_BASE.md
 
+# Private wiki — never committed
+wiki-private/
+
 # Tools -- tool.yaml is NOT gitignored (no secrets, just config)
 # But tool-specific research dirs are
 tools/*/research/

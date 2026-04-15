@@ -122,7 +122,8 @@ Each serves a different purpose. Do not merge them.
 |---|---|---|---|
 | `expertise.yaml` | Operational data (project state, API gotchas, results) | Structured YAML | `/*` commands |
 | `.claude/memory/` | Behavioral rules (user preferences, guardrails, process rules) | Markdown + frontmatter | Claude automatically |
-| `wiki/` | Synthesized knowledge (patterns, decisions, people, concepts) | Obsidian markdown + `[[links]]` | `/wiki-*` commands |
+| `wiki/` | Public knowledge (examples, patterns, framework docs) | Obsidian markdown + `[[links]]` | `/wiki-*` commands |
+| `wiki-private/` | Private knowledge (app details, client data, architecture) | Obsidian markdown + `[[links]]` | `/wiki-*` commands (gitignored) |
 
 ### Wiki Page Format
 
