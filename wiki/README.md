@@ -23,7 +23,7 @@ Integrations and supporting infrastructure.
 
 Visual architecture and workflow references.
 
-- [Architecture](diagrams/architecture.md) -- System overview, self-learn loop, three knowledge systems, agent orchestration
+- [Architecture](diagrams/architecture.md) -- System overview, self-learn loop, four knowledge systems + close-loop harness, agent orchestration
 - [Command Flow](diagrams/command-flow.md) -- Client onboarding, development cycle, knowledge capture workflows
 
 ## Examples
@@ -37,9 +37,10 @@ Real output from real projects managed by the framework.
 
 The mechanics behind the framework.
 
-- [The Self-Learn Loop](how-it-works/self-learn-loop.md) -- How observations get validated, promoted, or discarded. The core feedback mechanism.
-- [Three Knowledge Systems](how-it-works/three-systems.md) -- Why the framework uses YAML + memory + wiki instead of one system. What each stores and why they stay separate.
-- [Commands](how-it-works/commands.md) -- All 23 slash commands with descriptions and example output.
+- [The Self-Learn Loop](how-it-works/self-learn-loop.md) -- How observations get validated, promoted, or discarded. The per-observation feedback mechanism.
+- [Close-Loop Harness](diagrams/architecture.md#close-loop-harness-per-feature) -- The per-feature cycle: evaluator → release gate → /improve → /meta-improve queue → /meta-apply → /wiki-ingest.
+- [Four Knowledge Systems](how-it-works/three-systems.md) -- Why the framework uses YAML + memory + skills + wiki instead of one system. What each stores and why they stay separate.
+- [Commands](how-it-works/commands.md) -- All 26 slash commands with descriptions and example output, including the self-learning harness (/close-loop, /meta-improve, /meta-apply).
 
 ## Patterns
 

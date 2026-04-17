@@ -9,17 +9,15 @@
 | [[ai-content-pipeline]] | examples | Hybrid AI approach using Claude Sonnet for copy and Gemini 2.5 Flash for images |
 | [[airecruiter]] | examples | AI recruiting platform with ATS pipeline, resume parsing, automated outreach |
 | [[architecture]] | diagrams | Visual overview of how Rebar components connect and interact |
-| [[atlasly]] | examples | Schema-driven vertical-agnostic business directory with Mapbox GL and Typesense |
 | [[bidgeniusai]] | examples | AI-powered RFP bidding tool that analyzes requests and generates competitive bids |
 | [[claude-desktop]] | tools | Claude Desktop accesses Rebar knowledge base through MCP filesystem server |
 | [[claude-json-extraction]] | patterns | 3-tier fallback for extracting JSON from Claude responses that wrap in markdown fences |
 | [[cloudflare-pages-deploy]] | patterns | Deploy static sites to Cloudflare Pages via wrangler CLI with project limit management |
 | [[command-flow]] | diagrams | Visual flows showing how Rebar commands chain together during client onboarding |
-| [[commands]] | how-it-works | Rebar's 23 slash commands organized into client/app management, dev workflow, wiki |
+| [[commands]] | how-it-works | Rebar's 26 slash commands across client/app management, dev workflow, wiki, and the self-learning harness (/close-loop, /meta-improve, /meta-apply) |
 | [[config-driven-routing]] | patterns | Routing logic as data with processing rules in configuration rather than code branches |
 | [[correlation-id]] | patterns | Unique identifier passed through every step for traceable execution across services |
 | [[demo-corp]] | examples | Synthesized knowledge from sprint planning, Slack, and Jira for deployment automation |
-| [[power-platform-dashboard]] | clients | Internal ops dashboard on Microsoft Power Platform, replacing Excel tools |
 | [[demo-corp-sprint-14]] | clients | Sprint 14 overview: DORA metrics, notifications, audit trail, transcript ingestion |
 | [[demo-corp-team]] | people | Sarah Chen (CTO), Marcus Rivera (TL), Priya Patel, James Kim, Brian |
 | [[dora-denormalization]] | decisions | Denormalize Jira ticket numbers into deployments table at write time for fast DORA queries |
@@ -28,7 +26,6 @@
 | [[ecs-health-check-grace-period]] | patterns | Health endpoints fail during ECS cold start when Redis isn't reachable yet |
 | [[error-handling]] | patterns | Structured approach to catching, logging, and recovering from errors in multi-step flows |
 | [[excel-to-platform-migration]] | patterns | Methodology for replacing Excel-based tools with centralized platform |
-| [[getrankedlocal]] | examples | Google Maps ranking analysis with 169-point grid searches for local SEO leads |
 | [[grid-search-system]] | platform | 169-point geographic market intelligence system for Google Maps ranking analysis |
 | [[getting-started]] | how-it-works | 15-minute walkthrough from clone to working framework with prerequisites |
 | [[github-integration]] | tools | Rebar works with GitHub through MCP GitHub server for repo structure and CI results |
@@ -42,8 +39,6 @@
 | [[jira-integration]] | tools | Connect Rebar to Jira for automatic ticket context using MCP Jira server |
 | [[karpathy-wiki-comparison]] | decisions | Comparison of Karpathy's LLM Wiki pattern against three-system knowledge architecture |
 | [[lead-finder]] | examples | Multi-source real estate lead prospecting with Playwright scraping and Claude Haiku |
-| [[leadfinder]] | examples | Production lead generation with Google Maps scraping, AI enrichment, FastAPI REST API |
-| [[leadfinder-overview]] | examples | Lead generation system with Google Maps scraping, AI intelligence, PostgreSQL storage |
 | [[linkedin-2026-04-09]] | engagement | 43 comments across 22 threads from LinkedIn discussions on April 9, 2026 |
 | [[linkedin-2026-04-10]] | engagement | 3 comments across 3 threads from LinkedIn discussions on April 10, 2026 |
 | [[linkedin-post-2026-04-08]] | engagement | LinkedIn post about engineers burning time figuring out client stacks |
@@ -73,7 +68,7 @@
 | [[scout-build-verify]] | patterns | Three-agent workflow: scout analyzes, builder implements, verifier validates |
 | [[self-learn-loop]] | how-it-works | Core feedback mechanism where raw observations accumulate through normal work |
 | [[session-2026-04-14]] | decisions | Discord scout build, LinkedIn reply fix, Paperclip agent sync, scout server resilience |
-| [[seosnap]] | examples | AI-powered SEO audit with Playwright analysis and Google Lighthouse Core Web Vitals |
+| [[session-2026-04-15]] | decisions | PrePitch rubrics (44 criteria), debrief disconnect fix, wiki-private, app onboarding, next-session plan |
 | [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
 | [[service-marketplace]] | examples | Niche-agnostic service marketplace with JSON-based vertical config and Stripe |
 | [[site-builder]] | examples | Google Maps listing to deployed React website in 60 seconds with AI content |

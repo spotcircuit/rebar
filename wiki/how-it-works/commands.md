@@ -1,8 +1,18 @@
 # Commands
 
-Rebar has 23 slash commands organized into four groups: client/app management, development workflow, wiki management, and utilities.
+Rebar has 26 slash commands organized into five groups: client/app management, development workflow, wiki management, **self-learning harness**, and utilities.
 
 All commands auto-resolve names from `clients/`, `apps/`, and `tools/` directories.
+
+## Self-Learning Harness (new)
+
+Three commands run after every shipped feature to keep the system compounding:
+
+- **`/close-loop [feature]`** — orchestrates the full cycle: evaluator validates → release gate scans for blocker language (`"must generate migration"`, `"cannot ship"`, `"before any live DB"`) → `/improve --from eval-file` promotes cycle-scoped observations → `/meta-improve` detects 2+ occurrence patterns and queues template patches → `/wiki-ingest` captures durable knowledge.
+- **`/meta-improve`** — reads `system/evaluator-log.md`, detects recurring failure patterns, writes Edit-tool-compatible patches to `system/meta-improve-queue/<date>-<slug>.patch.md`. Never directly edits `.claude/commands/*` — sensitive-file boundary.
+- **`/meta-apply`** — human-in-loop reviewer. Walks the queue, shows each diff, asks y/n, applies via Edit, archives to `applied/`. Runs in the main session where sensitive writes are approvable.
+
+The release gate is the load-bearing part — it stops "PASS with follow-ups" from being treated the same as "shipped." See [architecture.md → Close-Loop Harness](../diagrams/architecture.md#close-loop-harness-per-feature).
 
 ## Client / App Management
 

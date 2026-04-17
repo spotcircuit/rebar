@@ -1,6 +1,6 @@
 # Rebar
 
-Structural memory for Claude Code. 23 slash commands that capture, validate, and compound project knowledge across sessions. Gives any engineer full project context on day one and grows smarter throughout the engagement through a self-learn loop.
+Structural memory for Claude Code. 26 slash commands + 6 tactical skills + a close-loop harness that captures, validates, and compounds project knowledge across sessions. Gives any engineer full project context on day one and grows smarter throughout the engagement through two self-learn loops: per-observation (`/improve`) and per-feature (`/close-loop` → evaluator → release gate → `/meta-improve` → `/meta-apply`).
 
 Based on Andrej Karpathy's LLM Wiki pattern, extended with structured operational data and behavioral memory.
 
@@ -62,6 +62,62 @@ clients/{name}/                    apps/{name}/                       tools/{nam
 - `tools/` = infrastructure rebar depends on (Paperclip, Obsidian, Quartz)
 
 Templates: `clients/_templates/`, `apps/_templates/`, `tools/_templates/`
+
+---
+
+## Windows/WSL Canonical Path
+
+This repo is edited in Windows IDEs at `C:\Users\Big Daddy Pyatt\rebar`, which maps to `/mnt/c/Users/Big Daddy Pyatt/rebar` in WSL. That path is **canonical** — every edit, every `pwd -P`, every artifact must land there.
+
+**Never clone rebar itself into `/home/spotcircuit/`.** Prior sessions had three parallel copies drifting (`/mnt/c/.../rebar`, `/home/spotcircuit/rebar`, `/home/spotcircuit/forge`). Those duplicates are now at `/home/spotcircuit/_archive/` — don't touch them, don't sync from them.
+
+**Never symlink between `/mnt/c/` and `/home/spotcircuit/`.** Windows↔WSL symlinks have broken semantics (permissions, line endings, case sensitivity). Use absolute paths in config files.
+
+### External dependency paths
+
+External repos (clones of other people's projects) live under `/home/spotcircuit/` for WSL-native performance. Each has a pointer in `tools/*/tool.yaml` or in the script that uses it:
+
+| Path | Purpose | Pointer |
+|---|---|---|
+| `/home/spotcircuit/claude-skills` | alirezarezvani/claude-skills — 235 skills, 44 marketing | `tools/claude-skills/tool.yaml` |
+| `/home/spotcircuit/spotcircuit-site` | publish target for blog cross-post | `SPOTCIRCUIT_SITE_REPO` env |
+| `/home/spotcircuit/getrebar-site` | getrebar.dev landing + blog | `tools/getrebar-site/tool.yaml` (if created) |
+| `/home/spotcircuit/rebar-wiki-site` | Quartz wiki export target | `scripts/wiki-sync.sh` |
+| `/home/spotcircuit/_archive/` | archived duplicates — do not sync from | n/a (kept indefinitely, disk-only) |
+
+### Enforcement
+
+Long-running scripts source `scripts/guard-cwd.sh` as their first action. The guard asserts `pwd -P == /mnt/c/Users/Big Daddy Pyatt/rebar` and fails fast if not. Paperclip agents get the same directive baked into each `AGENTS.md` (see `~/.paperclip/instances/default/companies/*/agents/*/instructions/AGENTS.md`).
+
+Any new script that reads/writes project state should start with:
+
+```bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$REPO_ROOT"
+. "$SCRIPT_DIR/guard-cwd.sh"
+```
+
+---
+
+## Skills (`.claude/skills/`)
+
+Six tactical skills from `alirezarezvani/claude-skills` (11.3K ⭐ MIT). Claude Code auto-discovers them; agents invoke by keyword.
+
+| Skill | Fixes | Agents |
+|---|---|---|
+| `content-strategy` | one-off blog posts, no topic arc | blog-writer, gtm-agent |
+| `content-production` | generic drafting; 5-mode playbook | blog-writer, social-media-agent |
+| `content-humanizer` | rewrite AI-shaped drafts (scripts scored; skill rewrites) | blog-writer, outreach-agent, social-media-agent |
+| `ai-seo` | no GEO step in cross-post | blog-writer, gtm-agent |
+| `copywriting` | weak hooks / headlines / CTAs | blog-writer, social-media-agent, outreach-agent |
+| `launch-strategy` | gtm-agent generic weekly output | gtm-agent, blog-writer |
+
+**Upgrade path:** `bash scripts/update-skills.sh` pulls upstream + re-copies the six. `_rebar-integration.md` sidecars are preserved. Review diff before committing.
+
+**Upstream location:** `/home/spotcircuit/claude-skills/` (persistent WSL clone).
+
+**Explicitly NOT integrated** — see `tools/claude-skills/tool.yaml` `deliberately_not_integrated` for the full list and rationale. Short version: claude-skills' commands/ and agents/ collide with rebar's orchestration; engineering skills duplicate /plan, /build, /takeover; other marketing skills lack a current weak-output signal.
 
 ---
 

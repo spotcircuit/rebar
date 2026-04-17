@@ -213,14 +213,15 @@ This creates a permanent wiki page so the knowledge never has to be rediscovered
 - Run `/check my-client` to verify compliance against the Phase 0 doc
 - Run `/review my-client` after changes for code review
 - Run `/wiki-lint` periodically to keep the wiki healthy
-- See [Commands](how-it-works/commands.md) for all 23 slash commands
+- Run `/close-loop <feature>` after any shipped feature — runs the full self-learning harness
+- See [Commands](how-it-works/commands.md) for all 26 slash commands
 - See [Paperclip](tools/paperclip.md) for autonomous agent orchestration
 
-Source: CLAUDE.md, wiki/README.md | Filed: 2026-04-15
+Source: CLAUDE.md, wiki/README.md | Filed: 2026-04-15 | Updated: 2026-04-17
 
 ## Related
 
-- [[commands]] -- all 23 slash commands with descriptions and examples
-- [[three-systems]] -- why the framework uses YAML + memory + wiki
-- [[self-learn-loop]] -- how expertise.yaml compounds over time
+- [[commands]] -- all 26 slash commands including the close-loop harness
+- [[three-systems]] -- why the framework uses YAML + memory + skills + wiki
+- [[self-learn-loop]] -- per-observation validation; see architecture.md for the per-feature harness
 - [[paperclip-integration]] -- autonomous agent orchestration layer

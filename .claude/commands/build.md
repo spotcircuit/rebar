@@ -8,6 +8,8 @@ argument-hint: <path-to-plan>
 
 Implement the plan at PATH_TO_PLAN completely — top to bottom, no skipping steps. Validate the work at the end. Then append passive observations to relevant expertise files.
 
+**PRE-FLIGHT (mandatory):** Run `pwd -P` first. It must equal `/mnt/c/Users/Big Daddy Pyatt/rebar`. If not, `cd` there before touching any file. All edits must land in the canonical repo — never in `/home/spotcircuit/rebar`, `/home/spotcircuit/forge`, or `/home/spotcircuit/_archive/*`.
+
 ## Variables
 
 PATH_TO_PLAN: $ARGUMENTS
@@ -16,6 +18,10 @@ MAX_FIX_ATTEMPTS: 3
 ## Instructions
 
 - IMPORTANT: If PATH_TO_PLAN is not provided, STOP and ask for it.
+- **Branch hygiene:** Before touching any file, run `git status`. If the working
+  tree has unrelated modifications from prior features, STOP and surface them —
+  do not commingle this build with unfinished prior work (recurring eval finding
+  from CON-98, CON-101).
 - Read the plan fully before starting — understand the full scope before touching any file
 - Implement every step in order. Do not stop between steps.
 - Do not stop until validation commands have been run
@@ -42,6 +48,14 @@ Execute every step in the plan, top to bottom:
 Run the validation commands specified in the plan.
 If validation fails: identify root cause, fix, re-validate.
 Maximum fix attempts: MAX_FIX_ATTEMPTS (3). If validation still fails after 3 attempts: stop, report the failure with full error output and what was tried. Do not loop indefinitely.
+
+**Schema change gate (prisma):** If the build touched any `prisma/schema.prisma`,
+you MUST also run `npx prisma migrate dev --name <slug>` (or equivalent in the
+app's package scripts) and commit the resulting `prisma/migrations/<ts>_<slug>/`
+directory as part of this build. A schema edit without a committed migration
+file is an incomplete build — the evaluator has flagged this on CON-101 and
+CON-106 and will flag it again. Validation is not complete until the migration
+file exists alongside the schema change.
 
 ### Step 4: Passive Expertise Update (Self-Learn Layer)
 After successful implementation, identify which expertise.yamls were touched by this build.

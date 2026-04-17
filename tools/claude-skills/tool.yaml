@@ -1,0 +1,75 @@
+tool:
+  name: claude-skills
+  display_name: Claude Skills Library
+  type: integration
+  repo: https://github.com/alirezarezvani/claude-skills
+  author: Alireza Rezvani
+  license: MIT
+
+purpose: >
+  235 production-ready Claude Code skills across 9 domains.
+  Rebar uses the marketing pod (44 skills) for content production,
+  social media, SEO, and launch strategy. Also useful: engineering
+  skills for code review, and business-growth for proposals.
+
+config:
+  location: /home/spotcircuit/claude-skills  # persistent clone (re-cloned 2026-04-17)
+  docs: https://github.com/alirezarezvani/claude-skills
+  install_method: "/plugin marketplace add alirezarezvani/claude-skills"
+
+runtime:
+  how_to_start: "Skills are markdown — no server needed. Python scripts in scripts/ dirs."
+  port: ~
+  api_base: ~
+  database: ~
+
+dependencies:
+  - "Claude Code (skills load as SKILL.md files)"
+  - "Python 3.x (for analysis scripts — no ML deps, stdlib only)"
+
+# ---------------------------------------------------------------------------
+# Integrated skills — copied from upstream into rebar/.claude/skills/<name>/
+# Refresh with: bash scripts/update-skills.sh
+# Each skill has a _rebar-integration.md sidecar explaining where it plugs in.
+# ---------------------------------------------------------------------------
+integrated_skills:
+  content-strategy:
+    fixes: "blog-writer one-off posts with no topic arc / editorial calendar"
+    invoked_by: [blog-writer, gtm-agent]
+    added: "2026-04-17"
+  content-production:
+    fixes: "generic drafting; 5 modes (outline, draft, optimize, audience, publish)"
+    invoked_by: [blog-writer, social-media-agent]
+    added: "2026-04-17"
+  content-humanizer:
+    fixes: "agents had no rewrite playbook when humanizer gate fails; scripts detected but didn't fix"
+    invoked_by: [blog-writer, outreach-agent, social-media-agent]
+    added: "2026-04-17"
+  ai-seo:
+    fixes: "posts ship without GEO (generative engine optimization for ChatGPT/Perplexity/Claude citations)"
+    invoked_by: [blog-writer, gtm-agent]
+    added: "2026-04-17"
+  copywriting:
+    fixes: "weak hooks, headlines, CTAs across blog-writer / social-media-agent / outreach-agent"
+    invoked_by: [blog-writer, social-media-agent, outreach-agent]
+    added: "2026-04-17"
+  launch-strategy:
+    fixes: "gtm-agent generic weekly output; no launch-phase awareness"
+    invoked_by: [gtm-agent, blog-writer]
+    added: "2026-04-17"
+
+upgrade_command: "bash scripts/update-skills.sh"
+upgrade_notes: >
+  Upstream is 11.3K-star MIT repo, stable release cadence. Refresh periodically
+  (monthly is plenty). Per-skill sidecars (_rebar-integration.md) are preserved
+  across refresh — update-skills.sh backs them up before copying and restores
+  after. Never wholesale-copy claude-skills/; always the selected six.
+
+deliberately_not_integrated:
+  - "claude-skills/commands/ — naming conflicts with rebar's client-aware /wiki-ingest, /wiki-lint"
+  - "claude-skills/agents/ — persona files; architecture mismatch with Paperclip event-driven model"
+  - "claude-skills/engineering/ — duplicates rebar's /plan, /build, /takeover, /meta-improve"
+  - "marketing-skill/brand-guidelines — defer until rebar has defined brand voice"
+  - "marketing-skill/cold-email — defer; outreach-agent focuses on organic reply, not cold outbound"
+  - "marketing-skill/campaign-analytics — defer; no analytics pipeline to feed yet"
+  - "marketing-skill/ad-creative, content-creator, competitor-alternatives — low signal today, revisit after 2+ cycles of observed weak output"

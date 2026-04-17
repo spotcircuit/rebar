@@ -36,10 +36,10 @@ writes:
   - wiki/index.md
   - wiki/log.md
 
-cwd: /home/spotcircuit/rebar
+cwd: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 env:
-  REBAR_ROOT: /home/spotcircuit/rebar
+  REBAR_ROOT: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 # Guardrails
 rules:

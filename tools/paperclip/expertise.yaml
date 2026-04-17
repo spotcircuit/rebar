@@ -10,7 +10,6 @@ meta:
 company:
   name: Rebar
   id: d7dfb458-5fbc-4afd-8b9e-f765d253726f
-  renamed_from: Clarity Framework (2026-04-13)
 
 agents:
   rebar-steward:
@@ -75,7 +74,7 @@ agents:
 
   # Legacy — still in Paperclip DB, cannot delete via API
   legacy_duplicates:
-    - "Clarity Steward (c983798b) — replaced by Rebar Steward"
+    - "Legacy Steward (c983798b) — replaced by Rebar Steward"
     - "Outreach Agent (7c7206b0) — replaced by 8ab06d49"
     - "Social Media Agent (6c831110) — replaced by 49639b17"
     - "Rebar Engineer (2b395df7) — one-off for MCP development"
@@ -117,10 +116,20 @@ event_hooks:
     assigns_to: outreach-agent
 
 known_issues:
-  - issue: "GTM agent still references 'clarity-framework' — cwd, GitHub refs, service names, branding"
+  - issue: "Paperclip binds 127.0.0.1:3100 (WSL loopback only) — NOT reachable from Windows browser"
     status: open
-    fix: "Update system/agents/gtm-agent.yaml and system/outreach/services.yaml to use 'rebar'"
-    files: "system/agents/gtm-agent.yaml, system/outreach/services.yaml"
+    fix: "Windows browser access: use WSL eth0 IP (run `bash scripts/wsl-ip.sh` to print current value — changes on each WSL restart). Alternatively, set Paperclip to bind 0.0.0.0 if a future version supports it via env. All WSL-side scripts (paperclip-sync.sh, paperclip-start-issues.py) correctly use 127.0.0.1 and are unaffected."
+    files: "tools/paperclip/tool.yaml (api_base), scripts/paperclip-sync.sh, scripts/paperclip-start-issues.py"
+    detected: "2026-04-17"
+
+  - issue: "Paperclip AGENTS.md is in 'managed' bundle mode — internal regeneration could wipe custom cwd directive"
+    status: mitigated
+    fix: "Source of truth is system/agents/_agents-md-preamble.md. Run `bash scripts/paperclip-sync.sh preamble` to push it to every agent's AGENTS.md. The `agents` subcommand auto-runs preamble after sync — self-heals if Paperclip regenerates the bundle."
+    detected: "2026-04-17"
+
+  - issue: "GTM agent previously referenced rebar (cwd, GitHub refs, branding) — fixed 2026-04-17, no residual references in system/agents/"
+    status: resolved
+    fix: "Cwd + branding updated to rebar; confirmed via grep."
 
   - issue: "Steward only scans clients/ and apps/ — doesn't check tools/"
     status: open
@@ -158,8 +167,9 @@ implementation_patterns:
     paperclip-start-issues.py automates this via headless Playwright.
 
 unvalidated_observations:
+  - "[raw/next-session.md] PrePitch Agent added (id: 4c67e610, every 6 hours). Total active agents now 8 confirmed. 2026-04-15."
   - "[raw/next-session.md] Claude Code routines registered: wiki-ingest every 4h, wiki-lint daily at 8am. 2026-04-15."
-  - "[raw/next-session.md] Duplicate agents from clarity migration terminated — 8 clean active agents remain. 2026-04-15."
+  - "[raw/next-session.md] Duplicate agents from prior migration terminated — 8 clean active agents remain. 2026-04-15."
   - "Paperclip DB contains execution history that could feed into /improve — e.g. 'wiki-curator ran 47 times this week' could auto-append to expertise.yaml. Design idea, not yet implemented. 2026-04-13."
   - "[CON-40] Chrome tabs.sendMessage requires waiting for tab 'complete' status + ~3s delay for content script init. Without delay, message arrives before content script is ready. 2026-04-14."
   - "[CON-40] Reddit has no visible editor until user clicks Reply. PASTE_COMMENT handler auto-clicks Reply button and waits 1.5s for editor to appear before pasting. 2026-04-14."

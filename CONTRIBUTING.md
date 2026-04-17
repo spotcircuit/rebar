@@ -29,9 +29,11 @@ Open a GitHub issue with:
 
 | Directory | What It Contains |
 |---|---|
-| `.claude/commands/` | 23 slash command prompts (knowledge + dev workflow) |
+| `.claude/commands/` | 26 slash command prompts (knowledge + dev workflow + self-learning harness: /close-loop, /meta-improve, /meta-apply) |
+| `.claude/skills/` | 6 tactical skills from alirezarezvani/claude-skills (content-humanizer, ai-seo, copywriting, content-strategy, content-production, launch-strategy) |
 | `clients/_templates/` | Templates for new client engagements |
 | `apps/_templates/` | Templates for internal tools/apps |
+| `system/meta-improve-queue/` | Template patches awaiting /meta-apply human review |
 | `wiki/` | Knowledge wiki (rendered via [Quartz](https://quartz.jzhao.xyz/)) |
 | `scripts/` | Shell scripts for Paperclip sync, Obsidian sync, wiki sync |
 | `system/agents/` | 7 Paperclip agent definitions |

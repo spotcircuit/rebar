@@ -1,20 +1,23 @@
-# Three Knowledge Systems
+# Four Knowledge Systems
 
-Rebar uses three separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
+Rebar uses four separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
 
-## The three systems
+## The four systems
 
 | System | Stores | Format | Updated by | Example |
 |--------|--------|--------|------------|---------|
-| `expertise.yaml` | Operational data -- architecture, API gotchas, pipeline state, test results | Structured YAML | `/improve`, `/discover`, `/brief` commands | "Cloudflare project names must be lowercase alphanumeric with hyphens" |
-| `.claude/memory/` | Behavioral rules -- user preferences, guardrails, process rules | Markdown + frontmatter | Claude automatically when patterns emerge | "User prefers Railway for backend deploys" |
-| `wiki/` | Synthesized knowledge -- reusable patterns, decisions, concepts | Markdown with links | `/wiki-file`, `/wiki-ingest`, `/wiki-lint` | "Correlation ID pattern for cross-service tracing" |
+| `expertise.yaml` | Operational data — architecture, API gotchas, pipeline state, test results | Structured YAML | `/improve`, `/discover`, `/brief` commands | "Cloudflare project names must be lowercase alphanumeric with hyphens" |
+| `.claude/memory/` | Behavioral rules — user preferences, guardrails, process rules | Markdown + frontmatter | Claude automatically when patterns emerge | "User prefers Railway for backend deploys" |
+| `.claude/skills/` | Tactical playbooks — content-humanizer, ai-seo, copywriting, content-strategy, content-production, launch-strategy | Markdown `SKILL.md` files with frontmatter + optional Python scripts | `scripts/update-skills.sh` (pulls from `alirezarezvani/claude-skills` upstream) | "Rewrite AI-shaped draft using the 12 voice techniques" |
+| `wiki/` | Synthesized knowledge — reusable patterns, decisions, concepts | Markdown with `[[wiki links]]` | `/wiki-file`, `/wiki-ingest`, `/wiki-lint` | "Correlation ID pattern for cross-service tracing" |
 
-## Why three, not one
+## Why four, not one
 
 **expertise.yaml is per-entity and structured.** It answers "what do I need to know to work on this right now?" An AI agent reads it at session start and has full context. YAML because it is machine-readable and diffable. One file per client, app, or tool — lives in `clients/{name}/`, `apps/{name}/`, or `tools/{name}/`.
 
 **Memory is per-user and behavioral.** It answers "how does this user want me to work?" Things like commit message style, preferred tools, guardrails ("never run npm dev unless asked"). Claude updates it automatically. It is not project-specific.
+
+**Skills are per-task and tactical.** They answer "how do I actually do this specific job well?" Each `SKILL.md` in `.claude/skills/<name>/` is a playbook Claude Code auto-discovers by keyword and loads into context on demand. Rebar ships six marketing/content skills from the `alirezarezvani/claude-skills` upstream (11.3K ⭐). Refresh with `bash scripts/update-skills.sh`; sidecar `_rebar-integration.md` per skill explains which agent invokes it and where in the flow.
 
 **Wiki is cross-project and durable.** It answers "has anyone figured this out before?" Patterns, decisions, and concepts that apply across multiple projects. When a project discovers something reusable, `/wiki-file` captures it permanently.
 

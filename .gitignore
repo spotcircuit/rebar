@@ -1,83 +1,45 @@
-# Credentials -- never commit
-clients/*/client.yaml
-!clients/_templates/client.yaml
+# =============================================================================
+# REBAR PRIVATE — PERSONAL WORKING SET
+# =============================================================================
+# This gitignore is for the PRIVATE repo (spotcircuit/rebar).
+# The PUBLIC repo (spotcircuit/rebar-public) has its own strict whitelist.
+# Keep client data, private apps, and working docs locally but never push to public.
+# =============================================================================
+
+# Credentials — never commit even to private
 clients/*/.env
-apps/*/app.yaml
-!apps/_templates/app.yaml
+apps/**/.env
 system/.env
+**/.env.local
+*.env
+!.env.example
+!.env.template
+!*.env.example
+!*.env.template
+*.key
+*.pem
+secrets/
+credentials/
+
+# Paperclip runtime state (auto-generated IDs tied to local instance)
 system/.paperclip-ids.json
 system/.venv/
 
-# Per-client/app working docs
-clients/*/comments.md
-clients/*/research/
-apps/*/research/
-apps/**/backend/.env
-apps/**/.env
-
-# Node
+# Build artifacts
 node_modules/
 package-lock.json
 bun.lock
-
-# App build artifacts
 dist/
 .prisma/
-
-# Python
 __pycache__/
 *.pyc
 
-# OS
+# OS + Editor
 .DS_Store
 Thumbs.db
-
-# Editor
 .vscode/
 .idea/
 *.swp
 
-# Apps -- same pattern as clients
-apps/*/app.yaml
-!apps/_templates/app.yaml
-
-# Private apps -- not part of public release
-apps/social-scout/
-apps/prepitch/
-apps/getrankedlocal/
-apps/care-agent-evaluator/
-
-# Private clients -- never committed
-clients/restorefast/
-clients/power-platform-dashboard/
-clients/experity/
-clients/aviation-dispatch/
-
-# Private wiki — never committed
-wiki-private/
-
-# Chrome extensions -- proprietary scraping/engagement tooling
-extensions/
-
-# Tools -- tool.yaml is NOT gitignored (no secrets, just config)
-# But tool-specific research dirs are
-tools/*/research/
-
-# Paperclip runtime state
-system/.paperclip-ids.json
-
-# GTM sensitive data
-system/gtm/prospects.yaml
-system/gtm/metrics-log.jsonl
-
-# Drafts and research (working docs, not source of truth)
-system/drafts/
-docs/research/
-
-# Scout CSV reports
-raw/*.csv
-
-# Raw processed files may contain secrets/session data
-raw/processed/
-raw/next-session.md
-raw/eval-*.md
+# Workspace/backup branches
+.paperclip/instances/default/workspaces/

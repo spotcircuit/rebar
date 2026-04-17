@@ -1,0 +1,217 @@
+tool: claude-skills
+status: evaluating
+tagline: "235 production-ready Claude Code skills — marketing, engineering, product, finance"
+last_updated: "2026-04-16"
+
+repo:
+  url: https://github.com/alirezarezvani/claude-skills
+  stars: 11366
+  forks: 1466
+  author: "Alireza Rezvani (CTO, Berlin, 22yr experience)"
+  created: "2025-10-19"
+  last_commit: "2026-04-16"
+  license: MIT
+
+architecture:
+  pattern: "Modular skill packages — each skill is a self-contained folder"
+  skill_structure:
+    - "SKILL.md — master doc with workflows, modes, triggers"
+    - "scripts/ — Python CLI tools (stdlib only, no ML deps)"
+    - "references/ — expert knowledge bases (markdown)"
+    - "assets/ — user-facing templates"
+  domains:
+    marketing: 44 skills
+    engineering: 45 skills (POWERFUL tier)
+    engineering_team: 37 skills (core)
+    c_level_advisor: 34 skills
+    product_team: 16 skills
+    ra_qm_compliance: 14 skills
+    project_management: 9 skills
+    business_growth: 5 skills
+    finance: 4 skills
+  total_python_scripts: 314
+  total_reference_guides: 435
+  agents: 28
+  slash_commands: 27
+
+# ============================================================================
+# FIT EVALUATION: How claude-skills maps to rebar's daily blog + social workflow
+# ============================================================================
+
+fit_evaluation:
+  use_case: "Daily blog posts + social media about what we're building"
+
+  directly_useful_skills:
+    content_production:
+      path: marketing-skill/content-production/
+      what: "Full pipeline: research → brief → draft → optimize. 3 modes."
+      python_tools:
+        - "seo_optimizer.py — on-page SEO scoring"
+        - "content_scorer.py — quality gates"
+        - "brand_voice_analyzer.py — consistency checks"
+      fit: "HIGH — this is the blog writing engine"
+      integration: >
+        Feed expertise.yaml observations + git log as topic source.
+        content-production generates SEO-optimized post.
+        Paperclip social-media-agent picks up and cross-posts.
+
+    social_content:
+      path: marketing-skill/social-content/
+      what: "Platform-specific social posts (LinkedIn, Twitter, FB, IG)"
+      references:
+        - "platforms.md — platform-specific best practices"
+        - "post-templates.md — proven formats"
+        - "reverse-engineering.md — analyze what works"
+      fit: "HIGH — replaces/enhances current social-media-agent prompts"
+      integration: >
+        Could replace the social-media-agent's content generation step.
+        Better templates and platform-specific formatting than what we have.
+
+    content_humanizer:
+      path: marketing-skill/content-humanizer/
+      what: "Post-processes AI content to remove AI tells"
+      python_tools:
+        - "humanizer_scorer.py — detects AI patterns"
+      references:
+        - "ai-tells-checklist.md — specific patterns to fix"
+        - "voice-techniques.md — how to sound human"
+      fit: "HIGH — already use humanization in scout/outreach, this is more rigorous"
+
+    content_strategy:
+      path: marketing-skill/content-strategy/
+      what: "Topic clusters, content calendars, keyword research"
+      python_tools:
+        - "topic_cluster_mapper.py — maps topic relationships"
+      fit: "MEDIUM — useful for planning weekly content themes"
+
+    marketing_context:
+      path: marketing-skill/marketing-context/
+      what: "Creates foundation context doc all skills read first"
+      fit: "HIGH — must set up first. Maps to our expertise.yaml pattern."
+      integration: >
+        Auto-generate marketing-context.md from rebar expertise files.
+        Brand voice, positioning, ICP, keywords all derivable from existing data.
+
+    ai_seo:
+      path: marketing-skill/ai-seo/
+      what: "Optimize for AI search citations (ChatGPT, Perplexity, Gemini)"
+      fit: "MEDIUM — forward-looking. GEO matters for visibility."
+
+    launch_strategy:
+      path: marketing-skill/launch-strategy/
+      what: "Product Hunt, launch playbooks, phased releases"
+      fit: "HIGH — HN launch plan for rebar is pending"
+
+    x_twitter_growth:
+      path: marketing-skill/x-twitter-growth/
+      what: "X/Twitter-specific growth, thread engineering, profile optimization"
+      python_tools:
+        - "profile_auditor.py"
+        - "tweet_composer.py"
+        - "competitor_analyzer.py"
+        - "growth_tracker.py"
+        - "content_planner.py"
+      fit: "MEDIUM — useful if expanding to X beyond LinkedIn"
+
+  secondary_useful_skills:
+    - "copy-editing/ — readability scoring, polish"
+    - "copywriting/ — headline scoring"
+    - "programmatic-seo/ — scale page generation"
+    - "seo-audit/ — technical SEO checks"
+    - "schema-markup/ — structured data generation"
+    - "social-media-manager/ — strategy + calendar planning"
+    - "social-media-analyzer/ — engagement analytics"
+    - "competitor-alternatives/ — comparison matrix builder"
+
+  not_needed_now:
+    - "ab-test-setup/ — no A/B testing yet"
+    - "paid-ads/ — not running ads"
+    - "app-store-optimization/ — not in app stores"
+    - "form-cro/, page-cro/, signup-flow-cro/ — no signup funnel yet"
+    - "churn-prevention/ — no paying users yet"
+    - "email-sequence/ — no email list yet"
+    - "cold-email/ — not doing outbound email"
+
+# ============================================================================
+# INTEGRATION PLAN: How to wire into rebar + Paperclip
+# ============================================================================
+
+integration_plan:
+  step_1_context:
+    action: "Generate marketing-context.md from rebar expertise files"
+    source: "apps/*/expertise.yaml + wiki/ + CLAUDE.md"
+    output: ".claude/product-marketing-context.md or marketing-context.md"
+    why: "All marketing skills read this first. Single source of truth for brand."
+
+  step_2_blog_pipeline:
+    action: "Create a Paperclip blog-writer agent"
+    trigger: "Daily or on git push with significant changes"
+    workflow:
+      - "1. Read today's git log + expertise observations"
+      - "2. Pick topic (content-strategy skill picks from cluster)"
+      - "3. Generate blog post (content-production skill)"
+      - "4. Humanize (content-humanizer skill)"
+      - "5. SEO optimize (seo_optimizer.py + ai-seo skill)"
+      - "6. Save to blog/ or publish to WordPress"
+    files: "New Paperclip agent: system/agents/blog-writer.yaml"
+
+  step_3_social_enhancement:
+    action: "Upgrade social-media-agent with social-content skill"
+    change: "Replace current prompt with social-content SKILL.md patterns"
+    benefit: "Better templates, platform-specific formatting, content pillars"
+
+  step_4_launch:
+    action: "Use launch-strategy for HN launch"
+    status: "HN launch plan exists in system/drafts/hn-launch-plan.md"
+    enhancement: "launch-strategy skill adds phased rollout + momentum tracking"
+
+# ============================================================================
+# OVERLAP WITH EXISTING REBAR CAPABILITIES
+# ============================================================================
+
+overlap_analysis:
+  social_media_agent:
+    current: "Paperclip agent posts to LinkedIn + Facebook daily"
+    skill_equivalent: "social-content + social-media-manager"
+    verdict: "Skills are more structured — better templates, content pillars, platform rules"
+    action: "Enhance agent prompts with skill references, don't replace"
+
+  content_humanizer:
+    current: "Scout uses humanization step in reply generation"
+    skill_equivalent: "content-humanizer"
+    verdict: "Skill has ai-tells-checklist.md + humanizer_scorer.py — more rigorous"
+    action: "Adopt humanizer_scorer.py as quality gate in scout pipeline"
+
+  outreach_framework:
+    current: "Scout + outreach agent generate engagement replies"
+    skill_equivalent: "cold-email + copywriting"
+    verdict: "Our scout is more specialized for social engagement"
+    action: "Keep scout as-is, borrow headline_scorer.py for post titles"
+
+  wiki_knowledge:
+    current: "wiki/ + expertise.yaml compound knowledge"
+    skill_equivalent: "marketing-context"
+    verdict: "marketing-context.md is a focused subset of our expertise system"
+    action: "Auto-generate marketing-context.md FROM expertise files"
+
+# ============================================================================
+
+known_issues:
+  - issue: "Single author — if Alireza stops, project stalls"
+    status: open
+    mitigation: "Fork it. Skills are self-contained markdown — no dependency on upstream."
+
+  - issue: "No automated tests for most Python scripts"
+    status: open
+    mitigation: "Test scripts we actually use before production deployment."
+
+  - issue: "Plugin marketplace install may not work with our setup"
+    status: open
+    mitigation: "Manual install — copy skill folders directly."
+
+unvalidated_observations:
+  - "[2026-04-16] content-production SKILL.md is ~400 lines of substantive workflow. Not a stub."
+  - "[2026-04-16] 50 Python scripts in marketing-skill/ alone. Most are stdlib-only, no heavy deps."
+  - "[2026-04-16] marketing-context skill auto-drafts from codebase — could read our expertise.yaml."
+  - "[2026-04-16] social-content references/post-templates.md has proven LinkedIn/X formats — compare to our current social-media-agent prompts."
+  - "[2026-04-16] humanizer_scorer.py could replace or augment our scout humanization step."

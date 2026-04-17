@@ -34,14 +34,22 @@ flowchart TD
     I -->|fails| K[fix failures]
     K --> I
 
-    J -->|report| L["/improve my-app"]
-    D --> L
-    E --> L
-    L -->|validates observations| M[expertise.yaml updated]
-    M -->|next session| A
+    J --> CL["/close-loop feature-name"]
+    CL --> EV[Evaluator validates]
+    EV --> GATE{Release gate<br>scans for blocker language}
+    GATE -->|blockers found| BLOCKED[Ticket BLOCKED<br>fix + retry]
+    GATE -->|clean| IMP["/improve app --from eval-file"]
+    IMP --> MI["/meta-improve<br>2+ occurrence patterns to queue"]
+    MI --> APPLY["/meta-apply<br>human review"]
+    APPLY --> WI["/wiki-ingest"]
+
+    BLOCKED --> G
+    D --> IMP
+    E --> IMP
+    WI -->|next session| A
 ```
 
-Every session starts with `/brief` and ends with `/improve`. The loop tightens expertise.yaml with each pass. Bug fixes and investigations also feed the self-learn loop.
+Every feature ends with `/close-loop` — the harness that validates, gates on blocker language ("must generate migration," "cannot ship"), promotes cycle-scoped observations, detects recurring failure patterns, surfaces template patches for human review, and ingests durable knowledge into the wiki. Bug fixes and investigations skip straight to `/improve` — they don't need the full harness. See [architecture.md → Close-Loop Harness](architecture.md#close-loop-harness-per-feature) for the full four-gate diagram.
 
 ## Knowledge Capture
 

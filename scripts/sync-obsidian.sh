@@ -7,8 +7,8 @@
 #
 # Syncs bidirectionally -- whichever side has newer files wins.
 
-WSL_PATH="/home/spotcircuit/rebar"
-WIN_PATH="/mnt/c/rebar"
+WSL_PATH="/mnt/c/Users/Big Daddy Pyatt/rebar"
+WIN_PATH="/mnt/c/Users/Big Daddy Pyatt/rebar"
 EXCLUDE="--exclude node_modules --exclude .git --exclude '*.pyc' --exclude __pycache__"
 
 sync_once() {

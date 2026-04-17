@@ -1,10 +1,12 @@
 ---
 allowed-tools: Read, Write, Edit, Bash
-description: Validate unvalidated observations and integrate confirmed facts into a client's expertise.yaml
-argument-hint: <client-name>
+description: Validate unvalidated observations and integrate confirmed facts into a client's expertise.yaml. Optional --from flag scopes processing to a specific eval report (for close-loop use).
+argument-hint: <client-name> [--from <eval-file-path>]
 ---
 
 # Improve: Validate and Promote Observations
+
+**PRE-FLIGHT:** Verify `pwd -P` equals `/mnt/c/Users/Big Daddy Pyatt/rebar`. The expertise.yaml you'll edit must live under canonical — never `/home/spotcircuit/rebar/apps/**` or `/home/spotcircuit/forge/apps/**`.
 
 Validates `unvalidated_observations:` in a client's expertise.yaml against current live state
 (Jira, Slack, tenant) and integrates confirmed facts into the main expertise sections.
@@ -12,7 +14,25 @@ Discards stale or already-captured observations. Enforces the 1000-line cap.
 
 ## Variables
 
-CLIENT: $ARGUMENTS
+CLIENT: first positional arg — the client/app/tool name
+EVAL_FILE: optional value of `--from <path>` — scopes processing to a single eval report
+
+Parse $ARGUMENTS as `<CLIENT> [--from <PATH>]`. If the string contains `--from`,
+everything after it is EVAL_FILE; everything before is CLIENT.
+
+## Scoping
+
+- **When EVAL_FILE is set (close-loop mode):** process ONLY the observations that
+  the named eval report produced. Match by the eval's write-out date (today's
+  `YYYY-MM-DD` prefix on observations) AND by content similarity to the eval's
+  `## Checks` + `## Follow-ups` sections. Leave other `unvalidated_observations:`
+  entries completely untouched.
+- **When EVAL_FILE is unset (manual mode):** process all `unvalidated_observations:`
+  — existing legacy behavior.
+
+This scoping rule is critical: the close-loop cycle should only promote what THIS
+cycle's evaluator validated. Older backlog gets processed when the operator runs
+`/improve <client>` manually without `--from`.
 
 ## Resolution
 
@@ -41,11 +61,23 @@ Read `BASE_DIR/client.yaml` for data source access.
 Extract all entries from `unvalidated_observations:`.
 If empty: report "No unvalidated observations to process" and exit.
 
+**If EVAL_FILE is set:**
+- Read the eval report at that path.
+- Build a **scoped set** of observations — only those that:
+  - Are tagged with today's `YYYY-MM-DD` prefix in `unvalidated_observations:`, OR
+  - Reference a file, function, endpoint, or symbol that is also mentioned in the
+    eval's `## Checks` or `## Follow-ups` sections.
+- **Only these scoped observations are candidates** for promotion/discard in this
+  run. All other `unvalidated_observations:` entries are left in place untouched
+  and must not be validated against live sources in this run.
+- If the scoped set is empty, report "No cycle-scoped observations for EVAL_FILE"
+  and exit without modifying expertise.yaml.
+
 ---
 
 ## Step 2: Validate Each Observation
 
-For each observation in `unvalidated_observations:`, check against live sources:
+For each observation **in the scoped set (or all observations if EVAL_FILE unset)**, check against live sources:
 
 **Against Jira:**
 - If observation references a ticket (e.g., "AJS-301"): fetch current ticket status

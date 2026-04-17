@@ -36,10 +36,10 @@ writes:
   - apps/site-builder/expertise.yaml
   - apps/site-builder/notes.md
 
-cwd: /home/spotcircuit/rebar
+cwd: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 env:
-  REBAR_ROOT: /home/spotcircuit/rebar
+  REBAR_ROOT: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 # Guardrails
 rules:

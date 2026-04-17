@@ -12,16 +12,15 @@
 
 set -euo pipefail
 
-REBAR_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REBAR_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$REBAR_ROOT"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/guard-cwd.sh"
+
 CONFIG="$REBAR_ROOT/system/paperclip.yaml"
 ID_CACHE="$REBAR_ROOT/system/.paperclip-ids.json"
 API_BASE="http://127.0.0.1:3100"
-COMPANY_ID="${PAPERCLIP_COMPANY_ID:-}"
-if [ -z "$COMPANY_ID" ]; then
-  err "PAPERCLIP_COMPANY_ID environment variable is not set."
-  err "Export it before running this script: export PAPERCLIP_COMPANY_ID=your-company-id"
-  exit 1
-fi
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -29,6 +28,13 @@ fi
 
 log() { echo "[paperclip-sync] $*"; }
 err() { echo "[paperclip-sync] ERROR: $*" >&2; }
+
+COMPANY_ID="${PAPERCLIP_COMPANY_ID:-}"
+if [ -z "$COMPANY_ID" ]; then
+  err "PAPERCLIP_COMPANY_ID environment variable is not set."
+  err "Export it before running this script: export PAPERCLIP_COMPANY_ID=your-company-id"
+  exit 1
+fi
 
 require_cmd() {
   command -v "$1" >/dev/null 2>&1 || { err "Required command not found: $1"; exit 1; }
@@ -278,18 +284,24 @@ cmd_issue() {
     fi
   fi
 
+  # Pull default project_id from paperclip.yaml
+  local project_id
+  project_id=$(yaml_get "default_project.project_id" || echo "")
+
   body=$(jq -n \
     --arg title "$title" \
     --arg desc "Created by Rebar CLI" \
-    --arg status "backlog" \
+    --arg status "todo" \
     --arg priority "medium" \
     --arg assignee "$assignee_id" \
+    --arg project "$project_id" \
     '{
       title: $title,
       description: $desc,
       status: $status,
       priority: $priority
-    } + (if $assignee != "" then {assigneeAgentId: $assignee} else {} end)'
+    } + (if $assignee != "" then {assigneeAgentId: $assignee} else {} end)
+      + (if $project != "" and $project != "null" then {projectId: $project} else {} end)'
   )
 
   log "Creating issue: $title"
@@ -313,6 +325,39 @@ cmd_issue() {
 }
 
 # ---------------------------------------------------------------------------
+# cmd_preamble — push the canonical AGENTS.md preamble to every registered agent
+# ---------------------------------------------------------------------------
+#
+# Paperclip stores agent instructions at
+#   ~/.paperclip/instances/default/companies/<company-id>/agents/<agent-id>/instructions/AGENTS.md
+# in "managed" bundle mode. Paperclip can regenerate these files on agent-update
+# operations, which would wipe the cwd directive that makes every agent land in
+# the canonical rebar repo. Self-heal: re-push the preamble from
+# `system/agents/_agents-md-preamble.md` to every agent's instruction file on
+# every sync. Idempotent.
+
+cmd_preamble() {
+  local preamble="$REBAR_ROOT/system/agents/_agents-md-preamble.md"
+  [ -f "$preamble" ] || { err "missing $preamble"; exit 1; }
+
+  local instances_dir="$HOME/.paperclip/instances/default/companies/$COMPANY_ID/agents"
+  [ -d "$instances_dir" ] || { err "no instances dir at $instances_dir"; exit 1; }
+
+  local pushed=0 skipped=0
+  for agent_dir in "$instances_dir"/*/; do
+    local target="$agent_dir/instructions/AGENTS.md"
+    if [ -d "$agent_dir/instructions" ]; then
+      if ! cmp -s "$preamble" "$target" 2>/dev/null; then
+        cp "$preamble" "$target" && pushed=$((pushed+1))
+      else
+        skipped=$((skipped+1))
+      fi
+    fi
+  done
+  log "preamble sync: $pushed updated, $skipped already current"
+}
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -322,6 +367,10 @@ case "${1:-agents}" in
     ;;
   agents)
     cmd_sync_agents
+    cmd_preamble
+    ;;
+  preamble)
+    cmd_preamble
     ;;
   heartbeat)
     cmd_heartbeat "${2:-}"
@@ -330,7 +379,7 @@ case "${1:-agents}" in
     cmd_issue "${2:-}" "${3:-}"
     ;;
   *)
-    echo "Usage: paperclip-sync.sh {agents|status|heartbeat <key>|issue <title> [assignee]}"
+    echo "Usage: paperclip-sync.sh {agents|status|preamble|heartbeat <key>|issue <title> [assignee]}"
     exit 1
     ;;
 esac

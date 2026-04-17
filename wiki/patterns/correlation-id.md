@@ -32,6 +32,6 @@ Source: Derived from distributed systems tracing practices. Validated in multi-s
 
 ## Related
 
-- [[error-handling]] -- error logs must include correlationId
-- [[idempotency-guard]] -- idempotency keys and correlation IDs are related but distinct
-- [[pre-release-checklist]] -- verify correlation ID is wired through before release
+- [[patterns/error-handling]] -- error logs must include correlationId
+- [[patterns/idempotency-guard]] -- idempotency keys and correlation IDs are related but distinct
+- [[patterns/pre-release-checklist]] -- verify correlation ID is wired through before release

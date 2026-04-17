@@ -1,0 +1,26 @@
+# EditorConfig — https://editorconfig.org
+# Enforces LF + UTF-8 + no BOM on text files so Windows IDEs (VS Code,
+# Cursor, IntelliJ) don't corrupt YAML parsers and shell scripts when the
+# user saves files in `/mnt/c/Users/Big Daddy Pyatt/rebar`.
+#
+# Why: WSL tools (bash, python yaml, shellcheck) are byte-sensitive. A file
+# saved with CRLF line endings or a UTF-8 BOM can break `yaml.safe_load`,
+# confuse `set -euo pipefail` scripts, and cause silent parse failures.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{yaml,yml,md,sh,py,json,ts,tsx,js,jsx,vue}]
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[Makefile]
+indent_style = tab

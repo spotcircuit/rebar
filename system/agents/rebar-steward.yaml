@@ -33,12 +33,12 @@ writes:
   - clients/*/expertise.yaml
   - apps/*/expertise.yaml
 
-# Working directory (relative to rebar root)
-cwd: /home/spotcircuit/rebar
+# Working directory (absolute path to canonical rebar repo)
+cwd: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 # Environment variables to set (beyond Paperclip's injected ones)
 env:
-  REBAR_ROOT: /home/spotcircuit/rebar
+  REBAR_ROOT: /mnt/c/Users/Big Daddy Pyatt/rebar
 
 # Guardrails
 rules:

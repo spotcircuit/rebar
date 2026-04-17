@@ -3,14 +3,24 @@
 #
 # This is the source of truth. Edit here, then sync.
 # Paperclip DB IDs are cached in system/.paperclip-ids.json after first sync.
+#
+# FRAMEWORK EXAMPLE — replace company_id and agents with your own.
 
 api_base: http://127.0.0.1:3100
-company_id: d7dfb458-5fbc-4afd-8b9e-f765d253726f
+company_id: "YOUR_COMPANY_ID_HERE"
 
 # ---------------------------------------------------------------------------
 # Agent definitions
 # Each agent maps to a file in system/agents/{name}.yaml for detailed config.
 # Fields here are what Paperclip's POST /api/companies/{companyId}/agents needs.
+#
+# Framework agents (shipped with rebar):
+# - rebar-steward: maintains expertise.yaml health across apps/clients
+# - wiki-curator: processes raw/ into wiki pages
+# - site-builder-agent: manages site build/deploy lifecycles
+# - triage-agent: routes incoming issues to specialists
+#
+# Add your own agents in system/agents/{name}.yaml and register them here.
 # ---------------------------------------------------------------------------
 agents:
   rebar-steward:
@@ -37,43 +47,12 @@ agents:
   site-builder-agent:
     name: Site Builder Agent
     description: >
-      Manages the site-builder app lifecycle. Runs builds, checks
+      Manages site-builder app lifecycles. Runs builds, checks
       deploy status, updates expertise.yaml with results.
     role: engineer
     definition_file: agents/site-builder-agent.yaml
     heartbeat_schedule: "0 */6 * * *"   # every 6 hours
     budget_cents: 800
-
-  social-media-agent:
-    name: Social Media Agent
-    description: >
-      Daily social media pipeline. Posts to LinkedIn + Facebook with
-      humanized content and card images. Generates, humanizes, posts, files to wiki.
-    role: cmo
-    definition_file: agents/social-media-agent.yaml
-    heartbeat_schedule: "0 9 * * 1-5"    # weekdays at 9am
-    budget_cents: 200
-
-  outreach-agent:
-    name: Outreach Agent
-    description: >
-      Monitors LinkedIn posts for new comments. Classifies, generates
-      replies using outreach framework, humanizes, and posts responses.
-    role: engineer
-    definition_file: agents/outreach-agent.yaml
-    heartbeat_schedule: "*/30 * * * *"  # every 30 minutes
-    budget_cents: 300
-
-  discord-scout-agent:
-    name: Discord Scout Agent
-    description: >
-      Scans Discord servers for relevant messages about agentic AI.
-      Classifies service fit, generates humanized replies, saves
-      to Postgres for human review via extension popup.
-    role: engineer
-    definition_file: agents/discord-scout-agent.yaml
-    heartbeat_schedule: "0 */2 * * *"   # every 2 hours
-    budget_cents: 200
 
   triage-agent:
     name: Triage Agent
@@ -90,8 +69,7 @@ agents:
 # ---------------------------------------------------------------------------
 default_project:
   name: Rebar Ops
-  # project_id is populated after first sync
-  project_id: null
+  project_id: "YOUR_PROJECT_ID_HERE"
 
 # ---------------------------------------------------------------------------
 # Event hooks -- maps Rebar events to Paperclip issue creation
@@ -113,10 +91,4 @@ hooks:
     title_template: "Build: {app_name}"
     description_template: "Build requested for {app_name}. Check specs/ and run pipeline."
     assignee: site-builder-agent
-    priority: high
-
-  scout_server_down:
-    title_template: "Scout server down"
-    description_template: "Scout server not responding on port 9876. Restart needed."
-    assignee: outreach-agent
     priority: high
