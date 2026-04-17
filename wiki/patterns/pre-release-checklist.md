@@ -45,7 +45,7 @@ Source: Derived from production release practices across multiple integration pr
 
 ## Related
 
-- [[patterns/idempotency-guard]] -- idempotency testing is on the checklist for a reason
-- [[patterns/error-handling]] -- exception queues and error path testing are checklist items
-- [[patterns/mock-data-strategy]] -- verify mock flag is absent from prod config
-- [[patterns/correlation-id]] -- verify correlation ID is wired through before release
+- [[idempotency-guard]] -- idempotency testing is on the checklist for a reason
+- [[error-handling]] -- exception queues and error path testing are checklist items
+- [[mock-data-strategy]] -- verify mock flag is absent from prod config
+- [[correlation-id]] -- verify correlation ID is wired through before release

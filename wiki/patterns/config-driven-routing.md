@@ -50,6 +50,6 @@ Source: Derived from integration extensibility patterns. Validated in multi-form
 
 ## Related
 
-- [[patterns/mock-data-strategy]] -- mock configs can test new types before real data arrives
-- [[patterns/error-handling]] -- unknown types (no config found) are unrecoverable errors
-- [[decisions/multi-format-ingest-strategy]] -- config-driven routing is the core of the hybrid ingest approach
+- [[mock-data-strategy]] -- mock configs can test new types before real data arrives
+- [[error-handling]] -- unknown types (no config found) are unrecoverable errors
+- [[multi-format-ingest-strategy]] -- config-driven routing is the core of the hybrid ingest approach
