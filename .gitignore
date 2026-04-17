@@ -43,14 +43,21 @@ apps/*/app.yaml
 
 # Private apps -- not part of public release
 apps/social-scout/
-apps/prepitch/backend/
-apps/prepitch/frontend/
-apps/prepitch/e2e/
-apps/prepitch/docker-compose.yml
-apps/prepitch/MA_ACQUISITION_KNOWLEDGE_BASE.md
+apps/prepitch/
+apps/getrankedlocal/
+apps/care-agent-evaluator/
+
+# Private clients -- never committed
+clients/restorefast/
+clients/power-platform-dashboard/
+clients/experity/
+clients/aviation-dispatch/
 
 # Private wiki — never committed
 wiki-private/
+
+# Chrome extensions -- proprietary scraping/engagement tooling
+extensions/
 
 # Tools -- tool.yaml is NOT gitignored (no secrets, just config)
 # But tool-specific research dirs are
@@ -69,3 +76,8 @@ docs/research/
 
 # Scout CSV reports
 raw/*.csv
+
+# Raw processed files may contain secrets/session data
+raw/processed/
+raw/next-session.md
+raw/eval-*.md
