@@ -12,6 +12,7 @@
 | [[bidgeniusai]] | examples | AI-powered RFP bidding tool that analyzes requests and generates competitive bids |
 | [[claude-desktop]] | tools | Claude Desktop accesses Rebar knowledge base through MCP filesystem server |
 | [[claude-json-extraction]] | patterns | 3-tier fallback for extracting JSON from Claude responses that wrap in markdown fences |
+| [[claude-skills-library]] | tools | 235 production-ready Claude Code skills (MIT); Rebar uses the 44-skill marketing pod for blog writing, social content, and SEO |
 | [[cloudflare-pages-deploy]] | patterns | Deploy static sites to Cloudflare Pages via wrangler CLI with project limit management |
 | [[command-flow]] | diagrams | Visual flows showing how Rebar commands chain together during client onboarding |
 | [[commands]] | how-it-works | Rebar's 26 slash commands across client/app management, dev workflow, wiki, and the self-learning harness (/close-loop, /meta-improve, /meta-apply) |
@@ -56,6 +57,7 @@
 | [[paperclip-integration]] | how-it-works | Paperclip AI agent orchestration managing Claude Code child processes |
 | [[persistent-browser-context]] | patterns | Google Maps requires session cookies; use persistent browser context |
 | [[pre-release-checklist]] | patterns | Minimum checklist before releasing any integration or service to production |
+| [[publishing-pipeline]] | platform | End-to-end content publishing via blog-writer Paperclip agent + cross-post.sh distributing to 6 channels |
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
 | [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
@@ -69,6 +71,7 @@
 | [[self-learn-loop]] | how-it-works | Core feedback mechanism where raw observations accumulate through normal work |
 | [[session-2026-04-14]] | decisions | Discord scout build, LinkedIn reply fix, Paperclip agent sync, scout server resilience |
 | [[session-2026-04-15]] | decisions | PrePitch rubrics (44 criteria), debrief disconnect fix, wiki-private, app onboarding, next-session plan |
+| [[session-2026-04-16]] | decisions | Claude Skills Library adoption, blog-writer agent build, cross-post.sh for 6-channel distribution, PrePitch Sprint 3 |
 | [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
 | [[service-marketplace]] | examples | Niche-agnostic service marketplace with JSON-based vertical config and Stripe |
 | [[site-builder]] | examples | Google Maps listing to deployed React website in 60 seconds with AI content |

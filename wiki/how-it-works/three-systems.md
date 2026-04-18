@@ -47,6 +47,8 @@ The site-builder project discovered that Cloudflare Pages project names must be 
 
 3. **wiki** -- If the naming constraint is relevant to other projects, `/wiki-file cloudflare-naming` creates a wiki page explaining the pattern. Next time any project hits this, the wiki has the answer.
 
+Source: CLAUDE.md | Updated: 2026-04-18
+
 ## Related
 
 - [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge

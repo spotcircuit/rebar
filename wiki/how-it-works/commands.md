@@ -135,6 +135,8 @@ Enhanced planning with parallel context gathering. Deploys 8 scout agents (3 dee
 ### `/build-parallel <plan-file>`
 Parallel implementation. Reads a plan file and delegates file creation to parallel build agents, each handling one file with detailed specs. Faster than sequential `/build` for multi-file features.
 
+Source: .claude/commands/ + CLAUDE.md | Updated: 2026-04-18
+
 ## Related
 
 - [The Self-Learn Loop](self-learn-loop.md) -- How `/improve` drives the feedback cycle
