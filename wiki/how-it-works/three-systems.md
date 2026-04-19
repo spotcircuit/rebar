@@ -53,4 +53,4 @@ Source: CLAUDE.md | Updated: 2026-04-18
 
 - [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge
 - [Commands](commands.md) -- Which commands update which system
-- [Site Builder](../examples/site-builder.md) -- Real project showing all three systems in use
+- [[site-builder]] -- Real project showing all three systems in use

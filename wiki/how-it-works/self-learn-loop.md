@@ -82,4 +82,4 @@ Source: CLAUDE.md | Updated: 2026-04-18
 
 - [Three Knowledge Systems](three-systems.md) -- Where expertise.yaml fits alongside memory and wiki
 - [Commands](commands.md) -- `/improve`, `/brief`, and other commands that drive the loop
-- [Site Builder](../examples/site-builder.md) -- Four sessions showing the loop in action
+- [[site-builder]] -- Four sessions showing the loop in action
