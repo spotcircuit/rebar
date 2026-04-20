@@ -47,6 +47,6 @@ Source: Derived from integration reliability patterns. Validated in event-driven
 
 ## Related
 
-- [[patterns/correlation-id]] -- pair with correlation ID for full traceability
-- [[patterns/error-handling]] -- error path must still write status back
-- [[patterns/pre-release-checklist]] -- idempotency must be tested before release
+- [[correlation-id]] -- pair with correlation ID for full traceability
+- [[error-handling]] -- error path must still write status back
+- [[pre-release-checklist]] -- idempotency must be tested before release
