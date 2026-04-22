@@ -40,8 +40,6 @@
 | [[jira-integration]] | tools | Connect Rebar to Jira for automatic ticket context using MCP Jira server |
 | [[karpathy-wiki-comparison]] | decisions | Comparison of Karpathy's LLM Wiki pattern against three-system knowledge architecture |
 | [[lead-finder]] | examples | Multi-source real estate lead prospecting with Playwright scraping and Claude Haiku |
-| [[linkedin-2026-04-09]] | engagement | 43 comments across 22 threads from LinkedIn discussions on April 9, 2026 |
-| [[linkedin-2026-04-10]] | engagement | 3 comments across 3 threads from LinkedIn discussions on April 10, 2026 |
 | [[linkedin-post-2026-04-08]] | engagement | LinkedIn post about engineers burning time figuring out client stacks |
 | [[linkedin-post-2026-04-09]] | engagement | LinkedIn post about full project context on day one |
 | [[linkedin-threads]] | engagement | All LinkedIn conversations grouped by post across multiple threads |
@@ -61,9 +59,6 @@
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
 | [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
-| [[reddit-2026-04-09]] | engagement | 5 comments across 5 threads from Reddit discussions on April 9, 2026 |
-| [[reddit-2026-04-10]] | engagement | 10 comments across 3 threads from Reddit discussions on April 10, 2026 |
-| [[reddit-2026-04-11]] | engagement | 10 comments across 5 threads from Reddit discussions on April 11, 2026 |
 | [[reddit-publishing-pipeline]] | platform | reddit-publish.py: generate, humanize, flair, draft/post to Reddit |
 | [[reddit-threads]] | engagement | All Reddit conversations grouped by post across multiple threads |
 | [[redis-circuit-breaker]] | patterns | Fall back to direct Okta validation when Redis/ElastiCache is unreachable |
@@ -81,7 +76,6 @@
 | [[slack-deploy-approval-audit]] | platform | :rocket: reaction approval needs visible confirmation and audit trail |
 | [[slack-integration]] | tools | Capture tribal knowledge from Slack channels into Rebar wiki |
 | [[social-outreach-extensions]] | platform | Chrome extensions for LinkedIn and Reddit integration with scout server |
-| [[social-post-2026-04-10]] | engagement | LinkedIn and Facebook post about engineering teams losing first two weeks onboarding |
 | [[sopify]] | examples | Converts Loom videos into structured Notion SOPs with keyword search |
 | [[spotcircuit-services]] | examples | SpotCircuit agentic AI engineering practice with six revenue streams |
 | [[teams-transcript-ingestion]] | platform | Microsoft Graph API polling for Teams transcripts with 30-day retention |
