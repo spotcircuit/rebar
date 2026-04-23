@@ -4,12 +4,8 @@
 |------|----------|---------|
 | [[acme-integration]] | examples | Enterprise client engagement using Node-RED-based trade compliance platform |
 | [[act-learn-reuse-testing]] | patterns | Self-improving test workflow that runs tests, extracts failures, feeds knowledge into expertise.yaml |
-| [[aduplanner]] | examples | AI-powered ADU planning using GPT-4 Vision to analyze satellite imagery |
-| [[agentic-agent]] | examples | Production web-based multi-agent orchestration managing multiple Claude Code agents |
 | [[ai-content-pipeline]] | examples | Hybrid AI approach using Claude Sonnet for copy and Gemini 2.5 Flash for images |
-| [[airecruiter]] | examples | AI recruiting platform with ATS pipeline, resume parsing, automated outreach |
 | [[architecture]] | diagrams | Visual overview of how Rebar components connect and interact |
-| [[bidgeniusai]] | examples | AI-powered RFP bidding tool that analyzes requests and generates competitive bids |
 | [[claude-desktop]] | tools | Claude Desktop accesses Rebar knowledge base through MCP filesystem server |
 | [[claude-json-extraction]] | patterns | 3-tier fallback for extracting JSON from Claude responses that wrap in markdown fences |
 | [[claude-skills-library]] | tools | 235 production-ready Claude Code skills (MIT); Rebar uses the 44-skill marketing pod for blog writing, social content, and SEO |
@@ -18,25 +14,19 @@
 | [[commands]] | how-it-works | Rebar's 26 slash commands across client/app management, dev workflow, wiki, and the self-learning harness (/close-loop, /meta-improve, /meta-apply) |
 | [[config-driven-routing]] | patterns | Routing logic as data with processing rules in configuration rather than code branches |
 | [[correlation-id]] | patterns | Unique identifier passed through every step for traceable execution across services |
-| [[demo-corp]] | examples | Synthesized knowledge from sprint planning, Slack, and Jira for deployment automation |
 | [[demo-corp-sprint-14]] | clients | Sprint 14 overview: DORA metrics, notifications, audit trail, transcript ingestion |
 | [[demo-corp-team]] | people | Sarah Chen (CTO), Marcus Rivera (TL), Priya Patel, James Kim, Brian |
 | [[dora-denormalization]] | decisions | Denormalize Jira ticket numbers into deployments table at write time for fast DORA queries |
 | [[dora-metrics-definitions]] | platform | Four DORA metrics: deploy frequency, lead time, change failure rate, MTTR |
-| [[drcoins]] | examples | E-commerce platform for LiveMe Coins and Nobility Points with Next.js 15.5 |
 | [[ecs-health-check-grace-period]] | patterns | Health endpoints fail during ECS cold start when Redis isn't reachable yet |
 | [[error-handling]] | patterns | Structured approach to catching, logging, and recovering from errors in multi-step flows |
-| [[excel-to-platform-migration]] | patterns | Methodology for replacing Excel-based tools with centralized platform |
-| [[grid-search-system]] | platform | 169-point geographic market intelligence system for Google Maps ranking analysis |
 | [[getting-started]] | how-it-works | 15-minute walkthrough from clone to working framework with prerequisites |
 | [[github-integration]] | tools | Rebar works with GitHub through MCP GitHub server for repo structure and CI results |
 | [[headless-detection-bypass]] | patterns | Three lines of JS to detect headless Chrome using CSS system colors |
 | [[health-endpoint-startup-grace]] | decisions | Return degraded health status during startup instead of failing |
 | [[idempotency-guard]] | patterns | Prevents the same record or event from being processed more than once |
 | [[in-memory-job-storage]] | decisions | Site builder uses in-memory job dict instead of a database |
-| [[infrastructure]] | how-it-works | Shared deployment infrastructure across all SpotCircuit apps with deployment matrix |
 | [[inline-editor-pattern]] | patterns | Post-generation editing with live iframe preview and structured data modification |
-| [[invoicedb]] | examples | Invoice database management with agentic AI workflows and ADW integration |
 | [[jira-integration]] | tools | Connect Rebar to Jira for automatic ticket context using MCP Jira server |
 | [[karpathy-wiki-comparison]] | decisions | Comparison of Karpathy's LLM Wiki pattern against three-system knowledge architecture |
 | [[lead-finder]] | examples | Multi-source real estate lead prospecting with Playwright scraping and Claude Haiku |
