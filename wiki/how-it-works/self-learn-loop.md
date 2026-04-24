@@ -76,8 +76,10 @@ The loop works because observations are cheap to write and expensive to promote.
 - Stale information gets cleaned up instead of rotting in a doc.
 - Expertise.yaml stays accurate because every fact in it has been validated at least once.
 
+Source: CLAUDE.md | Updated: 2026-04-18
+
 ## Related
 
 - [Three Knowledge Systems](three-systems.md) -- Where expertise.yaml fits alongside memory and wiki
 - [Commands](commands.md) -- `/improve`, `/brief`, and other commands that drive the loop
-- [Site Builder](../examples/site-builder.md) -- Four sessions showing the loop in action
+- [[site-builder]] -- Four sessions showing the loop in action

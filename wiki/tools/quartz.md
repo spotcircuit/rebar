@@ -109,6 +109,8 @@ The script syncs these wiki subdirectories:
 
 The `raw/` directory is never synced (it contains unprocessed intake files).
 
+Source: scripts/wiki-sync.sh + jackyzha0/quartz docs | Updated: 2026-04-19
+
 ## Related
 
 - [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian

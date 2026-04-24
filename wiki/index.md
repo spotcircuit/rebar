@@ -2,7 +2,9 @@
 
 | Page | Category | Summary |
 |------|----------|---------|
+| [[acme-integration]] | examples | Enterprise client engagement using Node-RED-based trade compliance platform |
 | [[act-learn-reuse-testing]] | patterns | Self-improving test workflow that runs tests, extracts failures, feeds knowledge into expertise.yaml |
+| [[ai-content-pipeline]] | examples | Hybrid AI approach using Claude Sonnet for copy and Gemini 2.5 Flash for images |
 | [[architecture]] | diagrams | Visual overview of how Rebar components connect and interact |
 | [[claude-desktop]] | tools | Claude Desktop accesses Rebar knowledge base through MCP filesystem server |
 | [[claude-json-extraction]] | patterns | 3-tier fallback for extracting JSON from Claude responses that wrap in markdown fences |
@@ -12,18 +14,23 @@
 | [[commands]] | how-it-works | Rebar's 26 slash commands across client/app management, dev workflow, wiki, and the self-learning harness (/close-loop, /meta-improve, /meta-apply) |
 | [[config-driven-routing]] | patterns | Routing logic as data with processing rules in configuration rather than code branches |
 | [[correlation-id]] | patterns | Unique identifier passed through every step for traceable execution across services |
+| [[demo-corp-sprint-14]] | clients | Sprint 14 overview: DORA metrics, notifications, audit trail, transcript ingestion |
 | [[demo-corp-team]] | people | Sarah Chen (CTO), Marcus Rivera (TL), Priya Patel, James Kim, Brian |
+| [[dora-denormalization]] | decisions | Denormalize Jira ticket numbers into deployments table at write time for fast DORA queries |
 | [[dora-metrics-definitions]] | platform | Four DORA metrics: deploy frequency, lead time, change failure rate, MTTR |
 | [[ecs-health-check-grace-period]] | patterns | Health endpoints fail during ECS cold start when Redis isn't reachable yet |
 | [[error-handling]] | patterns | Structured approach to catching, logging, and recovering from errors in multi-step flows |
 | [[getting-started]] | how-it-works | 15-minute walkthrough from clone to working framework with prerequisites |
 | [[github-integration]] | tools | Rebar works with GitHub through MCP GitHub server for repo structure and CI results |
 | [[headless-detection-bypass]] | patterns | Three lines of JS to detect headless Chrome using CSS system colors |
+| [[health-endpoint-startup-grace]] | decisions | Return degraded health status during startup instead of failing |
 | [[idempotency-guard]] | patterns | Prevents the same record or event from being processed more than once |
+| [[in-memory-job-storage]] | decisions | Site builder uses in-memory job dict instead of a database |
 | [[inline-editor-pattern]] | patterns | Post-generation editing with live iframe preview and structured data modification |
 | [[jira-integration]] | tools | Connect Rebar to Jira for automatic ticket context using MCP Jira server |
 | [[managed-agents-setup]] | platform | Anthropic `ant` CLI for managed agents — scout + comment + post pipeline |
 | [[mock-data-strategy]] | patterns | Testing integration flows without real API calls using config-controlled mock toggles |
+| [[multi-format-ingest-strategy]] | decisions | Handling incoming data in multiple formats with config-driven mapping or AI drafting |
 | [[obsidian]] | tools | Rebar wiki folder is fully compatible Obsidian vault with graph view |
 | [[paperclip]] | tools | Local agent management running Rebar's 7 autonomous agents with heartbeat schedules |
 | [[paperclip-integration]] | how-it-works | Paperclip AI agent orchestration managing Claude Code child processes |
@@ -31,13 +38,18 @@
 | [[pre-release-checklist]] | patterns | Minimum checklist before releasing any integration or service to production |
 | [[publishing-pipeline]] | platform | End-to-end content publishing via blog-writer Paperclip agent + cross-post.sh distributing to 6 channels |
 | [[quartz]] | tools | Quartz turns wiki markdown into searchable website deployed via GitHub Pages |
+| [[rebar-example-apps]] | decisions | Plan to add Node-RED automation example and more BUILD_JOURNALs to public repo |
 | [[rebar-onboarding-walkthrough]] | patterns | Standard walkthrough for onboarding new engineers to Rebar |
 | [[reddit-publishing-pipeline]] | platform | reddit-publish.py: generate, humanize, flair, draft/post to Reddit |
 | [[redis-circuit-breaker]] | patterns | Fall back to direct Okta validation when Redis/ElastiCache is unreachable |
 | [[scout-build-verify]] | patterns | Three-agent workflow: scout analyzes, builder implements, verifier validates |
 | [[self-learn-loop]] | how-it-works | Core feedback mechanism where raw observations accumulate through normal work |
-| [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
+| [[session-2026-04-15]] | decisions | PrePitch rubrics (44 criteria), debrief disconnect fix, wiki-private, app onboarding, next-session plan |
 | [[session-2026-04-16]] | decisions | Claude Skills Library adoption, blog-writer agent build, cross-post.sh for 6-channel distribution, PrePitch Sprint 3 |
+| [[service-fit-classification]] | platform | Broken keyword matching — everything shows "No Fit", needs Claude-based classification |
+| [[site-builder]] | examples | Google Maps listing to deployed React website in 60 seconds with AI content |
+| [[site-builder-overview]] | examples | Working product built across four Claude Code sessions accumulating expertise |
+| [[site-builder-session-3]] | clients | Maps scraper, Claude JSON, website scraper, Cloudflare deploy progress |
 | [[slack-block-kit-pagination]] | platform | Paginate deploy summaries into parent message + thread reply under 50-block limit |
 | [[slack-deploy-approval-audit]] | platform | :rocket: reaction approval needs visible confirmation and audit trail |
 | [[slack-integration]] | tools | Capture tribal knowledge from Slack channels into Rebar wiki |

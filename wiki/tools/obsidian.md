@@ -85,6 +85,8 @@ Source: who confirmed, when, or raw/filename
 - [[another-page]] -- how it relates
 ```
 
+Source: scripts/sync-obsidian.sh + CLAUDE.md | Updated: 2026-04-19
+
 ## Related
 
 - [Quartz](quartz.md) -- render the wiki as a website

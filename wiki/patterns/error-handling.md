@@ -38,6 +38,6 @@ Source: Derived from production integration reliability patterns. Validated in m
 
 ## Related
 
-- [[patterns/correlation-id]] -- correlationId is required in every error log
-- [[patterns/idempotency-guard]] -- idempotency guard relies on error path writing correct status
-- [[patterns/pre-release-checklist]] -- exception queues must be configured and owned before release
+- [[correlation-id]] -- correlationId is required in every error log
+- [[idempotency-guard]] -- idempotency guard relies on error path writing correct status
+- [[pre-release-checklist]] -- exception queues must be configured and owned before release
