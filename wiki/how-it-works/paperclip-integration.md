@@ -85,3 +85,4 @@ Source: designed 2026-04-07 as bridge between Clarity framework and Paperclip or
 
 - [[site-builder-overview]] -- primary app managed by the Site Builder Agent
 - [[ai-content-pipeline]] -- pipeline that Site Builder Agent monitors
+- [[scout-build-verify]] -- three-agent pattern that Paperclip can orchestrate across heartbeat cycles

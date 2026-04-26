@@ -142,3 +142,5 @@ Source: .claude/commands/ + CLAUDE.md | Updated: 2026-04-18
 - [The Self-Learn Loop](self-learn-loop.md) -- How `/improve` drives the feedback cycle
 - [Three Knowledge Systems](three-systems.md) -- Which commands update which system
 - [[site-builder]] -- Commands used across four build sessions
+- [[architecture]] -- system diagram showing how commands connect to the four knowledge systems
+- [[command-flow]] -- visual flows for client onboarding and development cycles

@@ -36,3 +36,4 @@ Source: apps/site-builder build journal 2026-03
 - [[claude-json-extraction]] -- JSON extraction pattern extracted from this build
 - [[persistent-browser-context]] -- browser pattern extracted from this build
 - [[headless-detection-bypass]] -- detection bypass extracted from this build
+- [[websocket-progress-pattern]] -- real-time step progress during the 30-60s generation pipeline

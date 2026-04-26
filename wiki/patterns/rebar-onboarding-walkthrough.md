@@ -34,6 +34,7 @@ Mixing them creates something hard to query and hard to maintain.
 - [[three-systems]] -- detailed explanation of the three knowledge layers
 - [[self-learn-loop]] -- how expertise.yaml accumulates knowledge
 - [[commands]] -- which commands update which system
+- [[getting-started]] -- full 15-minute tutorial from clone to working framework
 
 ---
 Source: raw/example-transcript.md | Ingested: 2026-04-13
