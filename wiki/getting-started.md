@@ -1,5 +1,7 @@
 # Getting Started
 
+#getting-started #onboarding #tutorial
+
 A 15-minute walkthrough from clone to working framework.
 
 ## Prerequisites

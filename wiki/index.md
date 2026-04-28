@@ -2,6 +2,7 @@
 
 | Page | Category | Summary |
 |------|----------|---------|
+| [[README]] | root | Human-readable introduction to the Rebar wiki — entry point for evaluators and new engineers |
 | [[acme-integration]] | examples | Enterprise client engagement using Node-RED-based trade compliance platform |
 | [[act-learn-reuse-testing]] | patterns | Self-improving test workflow that runs tests, extracts failures, feeds knowledge into expertise.yaml |
 | [[ai-content-pipeline]] | examples | Hybrid AI approach using Claude Sonnet for copy and Gemini 2.5 Flash for images |

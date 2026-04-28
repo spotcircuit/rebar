@@ -1,5 +1,7 @@
 # Paperclip Agent Orchestration
 
+#tools #paperclip #agents
+
 Paperclip is a local agent management system that runs Rebar's 7 autonomous agents. Each agent has a defined role, a heartbeat schedule, and a monthly budget cap. Paperclip handles scheduling, issue routing, and execution tracking.
 
 ## Architecture
