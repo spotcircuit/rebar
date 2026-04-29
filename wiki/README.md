@@ -83,3 +83,12 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
+
+Source: CLAUDE.md + wiki/index.md | Updated: 2026-04-29
+
+## Related
+
+- [[index]] -- master page list with summaries and categories
+- [[getting-started]] -- 15-minute tutorial for new engineers
+- [[three-systems]] -- why the framework uses three separate knowledge systems
+- [[self-learn-loop]] -- how observations compound over time
