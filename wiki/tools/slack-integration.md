@@ -191,6 +191,6 @@ Source: MCP Slack server, Slack export API
 
 ## Related
 
-- [Jira Integration](jira-integration.md) -- ticket context
-- [GitHub Integration](github-integration.md) -- code context
-- [Claude Desktop](claude-desktop.md) -- MCP server configuration
+- [[jira-integration]] -- ticket context
+- [[github-integration]] -- code context
+- [[claude-desktop]] -- MCP server configuration

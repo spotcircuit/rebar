@@ -93,6 +93,6 @@ Source: CLAUDE.md + scripts/sync-obsidian.sh | Updated: 2026-04-18
 
 ## Related
 
-- [Obsidian](obsidian.md) -- local wiki editing
-- [Quartz](quartz.md) -- wiki as a website
-- [Paperclip](paperclip.md) -- agent orchestration
+- [[obsidian]] -- local wiki editing
+- [[quartz]] -- wiki as a website
+- [[paperclip]] -- agent orchestration

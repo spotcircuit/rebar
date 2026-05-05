@@ -91,6 +91,6 @@ Source: scripts/sync-obsidian.sh + CLAUDE.md | Updated: 2026-04-19
 
 ## Related
 
-- [Quartz](quartz.md) -- render the wiki as a website
-- [Wiki Commands](../how-it-works/commands.md#wiki-management) -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
-- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits
+- [[quartz]] -- render the wiki as a website
+- [[commands]] -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
+- [[three-systems]] -- where the wiki fits

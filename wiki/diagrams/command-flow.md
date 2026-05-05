@@ -173,6 +173,6 @@ Source: CLAUDE.md + .claude/commands/ | Updated: 2026-04-18
 
 ## Related
 
-- [Architecture](architecture.md) -- system-level diagrams
-- [Commands](../how-it-works/commands.md) -- full command reference
-- [Paperclip](../tools/paperclip.md) -- agent setup
+- [[architecture]] -- system-level diagrams
+- [[commands]] -- full command reference
+- [[paperclip]] -- agent setup

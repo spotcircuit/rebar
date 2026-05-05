@@ -53,7 +53,7 @@ Source: CLAUDE.md | Updated: 2026-04-18
 
 ## Related
 
-- [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge
-- [Commands](commands.md) -- Which commands update which system
+- [[self-learn-loop]] -- How expertise.yaml accumulates knowledge
+- [[commands]] -- Which commands update which system
 - [[site-builder]] -- Real project showing all three systems in use
 - [[claude-desktop]] -- accesses all three knowledge systems via MCP filesystem server

@@ -144,6 +144,6 @@ Source: MCP Atlassian server docs, tested with Jira Cloud
 
 ## Related
 
-- [GitHub Integration](github-integration.md) -- PR and CI context
-- [Slack Integration](slack-integration.md) -- team communication context
-- [Claude Desktop](claude-desktop.md) -- MCP server configuration
+- [[github-integration]] -- PR and CI context
+- [[slack-integration]] -- team communication context
+- [[claude-desktop]] -- MCP server configuration
