@@ -21,7 +21,6 @@ Automated ingestion of Teams meeting transcripts via Microsoft Graph API.
 ## Related
 
 - [[demo-corp-sprint-14]] -- DEMO-482
-- [[slack-integration]] -- companion platform for capturing team communication into the wiki
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

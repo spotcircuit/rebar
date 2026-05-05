@@ -1,7 +1,5 @@
 # Architecture Diagrams
 
-#diagrams #architecture #overview
-
 Visual overview of how the Rebar components connect.
 
 ## Overall Architecture
@@ -245,8 +243,6 @@ Paperclip triggers each agent on its cron schedule. The Triage Agent runs every 
 **Note on networking:** Paperclip binds `127.0.0.1:3100` (WSL loopback only). Windows browser access requires the WSL eth0 IP — get it via `bash scripts/wsl-ip.sh paperclip`.
 
 **AGENTS.md discipline:** every agent's instruction bundle carries a mandatory cwd preamble so close-loop artifacts always land in the canonical rebar repo, never stale copies. Source of truth is `system/agents/_agents-md-preamble.md`; `paperclip-sync.sh preamble` self-heals all 43+ agents.
-
-Source: CLAUDE.md + system/paperclip.yaml | Updated: 2026-04-18
 
 ## Related
 

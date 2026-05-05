@@ -1,7 +1,5 @@
 # Obsidian Integration
 
-#tools #obsidian #wiki #knowledge-base
-
 The Rebar wiki folder (`wiki/`) is a fully compatible Obsidian vault. You can browse, edit, and link wiki pages in Obsidian's graph view while the framework continues to manage them programmatically.
 
 ## How It Works
@@ -87,10 +85,8 @@ Source: who confirmed, when, or raw/filename
 - [[another-page]] -- how it relates
 ```
 
-Source: scripts/sync-obsidian.sh + CLAUDE.md | Updated: 2026-04-19
-
 ## Related
 
-- [[quartz]] -- render the wiki as a website
-- [[commands]] -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
-- [[three-systems]] -- where the wiki fits
+- [Quartz](quartz.md) -- render the wiki as a website
+- [Wiki Commands](../how-it-works/commands.md#wiki-management) -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
+- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits

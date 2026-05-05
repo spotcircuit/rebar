@@ -8,6 +8,8 @@
 
 # Credentials — never commit even to private
 clients/*/.env
+clients/*/.gws-token.json
+clients/*/.gws-oauth-pending.json
 apps/**/.env
 system/.env
 **/.env.local
@@ -43,3 +45,10 @@ Thumbs.db
 
 # Workspace/backup branches
 .paperclip/instances/default/workspaces/
+
+# Large client artifacts that shouldn't be in git (regenerable / source-from-elsewhere)
+# AfterQuery practice repo + downloaded zips — multi-hundred-MB, can't ship to GitHub
+clients/afterquery/repo/
+clients/afterquery/pydantic-assessment.zip
+clients/afterquery/bp-pydantic-task-01*.zip
+

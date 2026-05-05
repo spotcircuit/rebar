@@ -4,13 +4,14 @@
 [![Commands](https://img.shields.io/badge/commands-26-green.svg)](.claude/commands/)
 [![Skills](https://img.shields.io/badge/skills-6-blueviolet.svg)](.claude/skills/)
 [![MCP](https://img.shields.io/badge/MCP-17%20tools-orange.svg)](https://github.com/spotcircuit/rebar-mcp)
-[![Wiki](https://img.shields.io/badge/docs-live-brightgreen.svg)](https://getrebar.dev)
+[![Landing](https://img.shields.io/badge/landing-getrebar.dev-brightgreen.svg)](https://getrebar.dev)
+[![Wiki](https://img.shields.io/badge/wiki-public-blue.svg)](https://spotcircuit.github.io/rebar-wiki-site/)
 
 **Structural memory for Claude Code (and any MCP-compatible editor).**
 
 Claude Code forgets everything between sessions. Rebar fixes that. 26 slash commands, 6 tactical skills, and a close-loop harness that captures, validates, and compounds project knowledge across sessions. You explain your project once. Every session after that starts with full context.
 
-**[Browse the Docs](https://getrebar.dev)** | [Getting Started](wiki/getting-started.md) | [All Commands](wiki/how-it-works/commands.md) | [Examples](wiki/examples/)
+**[Landing page](https://getrebar.dev)** · **[Public Wiki](https://spotcircuit.github.io/rebar-wiki-site/)** · [Getting Started](wiki/getting-started.md) · [All Commands](wiki/how-it-works/commands.md) · [Architecture + Diagrams](https://spotcircuit.github.io/rebar-wiki-site/diagrams/architecture)
 
 ## How it hangs together
 

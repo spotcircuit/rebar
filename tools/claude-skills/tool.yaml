@@ -28,35 +28,62 @@ dependencies:
   - "Python 3.x (for analysis scripts — no ML deps, stdlib only)"
 
 # ---------------------------------------------------------------------------
-# Integrated skills — copied from upstream into rebar/.claude/skills/<name>/
+# Integrated skills — copied from upstream into rebar/.claude/skills/<category>/<name>/
 # Refresh with: bash scripts/update-skills.sh
 # Each skill has a _rebar-integration.md sidecar explaining where it plugs in.
+# Layout follows the Hermes-style folder taxonomy (each category has DESCRIPTION.md
+# at its root — see .claude/skills/<category>/DESCRIPTION.md).
+# Restructured: 2026-05-01 (CON-125)
 # ---------------------------------------------------------------------------
 integrated_skills:
   content-strategy:
+    path: ".claude/skills/content/content-strategy"
     fixes: "blog-writer one-off posts with no topic arc / editorial calendar"
     invoked_by: [blog-writer, gtm-agent]
     added: "2026-04-17"
   content-production:
+    path: ".claude/skills/content/content-production"
     fixes: "generic drafting; 5 modes (outline, draft, optimize, audience, publish)"
     invoked_by: [blog-writer, social-media-agent]
     added: "2026-04-17"
   content-humanizer:
+    path: ".claude/skills/content/content-humanizer"
     fixes: "agents had no rewrite playbook when humanizer gate fails; scripts detected but didn't fix"
     invoked_by: [blog-writer, outreach-agent, social-media-agent]
     added: "2026-04-17"
   ai-seo:
+    path: ".claude/skills/social-media/ai-seo"
     fixes: "posts ship without GEO (generative engine optimization for ChatGPT/Perplexity/Claude citations)"
     invoked_by: [blog-writer, gtm-agent]
     added: "2026-04-17"
   copywriting:
+    path: ".claude/skills/content/copywriting"
     fixes: "weak hooks, headlines, CTAs across blog-writer / social-media-agent / outreach-agent"
     invoked_by: [blog-writer, social-media-agent, outreach-agent]
     added: "2026-04-17"
   launch-strategy:
+    path: ".claude/skills/social-media/launch-strategy"
     fixes: "gtm-agent generic weekly output; no launch-phase awareness"
     invoked_by: [gtm-agent, blog-writer]
     added: "2026-04-17"
+
+# ---------------------------------------------------------------------------
+# _optional/ tier (Hermes-style shipped-but-off skills)
+# Path: .claude/skills/_optional/
+# Skills under _optional/ are shipped on disk but NOT auto-loaded by Claude
+# Code's skill discovery and are EXCLUDED from CLAUDE.md MEMORY_GUIDANCE
+# skill-categories listing. Operators promote a skill into active use by
+# moving it: `mv .claude/skills/_optional/<skill> .claude/skills/<category>/<skill>/`.
+# update-skills.sh never places skills under _optional/ — the SKILLS mapping
+# only targets real categories. See .claude/skills/_optional/DESCRIPTION.md.
+# Added: 2026-05-01 (CON-137)
+# ---------------------------------------------------------------------------
+optional_tier:
+  path: ".claude/skills/_optional/"
+  auto_loaded: false
+  excluded_from_memory_guidance: true
+  promote_command: "mv .claude/skills/_optional/<skill> .claude/skills/<category>/<skill>/"
+  contract_doc: ".claude/skills/_optional/DESCRIPTION.md"
 
 upgrade_command: "bash scripts/update-skills.sh"
 upgrade_notes: >

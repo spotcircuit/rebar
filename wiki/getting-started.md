@@ -1,7 +1,5 @@
 # Getting Started
 
-#getting-started #onboarding #tutorial
-
 A 15-minute walkthrough from clone to working framework.
 
 ## Prerequisites
@@ -223,9 +221,7 @@ Source: CLAUDE.md, wiki/README.md | Filed: 2026-04-15 | Updated: 2026-04-17
 
 ## Related
 
-- [[README]] -- wiki entry point for evaluators and new engineers
 - [[commands]] -- all 26 slash commands including the close-loop harness
 - [[three-systems]] -- why the framework uses YAML + memory + skills + wiki
 - [[self-learn-loop]] -- per-observation validation; see architecture.md for the per-feature harness
 - [[paperclip-integration]] -- autonomous agent orchestration layer
-- [[rebar-onboarding-walkthrough]] -- condensed onboarding checklist for new engineers

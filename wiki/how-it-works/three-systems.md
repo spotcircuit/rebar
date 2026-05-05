@@ -1,7 +1,5 @@
 # Four Knowledge Systems
 
-#how-it-works #knowledge-systems #architecture
-
 Rebar uses four separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
 
 ## The four systems
@@ -10,7 +8,7 @@ Rebar uses four separate knowledge systems. Each serves a different purpose, has
 |--------|--------|--------|------------|---------|
 | `expertise.yaml` | Operational data — architecture, API gotchas, pipeline state, test results | Structured YAML | `/improve`, `/discover`, `/brief` commands | "Cloudflare project names must be lowercase alphanumeric with hyphens" |
 | `.claude/memory/` | Behavioral rules — user preferences, guardrails, process rules | Markdown + frontmatter | Claude automatically when patterns emerge | "User prefers Railway for backend deploys" |
-| `.claude/skills/` | Tactical playbooks — content-humanizer, ai-seo, copywriting, content-strategy, content-production, launch-strategy | Markdown `SKILL.md` files with frontmatter + optional Python scripts | `scripts/update-skills.sh` (pulls from `alirezarezvani/claude-skills` upstream) | "Rewrite AI-shaped draft using the 12 voice techniques" |
+| `.claude/skills/` | Tactical playbooks organized by category folder (content/, social-media/, consulting/, devops/, …) — each category has a `DESCRIPTION.md`; populated skills today: content-strategy, content-production, content-humanizer, copywriting, ai-seo, launch-strategy | Markdown `SKILL.md` files with frontmatter + optional Python scripts | `scripts/update-skills.sh` (pulls from `alirezarezvani/claude-skills` upstream) | "Rewrite AI-shaped draft using the 12 voice techniques" |
 | `wiki/` | Synthesized knowledge — reusable patterns, decisions, concepts | Markdown with `[[wiki links]]` | `/wiki-file`, `/wiki-ingest`, `/wiki-lint` | "Correlation ID pattern for cross-service tracing" |
 
 ## Why four, not one
@@ -19,7 +17,7 @@ Rebar uses four separate knowledge systems. Each serves a different purpose, has
 
 **Memory is per-user and behavioral.** It answers "how does this user want me to work?" Things like commit message style, preferred tools, guardrails ("never run npm dev unless asked"). Claude updates it automatically. It is not project-specific.
 
-**Skills are per-task and tactical.** They answer "how do I actually do this specific job well?" Each `SKILL.md` in `.claude/skills/<name>/` is a playbook Claude Code auto-discovers by keyword and loads into context on demand. Rebar ships six marketing/content skills from the `alirezarezvani/claude-skills` upstream (11.3K ⭐). Refresh with `bash scripts/update-skills.sh`; sidecar `_rebar-integration.md` per skill explains which agent invokes it and where in the flow.
+**Skills are per-task and tactical.** They answer "how do I actually do this specific job well?" Each `SKILL.md` lives at `.claude/skills/<category>/<name>/` (Hermes-style folder taxonomy adopted 2026-05-01) and Claude Code auto-discovers it recursively by keyword. Categories include `content/`, `social-media/`, `consulting/`, `creative/`, `data-science/`, `devops/`, `knowledge/`, `productivity/`, `research/`, `software-development/`, `autonomous-ai-agents/`, plus per-app folders under `apps/`. Each category has a `DESCRIPTION.md` summarizing what lives there. Rebar ships six populated skills from the `alirezarezvani/claude-skills` upstream (11.3K ⭐); refresh with `bash scripts/update-skills.sh`. Sidecar `_rebar-integration.md` per skill explains which agent invokes it and where in the flow.
 
 **Wiki is cross-project and durable.** It answers "has anyone figured this out before?" Patterns, decisions, and concepts that apply across multiple projects. When a project discovers something reusable, `/wiki-file` captures it permanently.
 
@@ -49,11 +47,8 @@ The site-builder project discovered that Cloudflare Pages project names must be 
 
 3. **wiki** -- If the naming constraint is relevant to other projects, `/wiki-file cloudflare-naming` creates a wiki page explaining the pattern. Next time any project hits this, the wiki has the answer.
 
-Source: CLAUDE.md | Updated: 2026-04-18
-
 ## Related
 
-- [[self-learn-loop]] -- How expertise.yaml accumulates knowledge
-- [[commands]] -- Which commands update which system
-- [[site-builder]] -- Real project showing all three systems in use
-- [[claude-desktop]] -- accesses all three knowledge systems via MCP filesystem server
+- [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge
+- [Commands](commands.md) -- Which commands update which system
+- [Site Builder](../examples/site-builder.md) -- Real project showing all three systems in use

@@ -6,6 +6,25 @@ Based on Andrej Karpathy's LLM Wiki pattern, extended with structured operationa
 
 ---
 
+## Skill Categories (auto-injected)
+
+Twelve skill categories live under `.claude/skills/`. Each has a `DESCRIPTION.md` summarizing its scope and load triggers. Read the matching `SKILL.md` (or category `DESCRIPTION.md`) before tackling work in that domain — **err on the side of loading**. When the user's request even loosely matches one of these categories, load the relevant skill before responding rather than re-deriving the playbook.
+
+- **apps/** — App-specific skills per rebar app (social-scout, cross-post, prepitch, goodcall-sync). Load when working inside `apps/{name}/` on bespoke flows.
+- **autonomous-ai-agents/** — Driving non-Claude runtimes (Codex, Hermes-agent, OpenCode). Load when dispatching work to or coordinating with another agent runtime.
+- **consulting/** — Client engagement playbooks: discovery, dogfooding vendor APIs, takeover assists, deliverable QA. Load inside `clients/{name}/` or for client-facing artifacts.
+- **content/** — Editorial planning, drafting, rewriting, copywriting (content-strategy, content-production, content-humanizer, copywriting). Load when producing or revising prose for publication.
+- **creative/** — Visual design, diagrams, sketches, design-system playbooks. Load when producing architecture diagrams, mockups, or slide layouts.
+- **data-science/** — Notebook-driven analysis, ETL patterns, live-kernel workflows. Load for exploratory analysis or repeatable extraction pipelines.
+- **devops/** — Paperclip orchestration, worker patterns, webhook subscriptions, runtime plumbing. Load when configuring routines, dispatching work, or wiring external triggers.
+- **knowledge/** — Wiki management, note-taking, LLM-friendly knowledge-base patterns. Load when curating `wiki/`, `wiki-private/`, or institutional memory.
+- **productivity/** — External-tool integrations: Airtable, Google Workspace, Linear, Notion, Maps, PDF tooling, OCR. Load when reading from or writing to a third-party SaaS surface.
+- **research/** — Long-form research workflows: arxiv mining, blog watching, prediction-market signals, paper writing. Load when producing research reports or monitoring topics over time.
+- **social-media/** — Distribution, generative engine optimization (ai-seo), launch cadence (launch-strategy). Load for short-form posts, threads, multi-channel campaigns, or AI-citation surfaces.
+- **software-development/** — Debugging harnesses (debug-node, debug-py), code-review checklists, language-specific dev playbooks. Load when debugging a runtime bug, reviewing code, or instrumenting a process.
+
+---
+
 ## Quick Start
 
 **For clients (external engagements):**
@@ -118,6 +137,50 @@ Six tactical skills from `alirezarezvani/claude-skills` (11.3K ⭐ MIT). Claude 
 **Upstream location:** `/home/spotcircuit/claude-skills/` (persistent WSL clone).
 
 **Explicitly NOT integrated** — see `tools/claude-skills/tool.yaml` `deliberately_not_integrated` for the full list and rationale. Short version: claude-skills' commands/ and agents/ collide with rebar's orchestration; engineering skills duplicate /plan, /build, /takeover; other marketing skills lack a current weak-output signal.
+
+---
+
+## Publishing blog posts — cross-post.sh
+
+The blog publishing pipeline lives in the **spotcircuit-site** repo, not rebar. Source path: `/home/spotcircuit/spotcircuit-site/scripts/`. Blog content (drafts/ready/published) lives in `clients/spotcircuit/blog/` in this repo.
+
+`/home/spotcircuit/spotcircuit-site/scripts/cross-post.sh <path/to/ready/slug.md>` runs the 6-step pipeline: humanizer gate → Gemini image → spotcircuit-site git push → Medium (CDP) → Substack (CDP) → LinkedIn Article (CDP) → LinkedIn Post (CDP) → Facebook (CDP). Steps 2-6 need a logged-in Chrome reachable over CDP.
+
+**Always ensure CDP Chrome before publishing.** `/home/spotcircuit/spotcircuit-site/scripts/ensure-cdp-chrome.sh` is called automatically by cross-post.sh now. Modes:
+
+- `--windowed` (default) — runs `C:\temp\chrome-debug.bat`, visible window, good for seeing LinkedIn CAPTCHAs / session expiry
+- `--headless` — `chrome.exe --headless=new` against the same profile dir (`C:\temp\chrome-debug`). Same auth cookies, no window. Silent failure on session expiry — seed cookies once via windowed first.
+- `--check` — probe only, don't launch
+
+Environment: `CHROME_CDP_URL` (default `http://172.20.240.1:9222`), `CROSS_POST_CDP_MODE` (default `windowed`).
+
+If CDP is down and the helper can't bring it up, cross-post.sh skips steps 2-6 with a clear report instead of ECONNRESETing each publisher. Step 1 (spotcircuit-site) still ships — the canonical URL is safe.
+
+**Calling an individual CDP publisher directly** (to recover a failed step): pass args positionally, never with `--canonical`:
+```bash
+python3 /home/spotcircuit/spotcircuit-site/scripts/publish-linkedin-article-cdp.py <markdown-path> <canonical-url> <image-path>
+```
+All three are positional. If you omit the image path, the article publishes without a cover image.
+
+## Publishing — private + public sync pattern
+
+Two remotes, one working tree. `origin` = `spotcircuit/rebar-private` (full); `public` = `spotcircuit/rebar` (whitelist-filtered framework).
+
+**When the user says "push," "publish," "sync to public," or "ship it" — use `scripts/publish-rebar.sh`. Never raw `git push`.**
+
+```bash
+bash scripts/publish-rebar.sh status         # what each remote needs
+bash scripts/publish-rebar.sh private        # commit + push to origin
+bash scripts/publish-rebar.sh public --dry   # preview public-safe diff
+bash scripts/publish-rebar.sh public         # publish (prompts y/N)
+bash scripts/publish-rebar.sh all            # private then public
+```
+
+The script: whitelist-driven (22 path patterns), deny-list fallback, scrubs `company_id`/`project_id` UUIDs from `system/paperclip.yaml` to placeholders, secrets scan (prefixed tokens only — no false-positive 40-char hash matches), sibling worktree at `/tmp/rebar-public-sync`, interactive confirmation before the actual `git push` to public.
+
+**Discipline:** always `--dry` first when pushing public. Commit private before public. Never force-push.
+
+**Sibling repos not covered** by this script — push separately: `/home/spotcircuit/create-rebar` (npm publish), `/home/spotcircuit/rebar-mcp` (npm publish), `/home/spotcircuit/getrebar-site` (git push origin).
 
 ---
 
@@ -287,43 +350,43 @@ Postgres (social.scouted_posts, social.drafted_comments)
 
 | File | Purpose |
 |---|---|
-| `tools/scout/scout-server.py` | API server (port 9876). Generates replies, manages drafts, runs scout jobs. |
-| `extensions/linkedin-scout/` | Chrome MV3 extension. Content scripts for LinkedIn, Reddit, Facebook. |
-| `system/outreach/scout-settings.yaml` | Usernames, port, generation rules, banned openers |
-| `system/outreach/reddit-strategy.yaml` | Subreddit configs, tone rules, rate limits, flair mappings |
-| `system/outreach/services.yaml` | Service definitions for fit classification |
-| `system/scout-state.json` | Commented posts tracker, last search timestamp |
+| `/home/spotcircuit/social-scout/server/scout-server.py` | API server (port 9876). Generates replies, manages drafts, runs scout jobs. |
+| `/home/spotcircuit/social-scout/extension/` | Chrome MV3 extension. Content scripts for LinkedIn, Reddit, Facebook. |
+| `/home/spotcircuit/social-scout/config/scout-settings.yaml` | Usernames, port, generation rules, banned openers |
+| `/home/spotcircuit/social-scout/config/reddit-strategy.yaml` | Subreddit configs, tone rules, rate limits, flair mappings |
+| `/home/spotcircuit/social-scout/config/services.yaml` | Service definitions for fit classification |
+| `/home/spotcircuit/social-scout/state/scout-state.json` | Commented posts tracker, last search timestamp (gitignored — local-only) |
 
 ### Starting Everything
 
 `C:\temp\chrome-debug.bat` auto-starts both Chrome and the scout server.
 
-For manual control, use `tools/scout/start-scout.sh`:
+For manual control, use `start-scout.sh` in the social-scout repo:
 
 ```bash
 # Start scout server (port 9876)
-bash tools/scout/start-scout.sh
+bash /home/spotcircuit/social-scout/server/start-scout.sh
 
 # Start Paperclip first, then scout
-bash tools/scout/start-scout.sh --paperclip
+bash /home/spotcircuit/social-scout/server/start-scout.sh --paperclip
 
 # Check status of scout, Postgres, Paperclip
-bash tools/scout/start-scout.sh --check
+bash /home/spotcircuit/social-scout/server/start-scout.sh --check
 
 # Stop / restart
-bash tools/scout/start-scout.sh stop
-bash tools/scout/start-scout.sh restart
+bash /home/spotcircuit/social-scout/server/start-scout.sh stop
+bash /home/spotcircuit/social-scout/server/start-scout.sh restart
 ```
 
 The outreach-agent acts as watchdog — its heartbeat (every 30 min) pings `/health` and restarts the server if it's down.
 
 ### Extension Deployment
 
-The source of truth is `extensions/linkedin-scout/`. To deploy changes to Chrome:
+The source of truth is `/home/spotcircuit/social-scout/extension/` (repo: `github.com/spotcircuit/social-scout`). To deploy changes to Chrome:
 ```bash
-cp extensions/linkedin-scout/scripts/*.js /mnt/c/temp/linkedin-scout/scripts/
-cp extensions/linkedin-scout/popup.html /mnt/c/temp/linkedin-scout/
-cp extensions/linkedin-scout/manifest.json /mnt/c/temp/linkedin-scout/
+cp /home/spotcircuit/social-scout/extension/scripts/*.js /mnt/c/temp/linkedin-scout/scripts/
+cp /home/spotcircuit/social-scout/extension/popup.html /mnt/c/temp/linkedin-scout/
+cp /home/spotcircuit/social-scout/extension/manifest.json /mnt/c/temp/linkedin-scout/
 ```
 Then reload the extension in `chrome://extensions/`.
 

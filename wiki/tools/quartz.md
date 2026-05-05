@@ -1,7 +1,5 @@
 # Quartz Wiki Site
 
-#tools #quartz #wiki
-
 Quartz turns the `wiki/` markdown into a searchable, navigable website. The framework includes a sync script that pushes wiki content to a Quartz repository, which deploys automatically via GitHub Pages.
 
 ## How It Works
@@ -110,8 +108,6 @@ The script syncs these wiki subdirectories:
 | `apps/` | Per-app knowledge |
 
 The `raw/` directory is never synced (it contains unprocessed intake files).
-
-Source: scripts/wiki-sync.sh + jackyzha0/quartz docs | Updated: 2026-04-19
 
 ## Related
 

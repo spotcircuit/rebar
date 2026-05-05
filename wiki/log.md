@@ -1,10 +1,6 @@
-# Wiki Log
+# Ingest Log
 
-Append-only processing log. Each entry records what was ingested, filed, or repaired and when.
-
----
-
-| Date | Action | File(s) | Notes |
-|------|--------|---------|-------|
-| 2026-05-03 | wiki-lint | tools/obsidian.md | Added missing #tags line |
-| 2026-05-03 | wiki-lint | log.md | Created missing log file |
+| Date | Source File | Pages Created | Pages Updated |
+|------|-------------|---------------|---------------|
+| 2026-04-18 | raw/eval-2026-04-18-prepitch-latency.md | 3 | 0 |
+| 2026-04-19 | raw/eval-2026-04-19-prepitch-playwright.md | 1 | 1 |

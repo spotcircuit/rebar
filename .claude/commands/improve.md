@@ -130,6 +130,30 @@ If over 1000 lines:
 - Compress `unvalidated_observations` — remove duplicates, summarize related observations
 - Never compress: `solution`, `data_model`, `implementation_patterns`, `team`
 
+**Pinned-bypass (Hermes curator parity):** When compressing
+`unvalidated_observations`, observations whose entry contains `pinned: true`
+are exempt — never deduplicated, never summarized, never dropped. Operators
+pin observations they want preserved verbatim regardless of cap pressure.
+
+Use the structured shape — authoritative definition at
+`wiki-private/platform/pinned-shape.md` (Shape B):
+
+```yaml
+unvalidated_observations:
+  - text: "AJS-301 sync stuck — root cause is timezone drift"
+    pinned: true
+    date: 2026-04-12
+```
+
+The legacy inline `[pinned]` tag form is deprecated. If found, honor it
+on read (treat as pinned) and migrate to the structured form on next
+write. Do not emit it from new code.
+
+If after compressing every non-pinned section the file is still over 1000
+lines, STOP and report the overflow in the run summary instead of touching
+pinned entries. The operator must intervene (unpin, split file, or raise the
+cap) — never silently strip pinned content.
+
 ---
 
 ## Step 5: Validate and Write

@@ -38,6 +38,7 @@ Build: PAGE_LIST (all pages) and LINK_MAP (page -> outgoing links).
 Find pages with no incoming links from other pages.
 - For every page, check if its filename (without .md) appears as a link target in any other page.
 - Exceptions: index.md and log.md are never orphans.
+- Low-link pages: flag any page with fewer than 2 outbound `[[wikilinks]]` (excluding index.md, log.md).
 
 ---
 
@@ -74,6 +75,17 @@ Verify every wiki page (except index.md, log.md) has an entry in wiki/index.md.
 
 - Missing tags: pages without `#tag` patterns (not headings).
 - Missing Related: pages without `## Related` section.
+- Oversized: pages exceeding 200 lines (split candidates) — `wc -l wiki/**/*.md`.
+
+---
+
+## Step 7.5: Filename Convention
+
+Flag any wiki page whose filename violates: lowercase, hyphens-only, no spaces or underscores.
+
+```bash
+find wiki/ -name "*.md" | grep -E "[A-Z _]" || true
+```
 
 ---
 
@@ -92,14 +104,14 @@ Only if user passed "fix":
 Wiki Lint Report
 ================
 
-Orphans: N
 Broken Links: N
-Stale: N
+Orphans: N
+Low-Link: N
 Contradictions: N
-Missing Pages: N
+Stale: N
 Index Gaps: N
-Missing Tags: N
-Missing Related: N
+Missing Pages: N
+Style (tags / related / naming / size): N
 
 Total issues: N
 ```

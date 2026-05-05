@@ -21,16 +21,18 @@ fi
 log "Syncing wiki/ to Quartz content/..."
 rm -rf "$QUARTZ_CONTENT"/*
 
-# Copy index
-cp "$WIKI_SRC/index.md" "$QUARTZ_CONTENT/index.md"
-
-# Copy all subdirectories
-for dir in patterns platform decisions clients people apps; do
-  if [ -d "$WIKI_SRC/$dir" ]; then
-    mkdir -p "$QUARTZ_CONTENT/$dir"
-    cp "$WIKI_SRC/$dir"/*.md "$QUARTZ_CONTENT/$dir/" 2>/dev/null || true
-  fi
+# Copy all top-level .md files (index, getting-started, log, README, etc.)
+for f in "$WIKI_SRC"/*.md; do
+  [ -e "$f" ] && cp "$f" "$QUARTZ_CONTENT/"
 done
+
+# Copy every subdirectory under wiki/ that contains .md files.
+# Discovered dynamically so new sections never silently drop out of the site.
+while IFS= read -r -d '' subdir; do
+  rel="${subdir#$WIKI_SRC/}"
+  mkdir -p "$QUARTZ_CONTENT/$rel"
+  cp "$subdir"/*.md "$QUARTZ_CONTENT/$rel/" 2>/dev/null || true
+done < <(find "$WIKI_SRC" -mindepth 1 -type d -print0)
 
 page_count=$(find "$QUARTZ_CONTENT" -name "*.md" | wc -l)
 log "Copied $page_count pages."

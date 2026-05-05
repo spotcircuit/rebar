@@ -113,6 +113,18 @@ fit_evaluation:
         - "content_planner.py"
       fit: "MEDIUM — useful if expanding to X beyond LinkedIn"
 
+    xurl:
+      path: ".claude/skills/social-media/xurl/ (rebar-local, ported 2026-05-01)"
+      upstream: "NousResearch/hermes-agent skills/social-media/xurl + xdevplatform/xurl"
+      what: "Official X CLI (OAuth 2.0 PKCE). post/reply/quote/delete + media upload + search + likes/reposts/bookmarks + follow + DMs."
+      fit: "HIGH — wired (patch deliverable) into cross-post.sh as Step 7, the 7th platform. API-based so independent of CDP."
+      cross_post_integration:
+        status: "skill shipped; cross-post.sh patch in raw/CON-131-xurl-cross-post-patch.md awaiting operator apply"
+        depends_on:
+          - "operator runs `xurl auth` once on host"
+          - "operator creates scripts/publish-x-xurl.py helper (follow-up issue)"
+        idempotency: "blog/published-x.json keyed by slug"
+
   secondary_useful_skills:
     - "copy-editing/ — readability scoring, polish"
     - "copywriting/ — headline scoring"

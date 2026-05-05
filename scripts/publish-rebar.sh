@@ -87,6 +87,8 @@ PUBLIC_DENY=(
   '^blog/'
   '^raw/'
   '^marketing-context\.md'
+  # Client-specific prime commands — hardcoded paths, never public
+  '^\.claude/commands/prime_'
   # Credentials + private state
   '\.env$'
   '^system/\.env$'

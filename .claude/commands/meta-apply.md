@@ -47,13 +47,35 @@ For each patch:
    - Pattern + occurrences + justification + blast radius
    - A preview diff: compute the diff the `old_string` → `new_string` substitution would produce
 
-2. **Ask the operator** (via AskUserQuestion or plain text question with yes/no):
+2. **Validate frontmatter (skill/agent targets only)** — BEFORE asking for approval, if
+   the target is a `.claude/skills/**/SKILL.md`, `.claude/commands/*.md`, or
+   `system/agents/*.yaml` file AND the patch touches the YAML frontmatter
+   block, run these checks against the **post-patch** content and reject the
+   patch outright if any fail. (Hermes curator parity — see
+   `wiki-private/platform/hermes-incorporation-action-items.md` P5.
+   Pinned-shape authority: `wiki-private/platform/pinned-shape.md`.)
+
+   - **MAX_NAME_LENGTH = 64** — `name:` field must be ≤ 64 chars
+   - **MAX_DESCRIPTION_LENGTH = 1024** — `description:` field must be ≤ 1024 chars
+   - **YAML structure** — frontmatter delimited by `---` lines, parses with
+     `python3 -c "import yaml; yaml.safe_load(open(path).read().split('---')[1])"`
+     without exception
+   - **name regex** — `^[a-z0-9][a-z0-9-]*[a-z0-9]$` (lowercase kebab-case, no
+     leading/trailing hyphen)
+   - **pinned bypass** — if existing frontmatter has `pinned: true` and the
+     patch is not an explicit pin/unpin action, REJECT automatically with
+     `pinned-skip` disposition. Pinned artifacts are operator-protected.
+
+   If any check fails, mark the patch as `frontmatter-rejected`, show the
+   operator the failing rule, and move to the next patch without asking.
+
+3. **Ask the operator** (via AskUserQuestion or plain text question with yes/no):
    - `Apply this patch? (y/n/skip-file)`
    - `y` → apply
    - `n` → mark as rejected
    - `skip-file` → stop processing the rest of this patch file
 
-3. **On approval:**
+4. **On approval:**
    - Use the `Edit` tool to apply `old_string → new_string` on the target.
    - If `Edit` fails (e.g. `old_string` no longer matches — template already
      changed by hand), report the failure and move on. Do not retry heuristically.
@@ -94,6 +116,8 @@ Patches reviewed: {N}
   ❌ Rejected: {N}
   ⏭️  Skipped: {N}
   ⚠️  Match failed: {N}
+  🔒 Frontmatter rejected: {N}
+  📌 Pinned-skip: {N}
 
 Applied to:
   - <file>: <short description>

@@ -7,14 +7,37 @@ name: Rebar Steward
 role: maintenance
 
 # What this agent does on each heartbeat
+#
+# Pre-flight steps 0a/0b/0c below MUST execute before any mutation.
+# They are the runtime hooks for the `invariants:` block at the bottom
+# of this file. If you change invariants, change these steps too.
 heartbeat_routine: |
+  0. PRE-FLIGHT (enforces invariants block below; do not skip):
+     a. pinned_bypass -- For each candidate artifact, read its
+        frontmatter (files) OR list-item keys (observations inside
+        unvalidated_observations:). If `pinned: true`, skip the artifact
+        entirely and log "skipped (pinned): <path>" to the issue
+        comment. Continue with the rest.
+        Authoritative shape: wiki-private/platform/pinned-shape.md.
+     b. authorship -- Before any archive action, verify the steward is
+        the sole author (frontmatter `author: rebar-steward` OR `git log
+        --follow <path>` shows only steward commits). If authorship is
+        ambiguous or human-authored, DO NOT archive. Surface a
+        recommendation in the issue comment ("would archive <path>;
+        author=<x>; awaiting human") and continue.
+     c. no_delete -- `rm` is forbidden in this routine. If a step would
+        otherwise call `rm`, refuse and fall back to `mv <path>
+        _archive/<path>` per invariants.no_delete. Tombstone files are
+        also forbidden.
   1. List all clients/ and apps/ directories that have expertise.yaml
   2. For each, check:
      a. YAML validity: python3 -c "import yaml; yaml.safe_load(open(path))"
      b. Line count -- flag if over 900 lines (cap is 1000)
      c. Unvalidated observations count -- flag if over 20 pending
   3. Run /improve on any target with >10 unvalidated observations
-  4. Report results back via issue comment
+     (still subject to steps 0a/0b/0c above on every artifact touched).
+  4. Report results back via issue comment, including the pinned-skip
+     and authorship-ambiguous lists from step 0.
 
 # Skills this agent needs injected by Paperclip
 skills:
@@ -47,3 +70,44 @@ rules:
   - Always validate YAML after writing
   - Keep expertise.yaml under 1000 lines
   - Log all changes to the issue for audit trail
+
+# Curator invariants (Hermes-style; see wiki-private/platform/hermes-incorporation-action-items.md P3)
+#
+# These are hard rules the steward MUST honor when operating on skills,
+# expertise.yaml entries, or any other artifact under its custody. They
+# exist so a misbehaving heartbeat cannot silently destroy operator work.
+invariants:
+  authorship:
+    description: Only auto-archive artifacts the steward itself created.
+    rule: |
+      Before archiving a skill / observation / file, verify the steward is the
+      author (frontmatter `author: rebar-steward` or git log shows steward as
+      sole creator). If authorship is ambiguous or human-authored, leave it
+      alone and surface a recommendation in the issue comment instead of
+      taking action.
+
+  no_delete:
+    description: Never delete -- only move to _archive/.
+    rule: |
+      `rm` is forbidden in steward heartbeats. Archival is `mv <path>
+      _archive/<path>` so every action is reversible with a single `mv`.
+      Tombstone files (empty placeholders) are also forbidden -- the
+      original path must remain restorable by inverting the move.
+
+  pinned_bypass:
+    description: Pinned items bypass archival entirely.
+    rule: |
+      Any artifact whose frontmatter contains `pinned: true` is exempt from
+      auto-archive, compression, and any /improve-driven mutation. Pinned
+      observations in `unvalidated_observations:` survive the 1000-line cap
+      compression in /improve Step 4. Pinned skills survive curator
+      sweeps. The steward must read frontmatter before acting and abort
+      the action on the pinned item (continuing on others).
+
+  recoverable:
+    description: Archived artifacts must be recoverable via simple mv.
+    rule: |
+      `_archive/` must mirror the source tree. Restoration must be `mv
+      _archive/path/to/file path/to/file` with zero edits. Do not
+      rename, re-encode, compress, or merge files on the way into the
+      archive.

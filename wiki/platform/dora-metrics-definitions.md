@@ -27,7 +27,6 @@ Four DORA metrics as defined for the Demo Corp deployment automation platform.
 
 - [[dora-denormalization]] -- decision to denormalize at write time
 - [[demo-corp-sprint-14]] -- DEMO-478 implements this
-- [[jira-integration]] -- ticket data source for DORA lead-time correlation
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

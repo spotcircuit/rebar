@@ -48,6 +48,6 @@ Source: Derived from integration development practices. Validated in external AP
 
 ## Related
 
-- [[config-driven-routing]] -- mock configs can simulate different source profiles
-- [[pre-release-checklist]] -- verify mock flag is absent from prod config before release
-- [[error-handling]] -- mock service should also simulate error responses
+- [[patterns/config-driven-routing]] -- mock configs can simulate different source profiles
+- [[patterns/pre-release-checklist]] -- verify mock flag is absent from prod config before release
+- [[patterns/error-handling]] -- mock service should also simulate error responses

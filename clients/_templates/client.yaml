@@ -2,13 +2,73 @@
 # GITIGNORED -- contains tenant URLs, env var refs, project keys
 
 client:
-  name: {client-name}
-  display_name: {Client Display Name}
-  industry: {industry}
+  name: "{client-name}"
+  display_name: "{Client Display Name}"
+  industry: "{industry}"
 
 project:
   keys: []        # Jira project keys, ticket prefixes
   channels: []    # Slack channels, communication links
+
+# ---------------------------------------------------------------------------
+# Per-client service bindings — all blocks optional, include only what applies.
+# Agents MUST resolve creds via these lookups before any external call.
+# Actual secret values live in rebar/system/.env under the *_env names below.
+# ---------------------------------------------------------------------------
+
+github:
+  pat_env: "{CLIENT}_GH_PAT"           # e.g. SHOPBIDZ_GH_PAT, TEXTPRO_GH_PAT
+  org: "{github-org-or-user}"
+  account: "{issuing-github-user}"     # which of your GitHub identities minted this PAT
+  repos:
+    - "{org}/{repo-1}"
+  default_branch: main
+
+aws:
+  account_id: "{12-digit-id}"
+  region: us-east-1
+  access_key_env: "{CLIENT}_AWS_ACCESS_KEY_ID"
+  secret_key_env: "{CLIENT}_AWS_SECRET_ACCESS_KEY"
+  session_token_env: ~               # only if STS temp creds
+  profile: ~                         # or a named profile in ~/.aws/credentials
+  resources:
+    s3_buckets: []
+    cloudfront_distributions: []
+    eb_environments: []
+
+jira:
+  cloud_id: ~                        # UUID from getAccessibleAtlassianResources
+  site_url: "https://{site}.atlassian.net"
+  project_key: ~
+  account_email: ~                   # email tied to the Atlassian account (for API token)
+  api_token_env: "{CLIENT}_JIRA_API_TOKEN"   # optional; MCP usually handles auth
+
+slack:
+  workspace: "{domain}.slack.com"
+  team_id: ~
+  channels: {}                       # name -> channel_id map
+  bot_token_env: "{CLIENT}_SLACK_BOT_TOKEN"  # optional; MCP usually handles auth
+
+stripe:
+  account_id: ~                      # acct_...
+  publishable_key_env: "{CLIENT}_STRIPE_PK_LIVE"
+  secret_key_env: "{CLIENT}_STRIPE_SK_LIVE"
+  webhook_secret_env: "{CLIENT}_STRIPE_WEBHOOK_SECRET"
+
+gws:                                 # Google Workspace (per-client OAuth, isolated tokens)
+  token_path: "clients/{client-name}/.gws-token.json"   # GITIGNORED per-client refresh token
+  oauth_client_id_env: REBAR_GWS_OAUTH_CLIENT_JSON      # env var → path to Desktop OAuth client_secret*.json
+  account: ~                                            # google account email this token authorizes (audit only)
+  scopes:                                               # narrow to actual need; defaults are read-only
+    - https://www.googleapis.com/auth/gmail.readonly
+    - https://www.googleapis.com/auth/calendar
+    - https://www.googleapis.com/auth/drive.readonly
+
+services:                            # catch-all: Agora, ShipEngine, Resend, etc.
+  # example:
+  # shipengine:
+  #   token_env: "{CLIENT}_SHIPENGINE_TOKEN"
+  #   endpoint: https://api.shipengine.com
 
 environment:
   dev:
