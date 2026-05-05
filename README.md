@@ -1,7 +1,7 @@
 # Rebar
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Commands](https://img.shields.io/badge/commands-26-green.svg)](.claude/commands/)
+[![Commands](https://img.shields.io/badge/commands-29-green.svg)](.claude/commands/)
 [![Skills](https://img.shields.io/badge/skills-6-blueviolet.svg)](.claude/skills/)
 [![MCP](https://img.shields.io/badge/MCP-17%20tools-orange.svg)](https://github.com/spotcircuit/rebar-mcp)
 [![Landing](https://img.shields.io/badge/landing-getrebar.dev-brightgreen.svg)](https://getrebar.dev)
@@ -9,7 +9,7 @@
 
 **Structural memory for Claude Code (and any MCP-compatible editor).**
 
-Claude Code forgets everything between sessions. Rebar fixes that. 26 slash commands, 6 tactical skills, and a close-loop harness that captures, validates, and compounds project knowledge across sessions. You explain your project once. Every session after that starts with full context.
+Claude Code forgets everything between sessions. Rebar fixes that. 29 slash commands, 6 tactical skills, and a close-loop harness that captures, validates, and compounds project knowledge across sessions. You explain your project once. Every session after that starts with full context.
 
 **[Landing page](https://getrebar.dev)** · **[Public Wiki](https://spotcircuit.github.io/rebar-wiki-site/)** · [Getting Started](wiki/getting-started.md) · [All Commands](wiki/how-it-works/commands.md) · [Architecture + Diagrams](https://spotcircuit.github.io/rebar-wiki-site/diagrams/architecture)
 
@@ -46,7 +46,7 @@ flowchart LR
     LOOP -.->|files pages| WIKI
 
     style GATE fill:#fde68a,stroke:#d97706
-    style BLK fill:#fecaca,stroke:#dc2626
+    style BLK fill:#fecaca,stroke:#dc2929
     style EXP fill:#dbeafe,stroke:#2563eb
     style MEM fill:#dbeafe,stroke:#2563eb
     style SK fill:#dbeafe,stroke:#2563eb
@@ -115,10 +115,10 @@ As you work, commands capture what you learn:
 | After a bug fix | You remember, AI doesn't | `/improve` captures the gotcha |
 | New team member | 2 weeks onboarding | `/brief` gives full context |
 
-### 26 commands across five categories
+### 29 commands across five categories
 
-**Project context** — `/create`, `/discover`, `/brief`, `/check`, `/improve`, `/meeting`
-Scaffold a client, auto-generate expertise from the codebase, produce a standup brief, validate compliance, promote validated observations, ingest meeting notes.
+**Project context** — `/create`, `/discover`, `/brief`, `/prime`, `/check`, `/improve`, `/meeting`
+Scaffold a client, auto-generate expertise from the codebase, produce a standup brief, prime an agent on a client's external codebase (reads `clients/<name>/prime.md`), validate compliance, promote validated observations, ingest meeting notes.
 
 **Development** — `/new`, `/feature`, `/bug`, `/takeover`, `/plan`, `/build`, `/test`, `/review`
 The day-to-day build loop — scaffold new apps, add features, fix bugs, take over inherited code, plan implementations, execute plans, run tests, review diffs.
@@ -126,8 +126,8 @@ The day-to-day build loop — scaffold new apps, add features, fix bugs, take ov
 **Knowledge** — `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
 Process `raw/` files into wiki pages, file a conversation insight as a permanent page, health-check orphans + broken links + stale pages.
 
-**Self-learning harness** — `/close-loop`, `/meta-improve`, `/meta-apply`
-The compounding mechanism. After every shipped feature, `/close-loop` runs a 4-gate cycle: an evaluator validates the diff, a release gate blocks on deploy-blocker language (`"must generate migration"`, `"cannot ship"`, `"before any live DB"`), `/improve` promotes that cycle's observations into `expertise.yaml`, `/meta-improve` scans across cycles for 2+ occurrence patterns and **queues patches against your slash commands and skills** (the templates themselves), and `/meta-apply` lets you review each patch before it lands. This is how the system optimizes its own workflow over time — shorter templates, sharper behavior, fewer tokens per run. Subtraction over addition: if a rule fails twice, add it; if agents succeed without it, prune it.
+**Self-learning harness** — `/close-loop`, `/meta-improve`, `/meta-apply`, `/harness-decay-audit`
+The compounding mechanism. After every shipped feature, `/close-loop` runs a 4-gate cycle: an evaluator validates the diff, a release gate blocks on deploy-blocker language (`"must generate migration"`, `"cannot ship"`, `"before any live DB"`), `/improve` promotes that cycle's observations into `expertise.yaml`, `/meta-improve` scans across cycles for 2+ occurrence patterns and **queues patches against your slash commands and skills** (the templates themselves), and `/meta-apply` lets you review each patch before it lands. **`/harness-decay-audit`** runs quarterly (or after any model upgrade) — inventories every slash command, skill, and agent, scores each on signals like recent invocation and command class, and proposes kill-switch tests on the suspects. This is how the system optimizes its own workflow over time — shorter templates, sharper behavior, fewer tokens per run. Subtraction over addition: if a rule fails twice, add it; if agents succeed without it, prune it.
 
 **Advanced** — `/plan-build-improve`, `/test-learn`, `/plan-scout`, `/build-parallel`, `/scout`, `/meta-prompt`
 Compound flows — plan + build + improve in one pass, test-driven learning, parallel execution across multiple agents, scout-before-plan for large codebases, meta-prompting.
@@ -209,7 +209,7 @@ Run `/wiki-ingest`. Get structured wiki pages with cross-references.
 
 **"Confluence / Notion"** -- Those are for humans to maintain. Rebar's files are designed to be read and written by an LLM during work. They live in your repo, not a separate tool.
 
-**"I'll just use CLAUDE.md"** -- CLAUDE.md is one file. Rebar adds structured per-project expertise, a self-learning close-loop harness, 26 commands, tactical skills, and a wiki. CLAUDE.md is part of the system, not the whole system.
+**"I'll just use CLAUDE.md"** -- CLAUDE.md is one file. Rebar adds structured per-project expertise, a self-learning close-loop harness, 29 commands, tactical skills, and a wiki. CLAUDE.md is part of the system, not the whole system.
 
 **"Context compaction keeps wiping my session"** -- Run `/improve` before long sessions. It persists observations to expertise.yaml before compaction can erase them. Rebar is the compaction survival strategy.
 
@@ -246,8 +246,8 @@ Add to your editor's MCP config:
 | `rebar_ingest` | List files in `raw/` ready for wiki ingestion |
 | `rebar_stats` | Dashboard overview — projects, observations, wiki pages, last updated |
 | `rebar_config` | Generate exact JSON config for any AI editor (auto-detects REBAR_ROOT) |
-| **`rebar_skills`** | List `.claude/skills/` + which agent invokes each (new 2026-04-17) |
-| **`rebar_harness`** | Close-loop state — pending meta-improve patches, evaluator log, run history (new 2026-04-17) |
+| **`rebar_skills`** | List `.claude/skills/` + which agent invokes each (new 2029-04-17) |
+| **`rebar_harness`** | Close-loop state — pending meta-improve patches, evaluator log, run history (new 2029-04-17) |
 | `rebar_install_hooks` / `rebar_uninstall_hooks` | Git hooks for auto-observe |
 | `rebar_session_start` / `rebar_session_end` | Track session boundaries |
 
@@ -293,7 +293,7 @@ Paperclip's AGENTS.md is managed-mode, so `paperclip-sync.sh agents` auto-runs a
 
 ```
 rebar/
-  .claude/commands/           # 26 slash commands (incl. /close-loop, /meta-improve, /meta-apply)
+  .claude/commands/           # 29 slash commands (incl. /close-loop, /meta-improve, /meta-apply)
   .claude/skills/             # 6 tactical skills from claude-skills (content-*, ai-seo, copywriting, etc.)
   apps/                       # Your apps (site-builder, prepitch examples included)
   clients/                    # Your clients (demo-corp, acme-integration examples)

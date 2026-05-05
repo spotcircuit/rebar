@@ -1,6 +1,6 @@
 # Rebar
 
-Structural memory for Claude Code. 26 slash commands + 6 tactical skills + a close-loop harness that captures, validates, and compounds project knowledge across sessions. Gives any engineer full project context on day one and grows smarter throughout the engagement through two self-learn loops: per-observation (`/improve`) and per-feature (`/close-loop` → evaluator → release gate → `/meta-improve` → `/meta-apply`).
+Structural memory for Claude Code. 29 slash commands + 6 tactical skills + a close-loop harness that captures, validates, and compounds project knowledge across sessions. Gives any engineer full project context on day one and grows smarter throughout the engagement through two self-learn loops: per-observation (`/improve`) and per-feature (`/close-loop` → evaluator → release gate → `/meta-improve` → `/meta-apply`).
 
 Based on Andrej Karpathy's LLM Wiki pattern, extended with structured operational data and behavioral memory.
 
