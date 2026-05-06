@@ -1,0 +1,93 @@
+tool:
+  name: awesome-design-md
+  display_name: Awesome DESIGN.md
+  type: integration
+  repo: https://github.com/VoltAgent/awesome-design-md
+  author: VoltAgent
+  license: MIT
+
+purpose: >
+  Curated collection of 400+ DESIGN.md files extracted from real product
+  websites (Stripe, Linear, Vercel, Notion, Raycast, Cursor, Superhuman,
+  Claude, etc.). Drop one into a project root and AI coding agents
+  generate UI matching that brand. Sibling format to AGENTS.md / CLAUDE.md
+  but for visual design instead of behavior.
+
+  Rebar uses this as the source of brand starter files for any project
+  with a UI surface. Pulled on demand via the design-md skill — we don't
+  fork or vendor the whole collection.
+
+config:
+  location: /home/spotcircuit/awesome-design-md  # cloned on first use by fetch-brand.sh sync
+  docs: https://github.com/VoltAgent/awesome-design-md
+  spec: https://stitch.withgoogle.com/docs/design-md/overview/
+  browse: https://getdesign.md/
+  raw_url_pattern: https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<brand>/DESIGN.md
+
+runtime:
+  how_to_start: "Markdown files — no server. Pulled by .claude/skills/creative/design-md/scripts/fetch-brand.sh"
+  port: ~
+  api_base: ~
+  database: ~
+
+dependencies:
+  - "git (for sync)"
+  - "curl (for direct raw-URL fallback)"
+
+# ---------------------------------------------------------------------------
+# How rebar consumes this
+# ---------------------------------------------------------------------------
+integration:
+  skill: ".claude/skills/creative/design-md"
+  command: ".claude/commands/design.md"
+  fetch_script: ".claude/skills/creative/design-md/scripts/fetch-brand.sh"
+  lint_script: ".claude/skills/creative/design-md/scripts/lint.sh"
+
+  refresh_policy: |
+    Manual only. Run `bash .claude/skills/creative/design-md/scripts/fetch-brand.sh sync`
+    to pull upstream. Adopted DESIGN.md files in rebar projects are NOT auto-overwritten
+    when upstream changes — diff and merge intentionally. A design contract that
+    surprise-changes underneath you is worse than one that's slightly stale.
+
+  # Note: most slugs are bare (`stripe`, `vercel`, `cursor`), but some retain
+  # the TLD (`linear.app`, `mistral.ai`, `together.ai`, `opencode.ai`, `x.ai`).
+  # See references/upstream.md for the full list, or run:
+  #   bash .claude/skills/creative/design-md/scripts/fetch-brand.sh list
+  selection_guide:
+    calm_editorial: ["linear.app", "stripe"]
+    developer_dark: ["vercel", "cursor", "raycast"]
+    premium_keyboard: ["superhuman"]
+    warm_content: ["notion"]
+    minimal_monochrome: ["x.ai", "vercel"]
+    friendly_builder: ["lovable"]
+    ai_llm: ["claude", "cohere", "mistral.ai", "together.ai"]
+
+# ---------------------------------------------------------------------------
+# Why DESIGN.md matters (the "why are we integrating this?" answer)
+# ---------------------------------------------------------------------------
+rationale:
+  problem: |
+    Agents drift visually across pages and sessions. Same app, different
+    button styles. Three failure modes: bootstrap default (generic
+    Tailwind), color roulette (each pick reasonable, system absent),
+    and style drift (different sessions produce different designs).
+  solution: |
+    Persistent design context in a format agents read natively. Markdown
+    with prose intent ("Blurple for primary actions, never decorative")
+    beats JSON tokens (~40-55% cheaper in tokens for same semantic content,
+    plus carries the *why*).
+  evidence: |
+    70K GitHub stars in 5 weeks. Google open-sourced the spec under Apache
+    2.0 on 2026-04-21. Resonance signal, not yet proven via controlled
+    studies — treat as strong default, not settled standard.
+
+# ---------------------------------------------------------------------------
+# Operational facts
+# ---------------------------------------------------------------------------
+operational:
+  cloned_at: 2026-05-06
+  last_synced: 2026-05-06
+  brand_count_at_clone: 70
+  clone_size: "3.3M"
+
+unvalidated_observations: []

@@ -64,6 +64,7 @@ PUBLIC_INCLUDES=(
   # depends on — no real client tools
   tools/paperclip
   tools/claude-skills
+  tools/awesome-design-md
   tools/obsidian
   tools/quartz
 

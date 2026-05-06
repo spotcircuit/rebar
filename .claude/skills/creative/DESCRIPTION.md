@@ -4,10 +4,10 @@ Visual design, diagrams, sketches, and design-system playbooks. Load when produc
 
 ## Skills here
 
-_(Empty — staging Hermes ports.)_
+- `design-md/` — Author, adopt, extract, or lint a `DESIGN.md` for any rebar project. Persistent design context for AI coding agents (sibling of CLAUDE.md). Backed by the upstream VoltAgent/awesome-design-md collection (400+ brand files) and Google's Stitch spec.
 
 Planned (per Hermes incorporation, P2/P4):
-- `claude-design/`, `popular-web-designs/`, `design-md/`
+- `claude-design/`, `popular-web-designs/`
 - `architecture-diagram/`, `excalidraw/`, `sketch/`
 
 ## When to load this category

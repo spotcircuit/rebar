@@ -1,4 +1,6 @@
 # Pattern: Playwright E2E harness for PrePitch
+
+**Source:** `raw/eval-2026-04-19-prepitch-playwright.md` (CON-124 evaluator PASS, 7/9 strict).
 **Scope:** end-to-end browser + backend-WS tests for the PrePitch roleplay app.
 
 ## Structure
@@ -46,11 +48,3 @@ PREPITCH_E2E_RUN_A2A_VOICE=1 bunx playwright test agent-vs-agent-voice
 - Eval report: `raw/processed/eval-2026-04-19-prepitch-playwright.md`
 - Evaluator log: `system/evaluator-log.md` (2026-04-19 CON-124 entry)
 - Source issues: [CON-120](/CON/issues/CON-120), [CON-123](/CON/issues/CON-123), [CON-124](/CON/issues/CON-124)
-
-## Related
-
-- [[patterns/mock-data-strategy]] — mock configs and stubs mirror the strategy used for Convai/SR fixtures
-- [[patterns/scout-build-verify]] — verify step that runs after Playwright confirms the build holds
-- [[patterns/websocket-progress-pattern]] — backend-WS spec tests the same job-progress channel
-
-Source: `raw/processed/eval-2026-04-19-prepitch-playwright.md` (CON-124 evaluator PASS, 7/9 strict)

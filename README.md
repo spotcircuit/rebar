@@ -115,10 +115,10 @@ As you work, commands capture what you learn:
 | After a bug fix | You remember, AI doesn't | `/improve` captures the gotcha |
 | New team member | 2 weeks onboarding | `/brief` gives full context |
 
-### 29 commands across five categories
+### 30 commands across five categories
 
-**Project context** — `/create`, `/discover`, `/brief`, `/prime`, `/check`, `/improve`, `/meeting`
-Scaffold a client, auto-generate expertise from the codebase, produce a standup brief, prime an agent on a client's external codebase (reads `clients/<name>/prime.md`), validate compliance, promote validated observations, ingest meeting notes.
+**Project context** — `/create`, `/discover`, `/brief`, `/prime`, `/check`, `/improve`, `/meeting`, `/design`
+Scaffold a client, auto-generate expertise from the codebase, produce a standup brief, prime an agent on a client's external codebase (reads `clients/<name>/prime.md`), validate compliance, promote validated observations, ingest meeting notes, manage a per-project `DESIGN.md` (the markdown design system AI agents read to keep UI consistent — adopt from a 400+ brand library, extract from a live site, or write a 4-section starter).
 
 **Development** — `/new`, `/feature`, `/bug`, `/takeover`, `/plan`, `/build`, `/test`, `/review`
 The day-to-day build loop — scaffold new apps, add features, fix bugs, take over inherited code, plan implementations, execute plans, run tests, review diffs.

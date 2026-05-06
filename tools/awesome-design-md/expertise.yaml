@@ -1,0 +1,16 @@
+tool: awesome-design-md
+last_updated: 2026-05-06
+
+# ---------------------------------------------------------------------------
+# Operational knowledge — gotchas, patterns, validated facts. Empty until we
+# accumulate them through use.
+# ---------------------------------------------------------------------------
+
+facts: []
+
+patterns: []
+
+gotchas: []
+
+unvalidated_observations:
+  - "Integrated 2026-05-06 — initial setup of skill + command + scripts. No projects have adopted a DESIGN.md yet, so brand-quality and lint-effectiveness are unverified in rebar context."

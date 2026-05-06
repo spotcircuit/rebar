@@ -99,6 +99,7 @@ External repos (clones of other people's projects) live under `/home/spotcircuit
 | Path | Purpose | Pointer |
 |---|---|---|
 | `/home/spotcircuit/claude-skills` | alirezarezvani/claude-skills — 235 skills, 44 marketing | `tools/claude-skills/tool.yaml` |
+| `/home/spotcircuit/awesome-design-md` | VoltAgent/awesome-design-md — 400+ brand DESIGN.md files | `tools/awesome-design-md/tool.yaml` |
 | `/home/spotcircuit/spotcircuit-site` | publish target for blog cross-post | `SPOTCIRCUIT_SITE_REPO` env |
 | `/home/spotcircuit/getrebar-site` | getrebar.dev landing + blog | `tools/getrebar-site/tool.yaml` (if created) |
 | `/home/spotcircuit/rebar-wiki-site` | Quartz wiki export target | `scripts/wiki-sync.sh` |
