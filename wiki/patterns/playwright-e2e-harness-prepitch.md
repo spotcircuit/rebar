@@ -48,3 +48,11 @@ PREPITCH_E2E_RUN_A2A_VOICE=1 bunx playwright test agent-vs-agent-voice
 - Eval report: `raw/processed/eval-2026-04-19-prepitch-playwright.md`
 - Evaluator log: `system/evaluator-log.md` (2026-04-19 CON-124 entry)
 - Source issues: [CON-120](/CON/issues/CON-120), [CON-123](/CON/issues/CON-123), [CON-124](/CON/issues/CON-124)
+
+Source: eval-2026-04-19-prepitch-playwright.md (CON-124 evaluator PASS, 7/9 strict)
+
+## Related
+
+- [[patterns/persistent-browser-context]] — browser session management patterns that apply in E2E context
+- [[patterns/mock-data-strategy]] — stub and fixture strategy; complements the fake-audio and WebSocket stub approach
+- [[patterns/pre-release-checklist]] — gate to run before shipping; Playwright suite is one of the checks
