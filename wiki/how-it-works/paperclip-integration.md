@@ -83,5 +83,5 @@ Source: designed 2026-04-07 as bridge between Clarity framework and Paperclip or
 
 ## Related
 
-- [[site-builder-overview]] -- primary app managed by the Site Builder Agent
-- [[ai-content-pipeline]] -- pipeline that Site Builder Agent monitors
+- site-builder-overview -- primary app managed by the Site Builder Agent (no wiki page yet)
+- ai-content-pipeline -- pipeline that Site Builder Agent monitors (no wiki page yet)

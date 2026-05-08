@@ -167,6 +167,8 @@ flowchart TD
 
 The GTM Agent sets the day's strategy. The Social Media Agent executes it. The Outreach Agent handles engagement. The Triage Agent routes everything else.
 
+Source: rebar CLAUDE.md, .claude/skills/*.md | Generated 2026-04-07
+
 ## Related
 
 - [Architecture](architecture.md) -- system-level diagrams

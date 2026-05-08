@@ -87,7 +87,7 @@ For most rebar projects, the 4-section starter (Theme, Colors, Components, Do's/
 
 ## Related
 
-- [[frontend-design-skill]] — natural consumer of DESIGN.md output (load DESIGN.md first)
-- [[claude-skills-integration]] — sister integration (235 marketing/eng skills); does not include design-md
+- frontend-design-skill — natural consumer of DESIGN.md output (load DESIGN.md first)
+- [[tools/claude-skills-library|Claude Skills Library]] — 235 marketing/eng skills; does not include design-md
 - Upstream: https://github.com/VoltAgent/awesome-design-md
 - Spec: https://stitch.withgoogle.com/docs/design-md/overview/

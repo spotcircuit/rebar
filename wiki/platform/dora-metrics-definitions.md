@@ -25,8 +25,7 @@ Four DORA metrics as defined for the Demo Corp deployment automation platform.
 
 ## Related
 
-- [[dora-denormalization]] -- decision to denormalize at write time
-- [[demo-corp-sprint-14]] -- DEMO-478 implements this
+- dora-denormalization -- decision to denormalize at write time (no wiki page yet)
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

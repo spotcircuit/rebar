@@ -244,6 +244,8 @@ Paperclip triggers each agent on its cron schedule. The Triage Agent runs every 
 
 **AGENTS.md discipline:** every agent's instruction bundle carries a mandatory cwd preamble so close-loop artifacts always land in the canonical rebar repo, never stale copies. Source of truth is `system/agents/_agents-md-preamble.md`; `paperclip-sync.sh preamble` self-heals all 43+ agents.
 
+Source: rebar CLAUDE.md, system/paperclip.yaml, system/agents/*.yaml | Generated 2026-04-07
+
 ## Related
 
 - [Command Flow](command-flow.md) -- detailed command chaining diagrams
