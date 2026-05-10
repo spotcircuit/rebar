@@ -154,6 +154,8 @@ Rebar events automatically create Paperclip issues:
 
 The YAML files are the source of truth. The Paperclip API is a downstream consumer.
 
+Source: rebar codebase — system/paperclip.yaml, scripts/paperclip-sync.sh, tools/paperclip/expertise.yaml. Living reference.
+
 ## Related
 
 - [Architecture](../diagrams/architecture.md) -- how agents fit into the overall system

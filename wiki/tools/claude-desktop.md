@@ -87,6 +87,8 @@ The framework's knowledge is stored in plain files. This means the same context 
 
 The self-learn loop (expertise.yaml) and wiki grow through Claude Code sessions. Claude Desktop reads the results. The sync script keeps everything current.
 
+Source: Claude Desktop MCP integration docs and rebar setup guide. Living reference.
+
 ## Related
 
 - [Obsidian](obsidian.md) -- local wiki editing

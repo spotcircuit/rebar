@@ -76,6 +76,8 @@ The loop works because observations are cheap to write and expensive to promote.
 - Stale information gets cleaned up instead of rotting in a doc.
 - Expertise.yaml stays accurate because every fact in it has been validated at least once.
 
+Source: rebar framework design documentation. Living reference.
+
 ## Related
 
 - [Three Knowledge Systems](three-systems.md) -- Where expertise.yaml fits alongside memory and wiki

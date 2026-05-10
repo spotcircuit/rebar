@@ -109,6 +109,8 @@ The script syncs these wiki subdirectories:
 
 The `raw/` directory is never synced (it contains unprocessed intake files).
 
+Source: Quartz v4 documentation and rebar wiki-sync scripts (scripts/publish-wiki.sh). Living reference.
+
 ## Related
 
 - [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian

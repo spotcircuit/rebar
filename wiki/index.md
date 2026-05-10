@@ -56,6 +56,7 @@ Reusable engineering patterns captured from real projects.
 - [[patterns/scout-build-verify|Scout-Build-Verify]]
 - [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] — proxy ElevenLabs streaming TTS through backend, play via MediaSource so audio starts at first chunk
 - [[patterns/stripe-mode-observability|Stripe Mode Observability]] — tag every Stripe object with metadata identifying the mode it was created in; makes key-drift grep-able
+- [[patterns/site-builder-overview|Site Builder Overview]] — stub: web app used as the reference example for Playwright scraping, Claude JSON extraction, WebSocket pipeline, and Cloudflare deploy
 - [[patterns/websocket-progress-pattern|WebSocket Progress Pattern]]
 
 ## 🧭 Decisions
@@ -79,6 +80,8 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 - [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]]
 - [[platform/social-outreach-extensions|Social Outreach Extensions]]
 - [[platform/teams-transcript-ingestion|Teams Transcript Ingestion]]
+- [[platform/ai-content-pipeline|AI Content Pipeline]] — stub: predecessor content generation approach before the claude-skills integration
+- [[platform/demo-corp-sprint-14|Demo Corp Sprint 14]] — stub: sprint containing DEMO-470 (Slack pagination), DEMO-482 (Teams transcripts), DEMO-485 (deploy audit)
 
 ## 🧰 Tools
 
@@ -107,6 +110,10 @@ Who's who on active engagements.
 - **Search** (top-left) — full-text search across everything.
 - **Graph** (right, desktop) — see how pages cross-link.
 - **Backlinks** (right, desktop) — who links TO the page you're on.
+
+## Meta
+
+- [README](README) — GitHub-facing overview of the wiki with links to major sections; visible when browsing wiki/ on GitHub
 
 ## Contributing
 
