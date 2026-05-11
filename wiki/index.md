@@ -6,7 +6,7 @@ title: Rebar Wiki
 
 Structural memory for Claude Code and any MCP-compatible editor. Framework repo: [github.com/spotcircuit/rebar](https://github.com/spotcircuit/rebar). Landing page: [getrebar.dev](https://getrebar.dev).
 
-Start with **[Getting Started](getting-started)** if you're new. The rest of this wiki is organized by topic.
+Start with **[[getting-started|Getting Started]]** if you're new. The rest of this wiki is organized by topic.
 
 ---
 
@@ -55,9 +55,10 @@ Reusable engineering patterns captured from real projects.
 - [[patterns/redis-circuit-breaker|Redis Circuit Breaker]]
 - [[patterns/scout-build-verify|Scout-Build-Verify]]
 - [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] — proxy ElevenLabs streaming TTS through backend, play via MediaSource so audio starts at first chunk
-- [[patterns/stripe-mode-observability|Stripe Mode Observability]] — tag every Stripe object with metadata identifying the mode it was created in; makes key-drift grep-able
 - [[patterns/site-builder-overview|Site Builder Overview]] — stub: web app used as the reference example for Playwright scraping, Claude JSON extraction, WebSocket pipeline, and Cloudflare deploy
+- [[patterns/stripe-mode-observability|Stripe Mode Observability]] — tag every Stripe object with metadata identifying the mode it was created in; makes key-drift grep-able
 - [[patterns/websocket-progress-pattern|WebSocket Progress Pattern]]
+- [[patterns/leadfinder-overview|Leadfinder Overview]] — stub: lead scraper applying Playwright stealth / headless-detection-bypass for outreach discovery
 
 ## 🧭 Decisions
 
@@ -65,6 +66,7 @@ Architectural decisions with rationale, captured as they happen.
 
 - [[decisions/cross-spec-log-contract-leak|Cross-Spec Log-Contract Leak]] — two parallel specs sharing a file through observability output causes silent scope leak; watch-list item
 - [[decisions/session-2026-04-16|Session 2026-04-16]]
+- [[decisions/site-builder-session-3|Site Builder Session 3]] — stub: Maps scraping + persistent context + Claude JSON extraction implemented
 
 ## 🌐 Platform
 
