@@ -1,5 +1,7 @@
 # Four Knowledge Systems
 
+#rebar #knowledge #architecture #framework
+
 Rebar uses four separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
 
 ## The four systems

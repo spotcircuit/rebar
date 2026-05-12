@@ -1,5 +1,7 @@
 # The Self-Learn Loop
 
+#rebar #self-learn #knowledge #framework
+
 Every Rebar command appends raw observations to `unvalidated_observations:` in expertise.yaml. Running `/improve` validates each one against current state and either promotes it to a structured section, defers it, or discards it.
 
 This is the core feedback mechanism. Knowledge accumulates automatically through normal work, not through documentation sessions.

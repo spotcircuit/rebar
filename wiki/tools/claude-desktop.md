@@ -1,5 +1,7 @@
 # Claude Desktop Integration
 
+#tool #claude #mcp #knowledge-base
+
 Claude Desktop can access the full Rebar knowledge base through the MCP filesystem server. This gives Claude Desktop the same context available in Claude Code -- wiki pages, expertise.yaml, agent definitions, and client data.
 
 ## How It Works

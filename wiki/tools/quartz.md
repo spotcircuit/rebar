@@ -1,5 +1,7 @@
 # Quartz Wiki Site
 
+#tool #quartz #wiki #publishing
+
 Quartz turns the `wiki/` markdown into a searchable, navigable website. The framework includes a sync script that pushes wiki content to a Quartz repository, which deploys automatically via GitHub Pages.
 
 ## How It Works
