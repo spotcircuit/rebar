@@ -115,12 +115,10 @@ If your AI-receptionist platform offers post-call webhooks (e.g. ElevenLabs Agen
 
 This pattern is the right fit when you're forced into polling because the upstream platform leaves you no other option.
 
+Source: Built for client Velocity Electric, Apr 2026. Lives at `apps/goodcall-sync/` in the rebar private repo. Production sync handles ~13 calls/run with 0 errors after dedup convergence (8 passes to clean inherited duplicates).
+
 ## Related
 
 - [[platform/elevenlabs-agents]] — push-webhook alternative if migrating off polling-based receptionists
 - [[patterns/idempotency-guard]] — the timestamp-compare-and-skip discipline this pattern relies on
 - [[patterns/stripe-mode-observability]] — sister pattern: tag created objects with metadata so they're self-diagnosable
-
-## Source
-
-Built for client Velocity Electric, Apr 2026. Lives at `apps/goodcall-sync/` in the rebar private repo. Production sync handles ~13 calls/run with 0 errors after dedup convergence (8 passes to clean inherited duplicates).
