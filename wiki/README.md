@@ -30,8 +30,9 @@ Visual architecture and workflow references.
 
 Real output from real projects managed by the framework.
 
-- [Site Builder](examples/site-builder.md) -- A web app built across four Claude Code sessions. Shows how expertise.yaml grows from 5 lines to a complete operational reference.
-- [Acme Integration](examples/acme-integration.md) -- An enterprise client engagement (Node-RED trade compliance). Shows how the framework handles external engagements with live APIs and multi-tenant deployment.
+- [Site Builder Overview](patterns/site-builder-overview.md) -- A web app built across multiple Claude Code sessions. Shows how expertise.yaml grows from 5 lines to a complete operational reference.
+- [Site Builder Session 3](decisions/site-builder-session-3.md) -- Maps scraping + persistent context + Claude JSON extraction implemented.
+- [AI Receptionist → HubSpot Bridge](patterns/ai-receptionist-to-hubspot-bridge.md) -- An enterprise client engagement (polling-based bridge for receptionist platforms with no webhooks).
 
 ## How It Works
 
@@ -59,15 +60,14 @@ Reusable engineering patterns captured through the wiki. These show the kind of 
 
 Architectural decisions with rationale.
 
-- [DORA Denormalization](decisions/dora-denormalization.md) -- Denormalize ticket numbers at write time for fast dashboard queries.
-- [Health Endpoint Startup Grace](decisions/health-endpoint-startup-grace.md) -- Return degraded status during startup.
-- [In-Memory Job Storage](decisions/in-memory-job-storage.md) -- No database for site-builder tool.
-- [Rebar Example Apps](decisions/rebar-example-apps.md) -- Plan to add more example apps to the public repo.
+- [Cross-Spec Log-Contract Leak](decisions/cross-spec-log-contract-leak.md) -- Two parallel specs sharing a file through observability output causes silent scope leak; watch-list item.
+- [ECS Health Check Grace Period](patterns/ecs-health-check-grace-period.md) -- Return degraded status during startup.
+- [DORA Metrics Definitions](platform/dora-metrics-definitions.md) -- Four DORA metrics with implementation details.
 
 ## Clients
 
-- [Demo Corp Sprint 14](clients/demo-corp-sprint-14.md) -- Sprint overview with DORA, notifications, audit trail.
-- [Site Builder Session 3](clients/site-builder-session-3.md) -- Maps scraper, Claude JSON, Cloudflare deploy.
+- [Demo Corp Sprint 14](platform/demo-corp-sprint-14.md) -- Sprint overview with DORA, notifications, audit trail.
+- [Site Builder Session 3](decisions/site-builder-session-3.md) -- Maps scraper, Claude JSON, Cloudflare deploy.
 
 ## People
 
@@ -83,3 +83,11 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
+
+Source: rebar framework documentation, github.com/spotcircuit/rebar
+
+## Related
+
+- [index.md](index.md) -- full categorized wiki index with descriptions
+- [Getting Started](getting-started.md) -- 15-minute tutorial from clone to working framework
+- [How It Works: Commands](how-it-works/commands.md) -- all slash commands with examples
