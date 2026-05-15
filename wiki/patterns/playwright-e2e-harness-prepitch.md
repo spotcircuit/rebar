@@ -1,5 +1,7 @@
 # Pattern: Playwright E2E harness for PrePitch
 
+#pattern #playwright #testing #e2e #prepitch
+
 **Source:** `raw/eval-2026-04-19-prepitch-playwright.md` (CON-124 evaluator PASS, 7/9 strict).
 **Scope:** end-to-end browser + backend-WS tests for the PrePitch roleplay app.
 

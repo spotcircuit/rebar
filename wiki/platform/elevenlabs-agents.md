@@ -110,6 +110,8 @@ End state: no JWT rotation, no Cloudflare 429s, no 60-day token rotations, no sc
 - **Non-US numbers, day one** — Reception is US-only at present, though the dev platform supports BYO international SIP. Verify country coverage before quoting.
 - **Hyper-domain-specific voice quality requirements** — some industries (medical dictation, legal stenography) need specialty providers; ElevenLabs is general-purpose conversational.
 
+Source: ElevenLabs platform documentation and GoodCall migration analysis, May 2026.
+
 ## Related
 
 - [[patterns/ai-receptionist-to-hubspot-bridge]] — the polling-based predecessor pattern; use that only when a webhook-based platform isn't an option

@@ -6,7 +6,7 @@ title: Rebar Wiki
 
 Structural memory for Claude Code and any MCP-compatible editor. Framework repo: [github.com/spotcircuit/rebar](https://github.com/spotcircuit/rebar). Landing page: [getrebar.dev](https://getrebar.dev).
 
-Start with **[Getting Started](getting-started)** if you're new. The rest of this wiki is organized by topic.
+Start with **[[getting-started|Getting Started]]** if you're new. The rest of this wiki is organized by topic.
 
 ---
 
@@ -55,8 +55,10 @@ Reusable engineering patterns captured from real projects.
 - [[patterns/redis-circuit-breaker|Redis Circuit Breaker]]
 - [[patterns/scout-build-verify|Scout-Build-Verify]]
 - [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] — proxy ElevenLabs streaming TTS through backend, play via MediaSource so audio starts at first chunk
+- [[patterns/site-builder-overview|Site Builder Overview]] — stub: web app used as the reference example for Playwright scraping, Claude JSON extraction, WebSocket pipeline, and Cloudflare deploy
 - [[patterns/stripe-mode-observability|Stripe Mode Observability]] — tag every Stripe object with metadata identifying the mode it was created in; makes key-drift grep-able
 - [[patterns/websocket-progress-pattern|WebSocket Progress Pattern]]
+- [[patterns/leadfinder-overview|Leadfinder Overview]] — stub: lead scraper applying Playwright stealth / headless-detection-bypass for outreach discovery
 
 ## 🧭 Decisions
 
@@ -64,6 +66,7 @@ Architectural decisions with rationale, captured as they happen.
 
 - [[decisions/cross-spec-log-contract-leak|Cross-Spec Log-Contract Leak]] — two parallel specs sharing a file through observability output causes silent scope leak; watch-list item
 - [[decisions/session-2026-04-16|Session 2026-04-16]]
+- [[decisions/site-builder-session-3|Site Builder Session 3]] — stub: Maps scraping + persistent context + Claude JSON extraction implemented
 
 ## 🌐 Platform
 
@@ -79,6 +82,8 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 - [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]]
 - [[platform/social-outreach-extensions|Social Outreach Extensions]]
 - [[platform/teams-transcript-ingestion|Teams Transcript Ingestion]]
+- [[platform/ai-content-pipeline|AI Content Pipeline]] — stub: predecessor content generation approach before the claude-skills integration
+- [[platform/demo-corp-sprint-14|Demo Corp Sprint 14]] — stub: sprint containing DEMO-470 (Slack pagination), DEMO-482 (Teams transcripts), DEMO-485 (deploy audit)
 
 ## 🧰 Tools
 
@@ -107,6 +112,10 @@ Who's who on active engagements.
 - **Search** (top-left) — full-text search across everything.
 - **Graph** (right, desktop) — see how pages cross-link.
 - **Backlinks** (right, desktop) — who links TO the page you're on.
+
+## Meta
+
+- [README](README) — GitHub-facing overview of the wiki with links to major sections; visible when browsing wiki/ on GitHub
 
 ## Contributing
 

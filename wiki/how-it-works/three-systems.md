@@ -1,5 +1,7 @@
 # Four Knowledge Systems
 
+#rebar #knowledge #architecture #framework
+
 Rebar uses four separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
 
 ## The four systems
@@ -46,6 +48,8 @@ The site-builder project discovered that Cloudflare Pages project names must be 
 2. **memory** -- If the user always deploys to Cloudflare, memory might note "prefers Cloudflare Pages for static site deployment." This affects future suggestions.
 
 3. **wiki** -- If the naming constraint is relevant to other projects, `/wiki-file cloudflare-naming` creates a wiki page explaining the pattern. Next time any project hits this, the wiki has the answer.
+
+Source: rebar framework design documentation. Living reference.
 
 ## Related
 

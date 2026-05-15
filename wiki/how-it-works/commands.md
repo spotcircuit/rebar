@@ -1,5 +1,7 @@
 # Commands
 
+#rebar #commands #reference #slash-commands
+
 Rebar has 29 slash commands organized into five groups: client/app management, development workflow, wiki management, **self-learning harness**, and utilities.
 
 All commands auto-resolve names from `clients/`, `apps/`, and `tools/` directories.

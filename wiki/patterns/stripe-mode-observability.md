@@ -129,6 +129,8 @@ the frontend bundle had been built with `pk_test_` for ~10 days. Vite bakes
 env vars at build time, so a stale GitHub Actions secret produced the drift
 silently. This pattern would have surfaced it on the next cold start.
 
+Source: Production incident during marketplace launch sprint, Apr 2026. Surfaced when buyers hit "No such setupintent" at checkout due to 10-day test/live key drift caused by a stale GitHub Actions secret.
+
 ## Related
 
 - [[idempotency-guard]] — another additive observability-first pattern for
