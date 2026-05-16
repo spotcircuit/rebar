@@ -115,6 +115,6 @@ Source: Quartz v4 documentation and rebar wiki-sync scripts (scripts/publish-wik
 
 ## Related
 
-- [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian
-- [Wiki Curator](paperclip.md#wiki-curator) -- the agent that keeps the wiki healthy
-- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits
+- [[tools/obsidian|Obsidian]] -- edit the wiki locally with Obsidian
+- [[tools/paperclip|Wiki Curator]] -- the agent that keeps the wiki healthy
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- where the wiki fits

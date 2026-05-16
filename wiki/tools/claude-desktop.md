@@ -93,6 +93,6 @@ Source: Claude Desktop MCP integration docs and rebar setup guide. Living refere
 
 ## Related
 
-- [Obsidian](obsidian.md) -- local wiki editing
-- [Quartz](quartz.md) -- wiki as a website
-- [Paperclip](paperclip.md) -- agent orchestration
+- [[tools/obsidian|Obsidian]] -- local wiki editing
+- [[tools/quartz|Quartz]] -- wiki as a website
+- [[tools/paperclip|Paperclip]] -- agent orchestration
