@@ -50,3 +50,4 @@ Source: tools/claude-skills/tool.yaml + tools/claude-skills/expertise.yaml | Eva
 - [[paperclip]] -- agent orchestration runs the blog-writer
 - [[social-outreach-extensions]] -- social-content skill enhances engagement
 - [[ai-content-pipeline]] -- predecessor content approach before skills integration
+- [[decisions/session-2026-04-16]] -- session where the marketing pod was evaluated and adopted

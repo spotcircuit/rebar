@@ -49,3 +49,4 @@ Source: Derived from production release practices across multiple integration pr
 - [[patterns/error-handling]] -- exception queues and error path testing are checklist items
 - [[patterns/mock-data-strategy]] -- verify mock flag is absent from prod config
 - [[patterns/correlation-id]] -- verify correlation ID is wired through before release
+- [[patterns/playwright-e2e-harness-prepitch|Playwright E2E Harness]] -- Playwright suite is one of the checklist items for PrePitch releases
