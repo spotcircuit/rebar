@@ -25,6 +25,8 @@ Four DORA metrics as defined for the Demo Corp deployment automation platform.
 
 ## Related
 
+- [[platform/demo-corp-sprint-14|Demo Corp Sprint 14]] -- sprint containing the DORA metrics work
+- [[tools/jira-integration|Jira Integration]] -- how ticket data populates expertise.yaml
 - dora-denormalization -- decision to denormalize at write time (no wiki page yet)
 
 ---

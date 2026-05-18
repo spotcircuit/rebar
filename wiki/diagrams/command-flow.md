@@ -173,6 +173,6 @@ Source: rebar CLAUDE.md, .claude/skills/*.md | Generated 2026-04-07
 
 ## Related
 
-- [Architecture](architecture.md) -- system-level diagrams
-- [Commands](../how-it-works/commands.md) -- full command reference
-- [Paperclip](../tools/paperclip.md) -- agent setup
+- [[diagrams/architecture|Architecture]] -- system-level diagrams
+- [[how-it-works/commands|Commands]] -- full command reference
+- [[tools/paperclip|Paperclip]] -- agent setup

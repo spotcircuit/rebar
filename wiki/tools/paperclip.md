@@ -160,6 +160,6 @@ Source: rebar codebase — system/paperclip.yaml, scripts/paperclip-sync.sh, too
 
 ## Related
 
-- [Architecture](../diagrams/architecture.md) -- how agents fit into the overall system
-- [Commands](../how-it-works/commands.md) -- the slash commands agents execute
-- [Self-Learn Loop](../how-it-works/self-learn-loop.md) -- what Rebar Steward maintains
+- [[diagrams/architecture|Architecture]] -- how agents fit into the overall system
+- [[how-it-works/commands|Commands]] -- the slash commands agents execute
+- [[how-it-works/self-learn-loop|Self-Learn Loop]] -- what Rebar Steward maintains
