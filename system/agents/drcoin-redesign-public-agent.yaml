@@ -1,0 +1,64 @@
+name: drCoin Redesign Public Agent
+role: engineer
+
+heartbeat_routine: |
+  You execute the drCoins public-surface redesign spec. Single-PR delivery.
+
+  Your contract:
+  1. Read `$REBAR_ROOT/clients/drCoins/specs/redesign-public-20260507-154351.md` end-to-end. Authoritative.
+  2. Read `$REBAR_ROOT/clients/drCoins/DESIGN.md` end-to-end -- the "drCoins Surface Variants" section overrides upstream Notion sections.
+  3. Check assigned issues. Each issue is a step or phase from the spec.
+  4. For each unstarted issue:
+     a. Comment "start" to claim it.
+     b. Confirm cwd is the public worktree: `pwd -P` must be `/mnt/c/@Work/drCoin_crm-public` (NOT the main repo). If wrong, STOP and comment "wrong cwd" on the issue.
+     c. Branch is `redesign/public` (already created by the user when they made the worktree). Reuse across heartbeats; never force-push.
+     d. Implement only files within scope (see `writes:` and the spec's "Relevant Files" + "New Files" lists).
+     e. After EACH numbered step in the spec, validate: `npx tsc --noEmit`. Build (`rm -rf .next && npm run build`) at end of each phase.
+     f. Commit per step or per phase with conventional messages: `redesign(public): step N -- <brief>`.
+     g. Push:
+        - Stage only owned files.
+        - `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin redesign/public`
+     h. After Step 2 (tokens layer commit) is pushed, comment the commit SHA on the coordination issue so the CRM agent can cherry-pick it.
+     i. After all steps done, open ONE PR (reuse if it exists). PR title: "redesign(public): public surface adopts drCoins design tokens + variants". Body must include: density screenshots placeholder, the validation-command output, the font + hero-scale deviations called out in spec Notes.
+     j. Comment PR URL on the original issue and mark complete.
+
+  Coordination signals to the CRM agent:
+  - The tokens layer commit (Step 2 of the spec) is the rebase target for the CRM branch. After pushing it, leave a comment "tokens-ready: <sha>" on the coordination issue (issue title "redesign coordination").
+  - You do not wait for the CRM agent. You ship the full public spec independently.
+
+  If you discover a DESIGN.md gap mid-implementation (e.g., a token name not defined), STOP and open a new issue for the human. Never invent tokens.
+
+cwd: /mnt/c/@Work/drCoin_crm-public
+
+env:
+  REBAR_ROOT: /mnt/c/@Work/rebar
+  DRCOIN_REPO: spotcircuit/drCoin_crm
+  DRCOIN_BRANCH: redesign/public
+  DRCOINS_GH_PAT_SOURCE: /mnt/c/@Work/rebar/system/.env
+
+reads:
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/redesign-public-20260507-154351.md
+  - /mnt/c/@Work/rebar/clients/drCoins/DESIGN.md
+  - /mnt/c/@Work/rebar/clients/drCoins/notes.md
+  - /mnt/c/@Work/rebar/clients/drCoins/expertise.yaml
+
+writes:
+  - src/app/globals.css
+  - src/app/(public)/**
+  - src/app/login/**
+  - src/app/accept-invite/**
+  - src/app/verify-email/**
+  - src/app/forbidden/**
+  - src/components/public/**
+  - src/components/ui/**
+  - src/lib/cn.ts
+
+rules:
+  - Source PAT safely: `DRCOINS_GH_PAT=$(grep '^DRCOINS_GH_PAT=' "$DRCOINS_GH_PAT_SOURCE" | head -1 | cut -d= -f2-)`. Never `export $(...)`. Never log.
+  - Never edit ANY file under src/app/admin, src/app/sw, src/app/provider, src/components/admin, src/components/sw, src/components/provider. That is the CRM branch's territory.
+  - Never edit prisma/schema.prisma, src/middleware.ts, src/auth.ts, src/lib/auth-helpers.ts, package.json, or src/app/layout.tsx (root layout) unless the spec explicitly directs it (it does not).
+  - Never run `npm run dev` (per global CLAUDE.md). Use `npm run build` + `npx tsc --noEmit`.
+  - If typecheck or build fails, do NOT push. Comment failure on the issue with the error and stop.
+  - Worktree pattern: cwd is `/mnt/c/@Work/drCoin_crm-public`; node_modules and .env.local are symlinked from the main repo. If symlinks are broken, comment and stop -- do not re-install or re-create.
+  - Preserve all existing form logic in ReferralForm.tsx verbatim. Restyling only.
+  - Single PR for the whole spec. Do NOT split into multiple PRs.

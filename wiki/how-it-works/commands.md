@@ -1,7 +1,5 @@
 # Commands
 
-#rebar #commands #reference #slash-commands
-
 Rebar has 29 slash commands organized into five groups: client/app management, development workflow, wiki management, **self-learning harness**, and utilities.
 
 All commands auto-resolve names from `clients/`, `apps/`, and `tools/` directories.
@@ -137,9 +135,8 @@ Enhanced planning with parallel context gathering. Deploys 8 scout agents (3 dee
 ### `/build-parallel <plan-file>`
 Parallel implementation. Reads a plan file and delegates file creation to parallel build agents, each handling one file with detailed specs. Faster than sequential `/build` for multi-file features.
 
-Source: rebar CLAUDE.md command tables, .claude/skills/*.md | Generated 2026-04-07
-
 ## Related
 
-- [[how-it-works/self-learn-loop|The Self-Learn Loop]] -- How `/improve` drives the feedback cycle
-- [[how-it-works/three-systems|Three Knowledge Systems]] -- Which commands update which system
+- [The Self-Learn Loop](self-learn-loop.md) -- How `/improve` drives the feedback cycle
+- [Three Knowledge Systems](three-systems.md) -- Which commands update which system
+- [Site Builder](../examples/site-builder.md) -- Commands used across four build sessions

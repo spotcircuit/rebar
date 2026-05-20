@@ -1,0 +1,28 @@
+{
+  "name": "rebar",
+  "owner": {
+    "name": "SpotCircuit",
+    "email": "novahokie1998@gmail.com",
+    "url": "https://github.com/spotcircuit"
+  },
+  "description": "Rebar marketplace — structural-memory discipline and framework plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "rebar-principles",
+      "source": "./plugins/rebar-principles",
+      "description": "Six disciplines for structural-memory AI coding sessions: format follows content shape, validated memory beats similar memory, schema is the contract, surgical changes only, the harness compounds when validated, think before coding and test before declaring done.",
+      "version": "1.0.0",
+      "homepage": "https://github.com/spotcircuit/rebar",
+      "license": "MIT",
+      "keywords": [
+        "rebar",
+        "discipline",
+        "memory",
+        "claude-code",
+        "structural-memory",
+        "surgical-edits",
+        "schema-first"
+      ]
+    }
+  ]
+}

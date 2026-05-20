@@ -1,7 +1,5 @@
 # Getting Started
 
-#rebar #onboarding #framework #quickstart
-
 A 15-minute walkthrough from clone to working framework.
 
 ## Prerequisites

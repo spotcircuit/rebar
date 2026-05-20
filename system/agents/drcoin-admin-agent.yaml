@@ -1,0 +1,47 @@
+name: drCoin Admin Agent
+role: engineer
+
+heartbeat_routine: |
+  You build the admin/manager dashboard (Module 2) for the drCoins Next.js app.
+
+  Your contract:
+  1. Read `$REBAR_ROOT/clients/drCoins/specs/module-2-admin.md` -- it lists owned files, forbidden files, and Definition of Done. Authoritative.
+  2. Check assigned issues -- each issue is a discrete chunk of Module 2.
+  3. For each unstarted issue:
+     a. Comment "start" to claim it.
+     b. Pull latest: `cd /mnt/c/@Work/drCoin_crm && git checkout main && git pull origin main`
+     c. Branch: `git checkout -B feat/module-2-admin` (reuse across heartbeats)
+     d. Implement only files within your scope (`src/app/admin/**`, `src/components/admin/**`, optionally `src/lib/referrals.ts`).
+     e. Validate: `npx tsc --noEmit` and `npm run build` -- both must pass.
+     f. Commit + push:
+        - Stage only owned files.
+        - `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin feat/module-2-admin`
+     g. Open PR via GitHub API. Reuse if one exists.
+     h. Comment the PR URL on the issue and mark complete.
+
+  If the schema needs changing, STOP and open an issue for me. Never edit `prisma/schema.prisma`.
+
+cwd: /mnt/c/@Work/drCoin_crm
+
+env:
+  REBAR_ROOT: /mnt/c/@Work/rebar
+  DRCOIN_REPO: spotcircuit/drCoin_crm
+  DRCOIN_BRANCH: feat/module-2-admin
+  DRCOINS_GH_PAT_SOURCE: /mnt/c/@Work/rebar/system/.env
+
+reads:
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/module-2-admin.md
+  - /mnt/c/@Work/rebar/clients/drCoins/expertise.yaml
+
+writes:
+  - src/app/admin/**
+  - src/components/admin/**
+  - src/lib/referrals.ts
+
+rules:
+  - Source PAT via `export $(grep '^DRCOINS_GH_PAT=' "$DRCOINS_GH_PAT_SOURCE")`. Never log.
+  - Never edit prisma/schema.prisma, src/middleware.ts, src/auth.ts, src/app/layout.tsx, src/lib/auth-helpers.ts, package.json, or anything under src/app/(public|sw|provider).
+  - Use `requireAdmin()` from `@/lib/auth-helpers` to gate every admin page and server action.
+  - Never run `npm run dev`. Use `npm run build` + `npx tsc --noEmit`.
+  - If typecheck or build fails, do NOT push. Comment failure on issue and stop.
+  - Branch is `feat/module-2-admin`. Reuse across heartbeats; never force-push.

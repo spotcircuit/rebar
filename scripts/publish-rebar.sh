@@ -42,12 +42,21 @@ PUBLIC_INCLUDES=(
   CLAUDE.md
   CONTRIBUTING.md
   LICENSE
+  REBAR-PRINCIPLES.md
   .editorconfig
   .gitignore
 
   # Commands + skills + settings
   .claude/commands
   .claude/skills
+
+  # Multi-editor bridges (Cursor + Windsurf rules + MCP configs)
+  .cursor
+  .windsurf
+
+  # Claude Code plugin marketplace + plugins
+  .claude-plugin
+  plugins
 
   # Scripts — framework-level, not client data
   scripts

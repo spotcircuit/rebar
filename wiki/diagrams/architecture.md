@@ -1,7 +1,5 @@
 # Architecture Diagrams
 
-#architecture #diagrams #overview #rebar
-
 Visual overview of how the Rebar components connect.
 
 ## Overall Architecture
@@ -246,10 +244,8 @@ Paperclip triggers each agent on its cron schedule. The Triage Agent runs every 
 
 **AGENTS.md discipline:** every agent's instruction bundle carries a mandatory cwd preamble so close-loop artifacts always land in the canonical rebar repo, never stale copies. Source of truth is `system/agents/_agents-md-preamble.md`; `paperclip-sync.sh preamble` self-heals all 43+ agents.
 
-Source: rebar CLAUDE.md, system/paperclip.yaml, system/agents/*.yaml | Generated 2026-04-07
-
 ## Related
 
-- [[diagrams/command-flow|Command Flow]] -- detailed command chaining diagrams
-- [[tools/paperclip|Paperclip]] -- agent setup and management
-- [[how-it-works/three-systems|Three Knowledge Systems]] -- detailed explanation
+- [Command Flow](command-flow.md) -- detailed command chaining diagrams
+- [Paperclip](../tools/paperclip.md) -- agent setup and management
+- [Three Knowledge Systems](../how-it-works/three-systems.md) -- detailed explanation

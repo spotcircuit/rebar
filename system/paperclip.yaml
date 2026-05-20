@@ -64,6 +64,71 @@ agents:
     heartbeat_schedule: "*/5 * * * *"    # every 5 minutes
     budget_cents: 100
 
+  # ---------------------------------------------------------------------------
+  # Phase specialists — issue-driven (no schedule). Each agent is fluent in
+  # a cluster of rebar slash commands. Used end-to-end on any rebar project:
+  # planner → frontend + backend (parallel) → tester + reviewer → close-loop.
+  # Issue description must include a "Scope:" block with project_name,
+  # codebase_path, etc. See wiki/patterns/parallel-paperclip-build.md.
+  # ---------------------------------------------------------------------------
+  # Role values must be in Paperclip's enum:
+  # ceo | cto | cmo | cfo | engineer | designer | pm | qa | devops | researcher | general
+  # Specialty (planner / frontend / backend / tester / reviewer) is encoded in
+  # the agent name + heartbeat_routine, not the role enum.
+  rebar-planner:
+    name: Rebar Planner
+    description: >
+      Phase 1 specialist. Runs /plan, /scout, /discover. Reads a brief from
+      the issue, writes a spec to clients/<x>/specs/<phase>.md. Issue-driven.
+    role: pm
+    definition_file: agents/rebar-planner.yaml
+    heartbeat_schedule: ~                 # issue-driven, no cron
+    budget_cents: 600                     # ~$6/mo, scout/plan can be heavy
+
+  rebar-frontend:
+    name: Rebar Frontend
+    description: >
+      Phase 2 UI specialist. Runs /build, /feature, /bug for UI scope.
+      Reads DESIGN.md, validates with /design lint. Parallel-capable
+      with rebar-backend. Issue-driven.
+    role: engineer
+    definition_file: agents/rebar-frontend.yaml
+    heartbeat_schedule: ~
+    budget_cents: 800
+
+  rebar-backend:
+    name: Rebar Backend
+    description: >
+      Phase 2 server / agent / lib specialist. Runs /build, /feature, /bug
+      for non-UI scope. Stubs real LLM/tool calls unless spec authorizes.
+      Parallel-capable with rebar-frontend. Issue-driven.
+    role: engineer
+    definition_file: agents/rebar-backend.yaml
+    heartbeat_schedule: ~
+    budget_cents: 800
+
+  rebar-tester:
+    name: Rebar Tester
+    description: >
+      Phase 3 verification. Runs /test or /test-learn. Reports failures
+      with file:line context. Optionally fixes (mode=fix). Reassigns
+      back to engineer if blockers persist. Issue-driven.
+    role: qa
+    definition_file: agents/rebar-tester.yaml
+    heartbeat_schedule: ~
+    budget_cents: 400
+
+  rebar-reviewer:
+    name: Rebar Reviewer
+    description: >
+      Phase 3 QA gate. Runs /review and /check. Read-only — never modifies
+      code. Categorizes findings as Blocker / Critical / Suggest with
+      file:line citations. Moves issue to Needs work / Completed / Signed off.
+    role: qa
+    definition_file: agents/rebar-reviewer.yaml
+    heartbeat_schedule: ~
+    budget_cents: 400
+
 # ---------------------------------------------------------------------------
 # Default project for issues created by Rebar commands
 # ---------------------------------------------------------------------------

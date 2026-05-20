@@ -1,7 +1,5 @@
 # Command Flow Diagrams
 
-#diagrams #commands #workflow #rebar
-
 Visual flows showing how Rebar commands chain together in practice.
 
 ## Client Onboarding
@@ -169,10 +167,8 @@ flowchart TD
 
 The GTM Agent sets the day's strategy. The Social Media Agent executes it. The Outreach Agent handles engagement. The Triage Agent routes everything else.
 
-Source: rebar CLAUDE.md, .claude/skills/*.md | Generated 2026-04-07
-
 ## Related
 
-- [[diagrams/architecture|Architecture]] -- system-level diagrams
-- [[how-it-works/commands|Commands]] -- full command reference
-- [[tools/paperclip|Paperclip]] -- agent setup
+- [Architecture](architecture.md) -- system-level diagrams
+- [Commands](../how-it-works/commands.md) -- full command reference
+- [Paperclip](../tools/paperclip.md) -- agent setup

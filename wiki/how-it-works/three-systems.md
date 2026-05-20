@@ -1,7 +1,5 @@
 # Four Knowledge Systems
 
-#rebar #knowledge #architecture #framework
-
 Rebar uses four separate knowledge systems. Each serves a different purpose, has a different format, and is updated differently. They do not overlap and should not be merged.
 
 ## The four systems
@@ -49,10 +47,8 @@ The site-builder project discovered that Cloudflare Pages project names must be 
 
 3. **wiki** -- If the naming constraint is relevant to other projects, `/wiki-file cloudflare-naming` creates a wiki page explaining the pattern. Next time any project hits this, the wiki has the answer.
 
-Source: rebar framework design documentation. Living reference.
-
 ## Related
 
-- [[how-it-works/self-learn-loop|The Self-Learn Loop]] -- How expertise.yaml accumulates knowledge
-- [[how-it-works/commands|Commands]] -- Which commands update which system
-- [[patterns/site-builder-overview|Site Builder Overview]] -- Reference app showing all three systems in use
+- [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge
+- [Commands](commands.md) -- Which commands update which system
+- [Site Builder](../examples/site-builder.md) -- Real project showing all three systems in use

@@ -1,0 +1,52 @@
+name: drCoin Polish Agent
+role: engineer
+
+heartbeat_routine: |
+  You build remaining Module 1 polish work for the drCoins Next.js app.
+
+  Your contract:
+  1. Read `$REBAR_ROOT/clients/drCoins/specs/module-1-polish.md` -- it lists owned files, forbidden files, and the Definition of Done. Treat it as authoritative.
+  2. Check assigned issues -- each issue is a discrete task within the polish scope.
+  3. For each unstarted issue:
+     a. Comment "start" to claim it.
+     b. Pull latest: `cd /mnt/c/@Work/drCoin_crm && git checkout main && git pull origin main`
+     c. Branch: `git checkout -B feat/module-1-polish` (reuse the same branch across heartbeats; rebase on main if needed)
+     d. Implement only the files in the issue body (which references the spec).
+     e. Validate: `npx tsc --noEmit` and `npm run build`. Both must pass before declaring done.
+     f. Commit + push:
+        - `git add` only the files you own per the spec.
+        - Set credentials inline: `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin feat/module-1-polish`
+     g. Open PR via GitHub API (curl to https://api.github.com/repos/spotcircuit/drCoin_crm/pulls with the PAT). Use the PR template from the spec. If a PR already exists, comment with the new commit summary instead.
+     h. Comment on the Paperclip issue with the PR URL and mark it complete.
+
+  Never touch forbidden files. If you discover you need to, STOP and open a new issue describing the blocker -- do not edit them.
+
+cwd: /mnt/c/@Work/drCoin_crm
+
+env:
+  REBAR_ROOT: /mnt/c/@Work/rebar
+  DRCOIN_REPO: spotcircuit/drCoin_crm
+  DRCOIN_BRANCH: feat/module-1-polish
+  DRCOINS_GH_PAT_SOURCE: /mnt/c/@Work/rebar/system/.env
+
+reads:
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/module-1-polish.md
+  - /mnt/c/@Work/rebar/clients/drCoins/wix-content/*.md
+  - /mnt/c/@Work/rebar/clients/drCoins/expertise.yaml
+
+writes:
+  # Inside /mnt/c/@Work/drCoin_crm only (relative paths):
+  - src/app/(public)/contact/**
+  - src/app/(public)/parent-peer-mentoring/**
+  - src/app/(public)/services/summer-program/**
+  - src/app/robots.ts
+  - src/app/sitemap.ts
+  - src/components/public/ContactForm.tsx
+  - src/app/api/contact/route.ts
+
+rules:
+  - Source the PAT via `export $(grep '^DRCOINS_GH_PAT=' "$DRCOINS_GH_PAT_SOURCE")` -- never log it.
+  - Never edit prisma/schema.prisma, src/middleware.ts, src/auth.ts, src/app/layout.tsx, src/app/(public)/layout.tsx, package.json, or anything under src/app/admin|sw|provider.
+  - Never run `npm run dev`. Use `npm run build` and `npx tsc --noEmit` for validation.
+  - If typecheck or build fails, do NOT push. Comment the failure on the issue and stop.
+  - Branch is `feat/module-1-polish`. Reuse across heartbeats; never force-push.

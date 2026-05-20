@@ -1,7 +1,5 @@
 # The Self-Learn Loop
 
-#rebar #self-learn #knowledge #framework
-
 Every Rebar command appends raw observations to `unvalidated_observations:` in expertise.yaml. Running `/improve` validates each one against current state and either promotes it to a structured section, defers it, or discards it.
 
 This is the core feedback mechanism. Knowledge accumulates automatically through normal work, not through documentation sessions.
@@ -78,10 +76,8 @@ The loop works because observations are cheap to write and expensive to promote.
 - Stale information gets cleaned up instead of rotting in a doc.
 - Expertise.yaml stays accurate because every fact in it has been validated at least once.
 
-Source: rebar framework design documentation. Living reference.
-
 ## Related
 
-- [[how-it-works/three-systems|Three Knowledge Systems]] -- Where expertise.yaml fits alongside memory and wiki
-- [[how-it-works/commands|Commands]] -- `/improve`, `/brief`, and other commands that drive the loop
-- [[patterns/site-builder-overview|Site Builder Overview]] -- Reference app showing the loop in action
+- [Three Knowledge Systems](three-systems.md) -- Where expertise.yaml fits alongside memory and wiki
+- [Commands](commands.md) -- `/improve`, `/brief`, and other commands that drive the loop
+- [Site Builder](../examples/site-builder.md) -- Four sessions showing the loop in action

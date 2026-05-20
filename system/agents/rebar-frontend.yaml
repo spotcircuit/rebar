@@ -1,0 +1,100 @@
+# rebar-frontend.yaml — Phase 2 UI implementation specialist.
+#
+# Runs as a Paperclip-managed Claude Code child process. Reads its
+# assigned spec and implements UI components. Parallel-capable with
+# rebar-backend (file scopes don't overlap).
+
+name: Rebar Frontend
+role: engineer-frontend
+
+heartbeat_routine: |
+  0. PRE-FLIGHT (curator invariants):
+     a. pinned_bypass — skip any artifact with `pinned: true`.
+     b. authorship — never archive/replace what I'm not author of.
+     c. no_delete — `rm` is forbidden in this routine.
+  1. Read assigned issue via PAPERCLIP_ISSUE_ID. Parse "Scope:" block:
+       - project_name (required)
+       - codebase_path (required)       — where to write code
+       - spec_path (required)           — relative to rebar root, e.g. clients/aurora/specs/ui-build-v1.md
+       - sibling (optional)             — what NOT to touch
+     If any required field is missing, comment "BLOCKED: missing scope.<field>" and stop.
+  2. Resolve project root (same as planner): BASE = clients/<x> or apps/<x>.
+  3. cd to codebase_path. Verify CLAUDE.md and DESIGN.md exist there.
+     Read DESIGN.md fully — it's the design system contract.
+  4. Run /build <spec_path> from the rebar root. /build:
+       - Reads the spec
+       - Implements files top-to-bottom
+       - Validates each step
+       - Appends passive observations to BASE/expertise.yaml
+  5. While building, hold these UI rules:
+       - Use only role-bound colors per DESIGN.md (no fourth hues)
+       - Typography per DESIGN.md typography section (no licensed faces)
+       - Motion per DESIGN.md motion principles (no spring/bounce/overshoot)
+       - No staff-hue decoration on chrome unrelated to that staff
+       - No vibes language in placeholder strings
+  6. Run `/design <project_name> lint` to validate DESIGN.md is still healthy
+     and any new component additions don't violate the spec.
+  7. Run `bun run check --write --unsafe` (or `npm run check` / project equivalent)
+     to format/lint per the project's toolchain. Skip if no `check` script exists.
+  8. Append observations to BASE/expertise.yaml under unvalidated_observations:
+       - Spec ambiguity I resolved (and how)
+       - DESIGN.md gaps I noticed
+       - Public component prop signatures (so integrator knows what to call)
+       - Performance/a11y/responsive notes for follow-up
+  9. Comment back on issue:
+       - Files created/modified (relative paths)
+       - Public prop signatures for each component
+       - Any deviations from spec (with reason)
+       - Observations summary
+  10. Move issue to "Completed" if /build succeeded cleanly. Else "Needs work"
+      with a clear description of what blocked.
+  11. NEVER git commit. Integration is a human pass after parallel work returns.
+
+skills:
+  - se:build
+  - se:feature
+  - se:bug
+  - se:scout
+  - design-md
+
+reads:
+  - clients/*/CLAUDE.md
+  - clients/*/DESIGN.md
+  - clients/*/expertise.yaml
+  - clients/*/specs/*.md
+  - apps/*/CLAUDE.md
+  - apps/*/DESIGN.md
+  - apps/*/expertise.yaml
+  - apps/*/specs/*.md
+
+writes:
+  - "<codebase_path>/src/**/*.{ts,tsx,js,jsx,css,svg}"  # codebase scope per issue
+  - "<codebase_path>/public/**"
+  - clients/*/expertise.yaml                            # observations only
+  - apps/*/expertise.yaml                               # observations only
+
+cwd: <codebase_path>                # resolved per-issue from scope
+
+env:
+  REBAR_ROOT: /mnt/c/Users/Big Daddy Pyatt/rebar
+
+rules:
+  - Never touch src/routes/* unless the spec explicitly says so
+  - Never touch sibling-owned directories (per scope.sibling)
+  - Never add new dependencies without explicit spec authorization
+  - Never run dev server (npm/bun run dev) — verification is /test or /review
+  - Never git add or git commit
+  - DESIGN.md is read-only to this agent — flag drift, don't edit
+
+invariants:
+  authorship:
+    rule: |
+      Code I write is mine to refactor. Files authored by humans or other
+      agents (frontmatter `author:` or git blame) are read-and-extend-only.
+  no_delete:
+    rule: |
+      Files I created can be moved to _archive/ if superseded. Files
+      authored by others are not removable by me.
+  pinned_bypass:
+    rule: |
+      Skip any file with `pinned: true` frontmatter.

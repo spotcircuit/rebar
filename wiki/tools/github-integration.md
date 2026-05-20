@@ -216,6 +216,6 @@ Source: GitHub MCP server, GitHub CLI (`gh`), tested with GitHub.com and GitHub 
 
 ## Related
 
-- [[tools/jira-integration|Jira Integration]] -- ticket and sprint context
-- [[tools/slack-integration|Slack Integration]] -- team communication
-- [[tools/claude-desktop|Claude Desktop]] -- MCP server configuration
+- [Jira Integration](jira-integration.md) -- ticket and sprint context
+- [Slack Integration](slack-integration.md) -- team communication
+- [Claude Desktop](claude-desktop.md) -- MCP server configuration

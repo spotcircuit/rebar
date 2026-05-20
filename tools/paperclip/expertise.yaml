@@ -72,6 +72,47 @@ agents:
     id: 46570da3-f503-4a02-93b9-6963ba845090
     does: "Reads unassigned issues, classifies by keyword, routes to correct agent"
 
+  # ---------------------------------------------------------------------------
+  # Rebar specialist pool — issue-driven (no schedule). Each agent is fluent in
+  # a cluster of rebar slash commands. Used end-to-end on any rebar project:
+  # planner → frontend + backend (parallel) → tester + reviewer → close-loop.
+  # See wiki/patterns/parallel-paperclip-build.md.
+  # ---------------------------------------------------------------------------
+  rebar-planner:
+    role: pm
+    schedule: "issue-driven"
+    budget: "$6/mo"
+    id: 81c0c4b4-8c9d-4497-8a59-dc743fa48ce6
+    does: "Phase 1. Runs /plan, /scout, /discover. Reads brief from issue, writes spec to clients/<x>/specs/<phase>.md"
+
+  rebar-frontend:
+    role: engineer
+    schedule: "issue-driven"
+    budget: "$8/mo"
+    id: 92811cb6-e7e3-46d1-806d-b257c664063c
+    does: "Phase 2 UI. Runs /build, /feature, /bug for UI scope. Reads DESIGN.md, validates with /design lint. Parallel-capable with rebar-backend."
+
+  rebar-backend:
+    role: engineer
+    schedule: "issue-driven"
+    budget: "$8/mo"
+    id: 5d2615be-9f3a-4b1e-965d-ba68e78e4afe
+    does: "Phase 2 server/agent/lib. Runs /build, /feature, /bug for non-UI scope. Stubs LLM/tool calls unless spec authorizes. Parallel-capable with rebar-frontend."
+
+  rebar-tester:
+    role: qa
+    schedule: "issue-driven"
+    budget: "$4/mo"
+    id: 558a404f-689f-42af-b867-d161d75f1593
+    does: "Phase 3 verification. Runs /test or /test-learn. Reports failures with file:line. Optionally fixes (mode=fix)."
+
+  rebar-reviewer:
+    role: qa
+    schedule: "issue-driven"
+    budget: "$4/mo"
+    id: 61986b8c-ca63-4f1d-9cdc-37ae870e5fc5
+    does: "Phase 3 QA gate. Runs /review and /check. Read-only — never modifies code. Categorizes findings as Blocker/Critical/Suggest with file:line."
+
   # Legacy — still in Paperclip DB, cannot delete via API
   legacy_duplicates:
     - "Legacy Steward (c983798b) — replaced by Rebar Steward"
@@ -167,6 +208,12 @@ implementation_patterns:
     paperclip-start-issues.py automates this via headless Playwright.
 
 unvalidated_observations:
+  - "Five generic rebar specialist agents added 2026-05-08 — rebar-planner (pm), rebar-frontend (engineer), rebar-backend (engineer), rebar-tester (qa), rebar-reviewer (qa). Issue-driven (no schedule), each maps to a slash-command cluster, all use rebar end-to-end. Pattern doc: wiki/patterns/parallel-paperclip-build.md."
+  - "Paperclip role enum is fixed: ceo|cto|cmo|cfo|engineer|designer|pm|qa|devops|researcher|general. Sync 500s on any other value (e.g. 'planner', 'engineer-frontend'). Specialty must be encoded in agent name + heartbeat_routine, not the role enum. 2026-05-08."
+  - "Paperclip's claude_local adapter spawns the local 'claude' CLI as a subprocess for heartbeat execution. No 'paperclipai configure --section llm' setup needed when using OAuth — the spawned claude inherits the user's existing OAuth. Verified 2026-05-08 via 'paperclipai heartbeat run --agent-id <id>' returning exit 0 with adapter=claude_local in event log."
+  - "API endpoint POST /api/agents/<id>/heartbeat/invoke queues an invocation but does NOT reliably spawn the claude subprocess. Use 'paperclipai heartbeat run --agent-id <id>' CLI command instead — that's what actually triggers execution. 2026-05-08."
+  - "'paperclipai agent local-cli <agent>' has a bug: skill-install path expects ./skills in the repo checkout and fails with 'Could not locate local Paperclip skills directory'. Workaround: pass --no-install-skills flag, then manually copy from /home/spotcircuit/.npm/_npx/<hash>/node_modules/@paperclipai/adapter-claude-local/skills/ to ~/.claude/skills/. 2026-05-08."
+  - "Issues cannot be hard-deleted via DELETE /api/issues/<id> — returns 500 due to FK constraints from agents/comments. Soft-cancel via PATCH {status: 'cancelled'} works. Agent delete also requires unassigning all referencing issues first. 2026-05-08."
   - "[raw/next-session.md] PrePitch Agent added (id: 4c67e610, every 6 hours). Total active agents now 8 confirmed. 2026-04-15."
   - "[raw/next-session.md] Claude Code routines registered: wiki-ingest every 4h, wiki-lint daily at 8am. 2026-04-15."
   - "[raw/next-session.md] Duplicate agents from prior migration terminated — 8 clean active agents remain. 2026-04-15."

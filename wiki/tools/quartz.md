@@ -1,7 +1,5 @@
 # Quartz Wiki Site
 
-#tool #quartz #wiki #publishing
-
 Quartz turns the `wiki/` markdown into a searchable, navigable website. The framework includes a sync script that pushes wiki content to a Quartz repository, which deploys automatically via GitHub Pages.
 
 ## How It Works
@@ -111,10 +109,8 @@ The script syncs these wiki subdirectories:
 
 The `raw/` directory is never synced (it contains unprocessed intake files).
 
-Source: Quartz v4 documentation and rebar wiki-sync scripts (scripts/publish-wiki.sh). Living reference.
-
 ## Related
 
-- [[tools/obsidian|Obsidian]] -- edit the wiki locally with Obsidian
-- [[tools/paperclip|Wiki Curator]] -- the agent that keeps the wiki healthy
-- [[how-it-works/three-systems|Three Knowledge Systems]] -- where the wiki fits
+- [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian
+- [Wiki Curator](paperclip.md#wiki-curator) -- the agent that keeps the wiki healthy
+- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits

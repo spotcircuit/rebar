@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "rebar": {
+      "command": "npx",
+      "args": ["rebar-mcp"],
+      "env": {
+        "REBAR_ROOT": "${workspaceFolder}"
+      }
+    }
+  }
+}

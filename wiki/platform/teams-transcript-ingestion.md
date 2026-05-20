@@ -21,7 +21,6 @@ Automated ingestion of Teams meeting transcripts via Microsoft Graph API.
 ## Related
 
 - [[demo-corp-sprint-14]] -- DEMO-482
-- [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]] -- related meeting artifact pipeline for Slack deploy events (DEMO-485)
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

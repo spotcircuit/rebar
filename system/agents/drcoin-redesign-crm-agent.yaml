@@ -1,0 +1,74 @@
+name: drCoin Redesign CRM Agent
+role: engineer
+
+heartbeat_routine: |
+  You execute the drCoins CRM-surface redesign spec. Single-PR delivery. Depends on the public agent for the tokens layer.
+
+  Your contract:
+  1. Read `$REBAR_ROOT/clients/drCoins/specs/redesign-crm-20260507-154351.md` end-to-end. Authoritative.
+  2. Read `$REBAR_ROOT/clients/drCoins/DESIGN.md` end-to-end -- the "drCoins Surface Variants" → CRM section overrides upstream Notion sections.
+  3. Read `$REBAR_ROOT/clients/drCoins/specs/redesign-public-20260507-154351.md` -- you need to know the API of the shared primitives the public branch is shipping.
+
+  4. Coordination gate (Step 2 of your spec): before doing ANY CRM page work, the tokens layer + shared `src/components/ui/*` primitives MUST be present in your worktree.
+
+     a. Confirm cwd is the CRM worktree: `pwd -P` must be `/mnt/c/@Work/drCoin_crm-crm` (NOT the main repo). If wrong, STOP and comment "wrong cwd" on the issue.
+     b. Look for a "tokens-ready: <sha>" comment on the "redesign coordination" issue from the public agent.
+     c. If present and your worktree does not yet contain that commit:
+        `git fetch origin redesign/public`
+        `git cherry-pick <sha>`
+        Push: `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin redesign/crm`
+        Verify `src/app/globals.css` has the token layer and `src/components/ui/Button.tsx`/`Card.tsx`/`StatusBadge.tsx`/`Field.tsx`/`Input.tsx` exist. If any are missing, STOP and comment "tokens incomplete" on the issue.
+     d. If no "tokens-ready" comment yet, comment "waiting for tokens" on your current issue and STOP this heartbeat. Try again next tick.
+
+  5. Once the tokens gate passes, work assigned issues:
+     a. Comment "start" to claim.
+     b. Branch is `redesign/crm` (already created by the user). Reuse across heartbeats; never force-push.
+     c. Implement only files within scope (see `writes:` and the spec's "Relevant Files" + "New Files" lists).
+     d. After EACH numbered step, validate: `npx tsc --noEmit`. Build (`rm -rf .next && npm run build`) at end of each phase.
+     e. Commit per step or per phase with conventional messages: `redesign(crm): step N -- <brief>`.
+     f. Push:
+        `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin redesign/crm`
+     g. After all steps done, open ONE PR (reuse if it exists). PR title: "redesign(crm): admin/sw/provider adopt CRM density variant". Body must include: density verification (≥ 12 rows above fold @ 1280×800 on admin referrals list), validation-command output, screenshots placeholders, status-language mapping table.
+     h. Comment PR URL on the original issue and mark complete.
+
+  6. Final cleanup (Step 10 of the spec): delete `src/app/provider/_uploads.ts` AFTER switching its consumers to import from `src/lib/uploads.ts`. Verify with grep that no import still points at `_uploads`.
+
+  If a token or primitive named in the spec is missing from the rebased layer, STOP and open an issue for the human. Never re-define tokens or duplicate primitives.
+
+cwd: /mnt/c/@Work/drCoin_crm-crm
+
+env:
+  REBAR_ROOT: /mnt/c/@Work/rebar
+  DRCOIN_REPO: spotcircuit/drCoin_crm
+  DRCOIN_BRANCH: redesign/crm
+  DRCOINS_GH_PAT_SOURCE: /mnt/c/@Work/rebar/system/.env
+
+reads:
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/redesign-crm-20260507-154351.md
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/redesign-public-20260507-154351.md
+  - /mnt/c/@Work/rebar/clients/drCoins/DESIGN.md
+  - /mnt/c/@Work/rebar/clients/drCoins/notes.md
+  - /mnt/c/@Work/rebar/clients/drCoins/expertise.yaml
+
+writes:
+  - src/app/admin/**
+  - src/app/sw/**
+  - src/app/provider/**
+  - src/components/admin/**
+  - src/components/sw/**
+  - src/components/provider/**
+  - src/components/ui/crm/**
+  - src/lib/statusLanguage.ts
+
+rules:
+  - Source PAT safely: `DRCOINS_GH_PAT=$(grep '^DRCOINS_GH_PAT=' "$DRCOINS_GH_PAT_SOURCE" | head -1 | cut -d= -f2-)`. Never `export $(...)`. Never log.
+  - Never edit ANY file under src/app/(public), src/app/login, src/app/accept-invite, src/app/verify-email, src/app/forbidden, src/components/public. That is the public branch's territory.
+  - Never edit src/app/globals.css OR any file under src/components/ui/ EXCEPT src/components/ui/crm/**. The shared primitives layer is owned by the public branch and rebased in.
+  - Never edit prisma/schema.prisma, src/middleware.ts, src/auth.ts, src/lib/auth-helpers.ts, package.json, src/app/layout.tsx.
+  - Never run `npm run dev` (per global CLAUDE.md). Use `npm run build` + `npx tsc --noEmit`.
+  - If typecheck or build fails, do NOT push. Comment failure on the issue with the error and stop.
+  - Worktree pattern: cwd is `/mnt/c/@Work/drCoin_crm-crm`; node_modules and .env.local are symlinked from the main repo. If symlinks are broken, comment and stop.
+  - Status language is closed (6 statuses, 6 colors). NEVER introduce a 7th tint or status. If domain logic requires a new status, open an issue for the human.
+  - `<PageHeader>` enforces single-primary-CTA-per-view. Don't bypass by rendering a stray `<Button variant="primary">` outside the header.
+  - Density target ≥ 12 rows / no-scroll-detail is a hard requirement, not aspirational.
+  - Single PR for the whole spec. Do NOT split into multiple PRs.

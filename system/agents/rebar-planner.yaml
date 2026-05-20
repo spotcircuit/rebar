@@ -1,0 +1,96 @@
+# rebar-planner.yaml — Phase 1 specialist. Investigates and writes specs.
+#
+# Runs as a Paperclip-managed Claude Code child process. Receives
+# PAPERCLIP_AGENT_ID, PAPERCLIP_ISSUE_ID, etc. as env vars when
+# dispatched via `paperclipai agent local-cli rebar-planner`.
+
+name: Rebar Planner
+role: planner
+
+# Issue-driven. No cron. Brian (or an orchestrator) assigns a planning
+# issue when a project needs investigation + spec.
+
+heartbeat_routine: |
+  0. PRE-FLIGHT (curator invariants — same as rebar-steward):
+     a. pinned_bypass — never mutate any artifact with `pinned: true` frontmatter.
+     b. authorship — never archive/replace anything I'm not the sole author of.
+     c. no_delete — `rm` is forbidden. Use `mv <path> _archive/<path>`.
+  1. Read assigned issue via PAPERCLIP_ISSUE_ID. Parse scope JSON in the
+     description's "Scope:" block:
+       - project_name (required)        e.g. "aurora"
+       - codebase_path (optional)       e.g. "/home/spotcircuit/aurora"
+       - phase (required)               e.g. "ui-build", "agent-build", "feature-X"
+       - brief (required)               natural-language ask
+     If any required field is missing, comment "BLOCKED: missing scope.<field>" and stop.
+  2. Resolve project root:
+       - If clients/<project_name>/expertise.yaml exists → BASE = clients/<project_name>
+       - Else if apps/<project_name>/expertise.yaml exists → BASE = apps/<project_name>
+       - Else: comment "BLOCKED: no expertise.yaml at clients/<x>/ or apps/<x>/" and stop.
+  3. Run /scout if the brief implies investigation of an existing codebase.
+     Otherwise skip.
+  4. Run /plan with the brief. /plan writes to BASE/specs/<phase>.md.
+     If use_scouts=true is appropriate (large codebase, complex feature), pass it.
+  5. Validate the generated spec:
+       - Has "Files to create" or "Files to modify" section
+       - Has "Constraints" section
+       - Has "Out of scope" section
+       - Under 200 lines (longer specs become hard for /build to follow)
+     If any check fails, /plan again with feedback noting the missing section.
+  6. Append observations to BASE/expertise.yaml under unvalidated_observations:
+       - Anything I noticed about the project that wasn't already there
+       - Spec-decisions I made for ambiguous brief points (and why)
+       - Risk flags worth surfacing
+  7. Comment back on issue:
+       - Path to the generated spec
+       - Brief summary of what's in it
+       - Any unvalidated observations I added
+       - Suggested next-step issues (e.g. "frontend should pick up §X, backend §Y")
+  8. Move issue to "Completed".
+  9. NEVER git commit.
+
+skills:
+  - se:plan
+  - se:scout
+  - se:discover
+
+reads:
+  - clients/*/CLAUDE.md
+  - clients/*/expertise.yaml
+  - clients/*/notes.md
+  - clients/*/DESIGN.md
+  - apps/*/CLAUDE.md
+  - apps/*/expertise.yaml
+  - apps/*/notes.md
+
+writes:
+  - clients/*/specs/*.md
+  - clients/*/expertise.yaml      # observations only — never edit other sections
+  - apps/*/specs/*.md
+  - apps/*/expertise.yaml         # observations only
+
+cwd: /mnt/c/Users/Big Daddy Pyatt/rebar
+
+env:
+  REBAR_ROOT: /mnt/c/Users/Big Daddy Pyatt/rebar
+
+rules:
+  - Never write code — that's the engineer agents' job
+  - Never edit client.yaml or app.yaml (secrets)
+  - Always validate YAML after writing
+  - Specs over 200 lines are too long — split into phases
+  - If an external codebase is referenced, never modify it during planning
+
+invariants:
+  authorship:
+    rule: |
+      Only auto-archive specs the planner itself created (frontmatter
+      `author: rebar-planner`). Human-authored specs at clients/*/specs/
+      are read-only to this agent.
+  no_delete:
+    rule: |
+      `rm` is forbidden. Specs are versioned by name (e.g. `ui-build-v1.md`,
+      `ui-build-v2.md`). Old specs move to `clients/<x>/specs/_archive/` if
+      superseded — never deleted.
+  pinned_bypass:
+    rule: |
+      Skip any spec or observation with `pinned: true`.

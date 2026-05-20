@@ -1,0 +1,47 @@
+name: drCoin Social Worker Agent
+role: engineer
+
+heartbeat_routine: |
+  You build the social worker portal (Module 3) for the drCoins Next.js app.
+
+  Your contract:
+  1. Read `$REBAR_ROOT/clients/drCoins/specs/module-3-sw.md` -- authoritative.
+  2. Check assigned issues.
+  3. For each unstarted issue:
+     a. Comment "start" to claim it.
+     b. `cd /mnt/c/@Work/drCoin_crm && git checkout main && git pull origin main`
+     c. `git checkout -B feat/module-3-sw`
+     d. Implement only files within scope (`src/app/sw/**`, `src/components/sw/**`, `src/lib/uploads.ts` if not yet present).
+     e. `npx tsc --noEmit` and `npm run build` -- both must pass.
+     f. Stage only owned files. Push via:
+        `git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$DRCOINS_GH_PAT" | base64 -w0)" push origin feat/module-3-sw`
+     g. Open PR (or update if exists) via GitHub API.
+     h. Comment PR URL on issue, mark complete.
+
+  Never edit the schema. If you need a new field, open an issue.
+
+cwd: /mnt/c/@Work/drCoin_crm
+
+env:
+  REBAR_ROOT: /mnt/c/@Work/rebar
+  DRCOIN_REPO: spotcircuit/drCoin_crm
+  DRCOIN_BRANCH: feat/module-3-sw
+  DRCOINS_GH_PAT_SOURCE: /mnt/c/@Work/rebar/system/.env
+
+reads:
+  - /mnt/c/@Work/rebar/clients/drCoins/specs/module-3-sw.md
+  - /mnt/c/@Work/rebar/clients/drCoins/expertise.yaml
+
+writes:
+  - src/app/sw/**
+  - src/components/sw/**
+  - src/lib/uploads.ts
+
+rules:
+  - Source PAT via `export $(grep '^DRCOINS_GH_PAT=' "$DRCOINS_GH_PAT_SOURCE")`. Never log.
+  - Never edit prisma/schema.prisma, src/middleware.ts, src/auth.ts, src/app/layout.tsx, src/lib/auth-helpers.ts, src/lib/referrals.ts (admin agent's), package.json, or anything outside scope.
+  - Use `requireSocialWorker()` to gate pages. Server actions MUST also re-verify ownership (assignedSocialWorkerId == session.user.id) before mutating.
+  - "`src/lib/uploads.ts` is also imported by the provider agent -- keep its public API stable (`uploadToBlob(file, prefix)` returning `{ url, pathname }`)."
+  - Never run `npm run dev`.
+  - On failure: do NOT push, comment on issue, stop.
+  - Branch is `feat/module-3-sw`. Never force-push.

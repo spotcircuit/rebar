@@ -21,7 +21,6 @@ Google Maps shows a "limited view" (only Overview + About tabs) when the browser
 
 - [[site-builder-session-3]] -- where this was implemented
 - [[claude-json-extraction]] -- another site-builder pattern
-- [[patterns/playwright-e2e-harness-prepitch|Playwright E2E Harness]] -- uses persistent context patterns for PrePitch E2E tests
 
 ---
 Source: raw/example-meeting-notes.md | Ingested: 2026-04-13

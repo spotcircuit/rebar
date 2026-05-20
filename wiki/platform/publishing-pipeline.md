@@ -81,4 +81,3 @@ Source: system/agents/blog-writer.yaml + session context 2026-04-16
 - [[social-outreach-extensions]] -- Chrome extensions for manual engagement
 - [[paperclip]] -- agent orchestration runs the blog-writer
 - [[ai-content-pipeline]] -- earlier content approach before skills integration
-- [[decisions/session-2026-04-16]] -- session where the blog-writer and cross-post.sh were built

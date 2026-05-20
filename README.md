@@ -13,6 +13,19 @@ Claude Code forgets everything between sessions. Rebar fixes that. 29 slash comm
 
 **[Landing page](https://getrebar.dev)** · **[Public Wiki](https://spotcircuit.github.io/rebar-wiki-site/)** · [Getting Started](wiki/getting-started.md) · [All Commands](wiki/how-it-works/commands.md) · [Architecture + Diagrams](https://spotcircuit.github.io/rebar-wiki-site/diagrams/architecture)
 
+**New here?** Read **[REBAR-PRINCIPLES.md](REBAR-PRINCIPLES.md)** first — the six disciplines this framework enforces, in one page. The framework is what you reach for when your work needs to compound across sessions.
+
+**Using Cursor or Windsurf?** Rebar ships rules files for both (`.cursor/rules/rebar-principles.mdc` · `.windsurf/rules/rebar-principles.md`) plus an MCP server at [rebar-mcp](https://github.com/spotcircuit/rebar-mcp) that exposes expertise, wiki, skills, and harness state to any MCP-compatible editor.
+
+**Just want the principles in Claude Code?**
+
+```bash
+/plugin marketplace add spotcircuit/rebar
+/plugin install rebar-principles@rebar
+```
+
+That installs the six disciplines as a single Claude Code skill — no slash commands, no scaffolding, no opinions about your repo layout. The full framework is `npx create-rebar` when your work outgrows the principles file.
+
 ## How it hangs together
 
 ```mermaid
