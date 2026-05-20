@@ -2,7 +2,10 @@
   "name": "rebar-principles",
   "version": "1.0.0",
   "description": "Six disciplines for structural-memory AI coding sessions",
-  "author": "SpotCircuit",
+  "author": {
+    "name": "SpotCircuit",
+    "url": "https://github.com/spotcircuit"
+  },
   "homepage": "https://github.com/spotcircuit/rebar",
   "license": "MIT",
   "keywords": [
