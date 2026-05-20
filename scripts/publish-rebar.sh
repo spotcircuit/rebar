@@ -58,6 +58,10 @@ PUBLIC_INCLUDES=(
   .claude-plugin
   plugins
 
+  # Public setup docs (specific files only — docs/ contains private notes too)
+  docs/cursor-windsurf-setup.md
+  docs/laptop-setup.md
+
   # Scripts — framework-level, not client data
   scripts
 
