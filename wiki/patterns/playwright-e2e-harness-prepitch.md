@@ -48,3 +48,9 @@ PREPITCH_E2E_RUN_A2A_VOICE=1 bunx playwright test agent-vs-agent-voice
 - Eval report: `raw/processed/eval-2026-04-19-prepitch-playwright.md`
 - Evaluator log: `system/evaluator-log.md` (2026-04-19 CON-124 entry)
 - Source issues: [CON-120](/CON/issues/CON-120), [CON-123](/CON/issues/CON-123), [CON-124](/CON/issues/CON-124)
+
+## Related
+
+- [[patterns/persistent-browser-context]] — browser session management patterns
+- [[patterns/mock-data-strategy]] — stubbing strategies used in test fixtures
+- [[patterns/error-handling]] — error boundary patterns tested by this harness

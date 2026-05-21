@@ -32,28 +32,38 @@ Reusable engineering patterns captured from real projects.
 
 - [[patterns/act-learn-reuse-testing|Act-Learn-Reuse Testing]]
 - [[patterns/ai-receptionist-to-hubspot-bridge|AI Receptionist → HubSpot Bridge]] — polling-based bridge for receptionist platforms with no webhooks (GoodCall, etc.); legacy v1 engagements API + phone-format-resilient dedup
+- [[patterns/airtable-api|Airtable API]] — curl + scoped PAT pattern; use scoped tokens, never legacy account-wide key
 - [[patterns/claude-json-extraction|Claude JSON Extraction]]
 - [[patterns/cloudflare-pages-deploy|Cloudflare Pages Deploy]]
 - [[patterns/config-driven-routing|Config-Driven Routing]]
 - [[patterns/correlation-id|Correlation ID]]
+- [[patterns/design-md|DESIGN.md Pattern]] — markdown design system spec that AI agents read natively; keeps visual design consistent across sessions
 - [[patterns/ecs-health-check-grace-period|ECS Health Check Grace Period]]
 - [[patterns/error-handling|Error Handling]]
+- [[patterns/github-pr-fallback|GitHub PR Fallback]] — gh CLI happy path; git + REST API via curl fallback for restricted CI environments
 - [[patterns/headless-detection-bypass|Headless Detection Bypass]]
 - [[patterns/idempotency-guard|Idempotency Guard]]
 - [[patterns/inline-editor-pattern|Inline Editor Pattern]]
+- [[patterns/linear-api|Linear API]] — GraphQL-only; single endpoint, POST query, no REST API
 - [[patterns/mock-data-strategy|Mock Data Strategy]]
+- [[patterns/notion-api|Notion API]] — integration token + versioned API; version header mandatory
+- [[patterns/parallel-paperclip-build|Parallel Paperclip Build]] — dispatch parallel build work across specialist Paperclip workers using full slash-command surface
 - [[patterns/persistent-browser-context|Persistent Browser Context]]
+- [[patterns/persistent-claude-session|Persistent Claude Session]] — reuse prompt cache across turns for 3.5× lower per-turn latency vs spawn-per-call
 - [[patterns/playwright-e2e-harness-prepitch|Playwright E2E Harness (PrePitch)]]
 - [[patterns/pre-release-checklist|Pre-Release Checklist]]
 - [[patterns/rebar-onboarding-walkthrough|Rebar Onboarding Walkthrough]]
 - [[patterns/redis-circuit-breaker|Redis Circuit Breaker]]
 - [[patterns/scout-build-verify|Scout-Build-Verify]]
+- [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] — proxy ElevenLabs TTS through backend as ReadableStream, play via MediaSource + SourceBuffer for first-chunk playback
+- [[patterns/stripe-mode-observability|Stripe Mode Observability]] — tag every Stripe object with creation mode so key-drift is grep-able
 - [[patterns/websocket-progress-pattern|WebSocket Progress Pattern]]
 
 ## 🧭 Decisions
 
 Architectural decisions with rationale, captured as they happen.
 
+- [[decisions/cross-spec-log-contract-leak|Cross-Spec Log-Contract Leak]] — parallel specs sharing files through observability output; silent scope leak pattern
 - [[decisions/session-2026-04-16|Session 2026-04-16]]
 
 ## 🌐 Platform
@@ -111,4 +121,3 @@ tags: [pattern, example]
 ```
 
 Cross-link liberally with `[[double-bracket-syntax]]` — that's the Obsidian / Quartz convention.
-- [[stripe-mode-observability]] — tag every Stripe object with the mode it was created in so key-drift is grep-able instead of support-ticket-able
