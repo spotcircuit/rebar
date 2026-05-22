@@ -27,7 +27,7 @@ Pipeline takes 30-60 seconds. Without WebSocket, user sees nothing until complet
 
 ## Related
 
-- [[site-builder-overview]] -- pipeline that uses this pattern
+- site-builder-overview -- pipeline that uses this pattern (page not yet created)
 - [[correlation-id]] -- job_id serves as correlation across all steps
 
 ---

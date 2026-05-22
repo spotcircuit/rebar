@@ -20,7 +20,7 @@ Automated ingestion of Teams meeting transcripts via Microsoft Graph API.
 
 ## Related
 
-- [[demo-corp-sprint-14]] -- DEMO-482
+- demo-corp-sprint-14 -- DEMO-482 (sprint page not yet created)
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

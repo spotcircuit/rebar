@@ -80,4 +80,4 @@ Source: system/agents/blog-writer.yaml + session context 2026-04-16
 - [[reddit-publishing-pipeline]] -- Reddit-specific publishing (separate from cross-post)
 - [[social-outreach-extensions]] -- Chrome extensions for manual engagement
 - [[paperclip]] -- agent orchestration runs the blog-writer
-- [[ai-content-pipeline]] -- earlier content approach before skills integration
+- ai-content-pipeline -- earlier content approach before skills integration (page not yet created)

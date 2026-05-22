@@ -18,7 +18,7 @@ Sarah (CTO) requested audit trail for compliance reasons. Currently the reaction
 
 ## Related
 
-- [[demo-corp-sprint-14]] -- DEMO-485
+- demo-corp-sprint-14 -- DEMO-485 (sprint page not yet created)
 - [[slack-block-kit-pagination]] -- related Slack bot patterns
 - [[demo-corp-team]] -- who can approve
 
