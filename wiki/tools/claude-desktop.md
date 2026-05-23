@@ -92,3 +92,6 @@ The self-learn loop (expertise.yaml) and wiki grow through Claude Code sessions.
 - [Obsidian](obsidian.md) -- local wiki editing
 - [Quartz](quartz.md) -- wiki as a website
 - [Paperclip](paperclip.md) -- agent orchestration
+
+---
+Source: Claude Desktop MCP documentation, rebar framework docs | Added: 2026-05-23

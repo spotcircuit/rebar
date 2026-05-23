@@ -135,3 +135,6 @@ silently. This pattern would have surfaced it on the next cold start.
   Stripe-adjacent code
 - [[correlation-id]] — same philosophy, different surface
 - wiki/platform for Stripe Connect specifics
+
+---
+Source: Live marketplace launch sprint incident, 2026 | Added: 2026-05-23
