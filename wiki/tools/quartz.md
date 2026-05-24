@@ -109,6 +109,8 @@ The script syncs these wiki subdirectories:
 
 The `raw/` directory is never synced (it contains unprocessed intake files).
 
+Source: scripts/wiki-sync.sh, tools/getrebar-site/tool.yaml (if present), CLAUDE.md (Publishing section)
+
 ## Related
 
 - [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian
