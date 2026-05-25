@@ -85,8 +85,10 @@ Source: who confirmed, when, or raw/filename
 - [[another-page]] -- how it relates
 ```
 
+Source: Rebar framework documentation, CLAUDE.md wiki section | Added: 2026-04-07
+
 ## Related
 
-- [Quartz](quartz.md) -- render the wiki as a website
-- [Wiki Commands](../how-it-works/commands.md#wiki-management) -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
-- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits
+- [[tools/quartz|Quartz]] -- render the wiki as a website
+- [[how-it-works/commands#wiki-management|Wiki Commands]] -- `/wiki-ingest`, `/wiki-file`, `/wiki-lint`
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- where the wiki fits

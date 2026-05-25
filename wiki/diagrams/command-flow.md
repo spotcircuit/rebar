@@ -167,8 +167,10 @@ flowchart TD
 
 The GTM Agent sets the day's strategy. The Social Media Agent executes it. The Outreach Agent handles engagement. The Triage Agent routes everything else.
 
+Source: CLAUDE.md, rebar framework diagrams | Added: 2026-04-07
+
 ## Related
 
-- [Architecture](architecture.md) -- system-level diagrams
-- [Commands](../how-it-works/commands.md) -- full command reference
-- [Paperclip](../tools/paperclip.md) -- agent setup
+- [[diagrams/architecture|Architecture]] -- system-level diagrams
+- [[how-it-works/commands|Commands]] -- full command reference
+- [[tools/paperclip|Paperclip]] -- agent setup
