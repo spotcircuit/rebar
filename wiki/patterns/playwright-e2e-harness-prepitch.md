@@ -49,6 +49,8 @@ PREPITCH_E2E_RUN_A2A_VOICE=1 bunx playwright test agent-vs-agent-voice
 - Evaluator log: `system/evaluator-log.md` (2026-04-19 CON-124 entry)
 - Source issues: [CON-120](/CON/issues/CON-120), [CON-123](/CON/issues/CON-123), [CON-124](/CON/issues/CON-124)
 
+Source: raw/processed/eval-2026-04-19-prepitch-playwright.md | CON-124 evaluator PASS, 7/9 strict | Added: 2026-04-19
+
 ## Related
 
 - [[patterns/persistent-browser-context]] — browser session management patterns
