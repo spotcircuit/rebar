@@ -30,8 +30,11 @@ Pinia store compares `editableData` vs `savedDataSnapshot` via JSON comparison. 
 
 ## Related
 
-- site-builder-overview -- full system context (page not yet created)
-- ai-content-pipeline -- AI generation used for section regeneration (page not yet created)
+- [[patterns/cloudflare-pages-deploy]] — deploy step triggered by "Re-deploy" action
+- [[patterns/websocket-progress-pattern]] — progress feedback during site rebuild
+- [[patterns/mock-data-strategy]] — mock data used for live preview before real data loads
+- site-builder-overview — full system context (page not yet created)
+- ai-content-pipeline — AI generation used for section regeneration (page not yet created)
 
 ---
 Source: raw/site-builder-editor.md | Ingested: 2026-04-08

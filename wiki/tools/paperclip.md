@@ -158,6 +158,7 @@ Source: system/paperclip.yaml, tools/paperclip/tool.yaml, CLAUDE.md (Paperclip s
 
 ## Related
 
+- [[patterns/parallel-paperclip-build]] -- multi-agent build pattern used by Rebar Planner
 - [Architecture](../diagrams/architecture.md) -- how agents fit into the overall system
 - [Commands](../how-it-works/commands.md) -- the slash commands agents execute
 - [Self-Learn Loop](../how-it-works/self-learn-loop.md) -- what Rebar Steward maintains

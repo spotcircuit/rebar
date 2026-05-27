@@ -19,8 +19,9 @@ Google Maps shows a "limited view" (only Overview + About tabs) when the browser
 
 ## Related
 
-- site-builder-session-3 -- where this was implemented (page not yet created)
+- [[patterns/headless-detection-bypass]] — CSS system color detection that affects cloud-hosted headless instances
 - [[claude-json-extraction]] -- another site-builder pattern
+- site-builder-session-3 -- where this was implemented (page not yet created)
 
 ---
 Source: raw/example-meeting-notes.md | Ingested: 2026-04-13

@@ -31,8 +31,9 @@ This is a good [[idempotency-guard]] pattern — the operation self-heals rather
 
 ## Related
 
-- site-builder-overview -- full pipeline context (page not yet created)
+- [[patterns/inline-editor-pattern]] — inline editor triggers redeploy via this pattern
 - [[idempotency-guard]] -- self-healing pattern parallel
+- site-builder-overview -- full pipeline context (page not yet created)
 
 ---
 Source: raw/site-builder-deployment.md | Ingested: 2026-04-08

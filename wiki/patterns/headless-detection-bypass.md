@@ -49,5 +49,8 @@ Source: Reddit post analysis, April 2026
 
 ## Related
 
+- [[patterns/persistent-browser-context]] — CDP-based real desktop browser avoids this detection
+- [[patterns/playwright-e2e-harness-prepitch]] — Playwright automation that needs stealth against detection
+- [[platform/social-outreach-extensions]] — browser automation using Windows Chrome CDP
 - site-builder-overview — Maps scraper uses Playwright stealth (page not yet created)
 - leadfinder-overview — lead scraper uses anti-detection (page not yet created)
