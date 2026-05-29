@@ -69,3 +69,12 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
+
+Source: Rebar framework documentation | Added: 2026-04-07
+
+## Related
+
+- [[index.md]] -- full indexed navigation with descriptions for every page
+- [[getting-started]] -- 15-minute walkthrough from clone to working framework
+- [[how-it-works/commands]] -- all slash commands with descriptions
+- [[diagrams/architecture]] -- system overview and self-learn loop diagrams
