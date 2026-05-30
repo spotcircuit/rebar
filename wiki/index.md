@@ -14,6 +14,7 @@ Start with **[Getting Started](getting-started)** if you're new. The rest of thi
 
 New to Rebar? Start here.
 
+- [[README|About Rebar]] — wiki landing page with overview and quick links to all major sections
 - [[getting-started]] — 15-minute walkthrough from clone to working framework (prerequisites, install, first client)
 
 ## 🔧 How it works
@@ -105,6 +106,12 @@ Per-tool guides for everything rebar integrates with.
 Who's who on active engagements.
 
 - [[people/demo-corp-team|Demo Corp Team]]
+
+## 📋 Meta
+
+Operational and maintenance files.
+
+- [[log|Ingest Log]] — append-only log of `/wiki-ingest` runs; records source files processed and pages created/updated
 
 ---
 
