@@ -74,7 +74,7 @@ Source: Rebar framework documentation | Added: 2026-04-07
 
 ## Related
 
-- [[index.md]] -- full indexed navigation with descriptions for every page
+- [[index]] -- full indexed navigation with descriptions for every page
 - [[getting-started]] -- 15-minute walkthrough from clone to working framework
 - [[how-it-works/commands]] -- all slash commands with descriptions
 - [[diagrams/architecture]] -- system overview and self-learn loop diagrams
