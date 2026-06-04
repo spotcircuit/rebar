@@ -29,7 +29,7 @@ Same startup grace period logic being added to notification-service (DEMO-493) a
 ## Related
 
 - [[redis-circuit-breaker]] -- Redis resilience at the application layer
-- health-endpoint-startup-grace — the decision behind this approach
+- health-endpoint-startup-grace — the decision behind this approach (decision page not yet created)
 
 ---
 Source: raw/demo-slack-export.md | Ingested: 2026-04-13
