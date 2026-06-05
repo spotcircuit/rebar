@@ -18,6 +18,10 @@ Integrations and supporting infrastructure.
 - [Obsidian](tools/obsidian.md) -- Use the wiki as an Obsidian vault with bidirectional sync
 - [Quartz](tools/quartz.md) -- Render the wiki as a searchable website via GitHub Pages
 - [Claude Desktop](tools/claude-desktop.md) -- Access framework knowledge from Claude Desktop via MCP
+- [Claude Skills Library](tools/claude-skills-library.md) -- 235 skills from alirezarezvani/claude-skills; six integrated into rebar (content-strategy, content-production, content-humanizer, ai-seo, copywriting, launch-strategy)
+- [GitHub Integration](tools/github-integration.md) -- PR workflows, CI integration, and GitHub MCP server patterns
+- [Jira Integration](tools/jira-integration.md) -- Jira MCP server for ticket context in wiki knowledge capture
+- [Slack Integration](tools/slack-integration.md) -- Channel monitoring and MCP server for wiki knowledge capture from Slack exports
 
 ## Diagrams
 
@@ -69,6 +73,8 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
+- [ElevenLabs Agents](platform/elevenlabs-agents.md) -- Voice-AI agent platform; WebSocket SDK + webhooks, BYO telephony via Twilio/SIP, native HubSpot integration.
+- [Publishing Pipeline](platform/publishing-pipeline.md) -- Blog publishing pipeline: humanizer gate → Gemini image → spotcircuit-site → Medium/Substack/LinkedIn cross-post.
 
 Source: Rebar framework documentation | Added: 2026-04-07
 
