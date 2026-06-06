@@ -137,7 +137,7 @@ Parallel implementation. Reads a plan file and delegates file creation to parall
 
 ## Related
 
-- [[self-learn-loop|The Self-Learn Loop]] -- how `/improve` drives the feedback cycle
-- [[three-systems|Three Knowledge Systems]] -- which commands update which system
+- [[how-it-works/self-learn-loop|The Self-Learn Loop]] -- how `/improve` drives the feedback cycle
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- which commands update which system
 
 Source: CLAUDE.md, rebar framework documentation | Added: 2026-05-23

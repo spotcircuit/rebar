@@ -24,8 +24,8 @@ Team members on the Demo Corp deployment automation engagement.
 ## Related
 
 - demo-corp-sprint-14 — current sprint
-- [[redis-circuit-breaker]] -- Priya's pattern
-- [[dora-metrics-definitions]] -- Sarah's priority
+- [[patterns/redis-circuit-breaker|Redis Circuit Breaker]] -- Priya's pattern
+- [[platform/dora-metrics-definitions|DORA Metrics Definitions]] -- Sarah's priority
 
 ---
 Source: raw/demo-meeting-transcript.md, raw/demo-jira-notes.md | Ingested: 2026-04-13

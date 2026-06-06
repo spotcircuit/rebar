@@ -31,9 +31,9 @@ Mixing them creates something hard to query and hard to maintain.
 
 ## Related
 
-- [[three-systems]] -- detailed explanation of the three knowledge layers
-- [[self-learn-loop]] -- how expertise.yaml accumulates knowledge
-- [[commands]] -- which commands update which system
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- detailed explanation of the three knowledge layers
+- [[how-it-works/self-learn-loop|Self-Learn Loop]] -- how expertise.yaml accumulates knowledge
+- [[how-it-works/commands|Commands]] -- which commands update which system
 
 ---
 Source: raw/example-transcript.md | Ingested: 2026-04-13
