@@ -1,5 +1,7 @@
 # Architecture Diagrams
 
+#rebar #architecture #diagrams #overview
+
 Visual overview of how the Rebar components connect.
 
 ## Overall Architecture

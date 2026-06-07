@@ -1,5 +1,7 @@
 # Command Flow Diagrams
 
+#rebar #commands #diagrams #workflow
+
 Visual flows showing how Rebar commands chain together in practice.
 
 ## Client Onboarding
