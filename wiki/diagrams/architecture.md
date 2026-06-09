@@ -250,6 +250,6 @@ Source: system/paperclip.yaml, CLAUDE.md, designed 2026-04-07
 
 ## Related
 
-- [Command Flow](command-flow.md) -- detailed command chaining diagrams
-- [Paperclip](../tools/paperclip.md) -- agent setup and management
-- [Three Knowledge Systems](../how-it-works/three-systems.md) -- detailed explanation
+- [[diagrams/command-flow|Command Flow]] -- detailed command chaining diagrams
+- [[tools/paperclip|Paperclip]] -- agent setup and management
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- detailed explanation
