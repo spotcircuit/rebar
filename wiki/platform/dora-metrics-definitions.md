@@ -25,8 +25,9 @@ Four DORA metrics as defined for the Demo Corp deployment automation platform.
 
 ## Related
 
-- dora-denormalization — decision to denormalize at write time (decision page not yet created)
-- demo-corp-sprint-14 — DEMO-478 implements this (sprint page not yet created)
+- [[people/demo-corp-team|Demo Corp Team]] — project team implementing this feature
+- [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]] — related deployment observability
+- [[tools/jira-integration|Jira Integration]] — DEMO tickets referenced in this schema
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

@@ -33,8 +33,9 @@ This is the same self-learn loop as Clarity's `/improve`: observations → valid
 
 ## Related
 
-- site-builder-overview -- the system being tested (page not yet created)
+- [[patterns/scout-build-verify|Scout-Build-Verify]] — three-agent pattern; verify step feeds this loop
 - [[pre-release-checklist]] -- production gate that depends on passing tests
+- [[how-it-works/self-learn-loop|Self-Learn Loop]] — same observe-validate-promote loop applied to knowledge
 
 ---
 Source: raw/site-builder-testing.md | Ingested: 2026-04-08

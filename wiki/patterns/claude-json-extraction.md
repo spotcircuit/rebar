@@ -16,8 +16,9 @@ Used in `site_generator.py` `_extract_json_from_response()`. The SiteContent pyd
 
 ## Related
 
-- site-builder-session-3 -- where this was implemented (page not yet created)
+- [[patterns/mock-data-strategy|Mock Data Strategy]] — test data for JSON extraction validation
 - [[persistent-browser-context]] -- another site-builder pattern
+- [[patterns/error-handling|Error Handling]] — downstream error path when all three fallbacks fail
 
 ---
 Source: raw/example-meeting-notes.md | Ingested: 2026-04-13
