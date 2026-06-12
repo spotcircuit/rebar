@@ -88,5 +88,6 @@ For most rebar projects, the 4-section starter (Theme, Colors, Components, Do's/
 ## Related
 
 - [[tools/claude-skills-library|Claude Skills Library]] — sister integration (235 marketing/eng skills); does not include design-md
+- [[how-it-works/commands|Commands]] — `/design` is one of the rebar commands
 - Upstream: https://github.com/VoltAgent/awesome-design-md
 - Spec: https://stitch.withgoogle.com/docs/design-md/overview/
