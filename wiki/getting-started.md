@@ -227,3 +227,4 @@ Source: CLAUDE.md, wiki/README.md | Filed: 2026-04-15 | Updated: 2026-04-17
 - [[how-it-works/three-systems|Three Knowledge Systems]] -- why the framework uses YAML + memory + skills + wiki
 - [[how-it-works/self-learn-loop|Self-Learn Loop]] -- per-observation validation; see architecture.md for the per-feature harness
 - [[how-it-works/paperclip-integration|Paperclip Integration]] -- autonomous agent orchestration layer
+- [[patterns/rebar-onboarding-walkthrough|Rebar Onboarding Walkthrough]] -- condensed new-member reference card
