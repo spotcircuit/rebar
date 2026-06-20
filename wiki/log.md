@@ -9,6 +9,7 @@
 | 2026-06-08 | /wiki-lint health check — 57 pages verified in index.md, 0 missing; all pages have Source: and ## Related; apparent broken links (aws-elasticache-setup, demo-api-architecture, other-page, another-page) confirmed inside code block examples, not live links; wiki-management anchor verified in how-it-works/commands.md | 0 | 0 |
 | 2026-06-13 | /wiki-lint health check — 57 pages, 0 index gaps, 0 real broken links (8 apparent broken links all inside code-block examples), 0 orphans, 0 missing Source/Related/tags; 3 oversized pages flagged (architecture.md 255L, getting-started.md 229L, github-integration.md 221L); README.md filename uppercase-convention noted; 30 stale pages (informational); wiki structurally healthy | 0 | 1 |
 | 2026-06-17 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (14 apparent broken links all confirmed inside fenced code blocks or inline code spans); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
+| 2026-06-20 | /wiki-lint health check — 59 total files (58 indexed); 0 index gaps; 0 real broken links (all apparent broken links confirmed inside fenced code/mermaid blocks); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 
 Source: /wiki-ingest runs | Maintained automatically by wiki commands
 
