@@ -11,6 +11,7 @@
 | 2026-06-17 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (14 apparent broken links all confirmed inside fenced code blocks or inline code spans); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 | 2026-06-20 | /wiki-lint health check — 59 total files (58 indexed); 0 index gaps; 0 real broken links (all apparent broken links confirmed inside fenced code/mermaid blocks); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 | 2026-06-24 | /wiki-lint health check — 59 total files (58 indexed, +1 obsidian.md tags fix since last check); 0 index gaps; 0 real broken links (16 apparent broken links all confirmed inside fenced code blocks, mermaid blocks, or inline code spans); wiki-management anchor verified valid; 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 1 |
+| 2026-06-26 | /wiki-lint health check — 59 total files (58 indexed); 0 index gaps; 0 real broken links (all apparent broken links confirmed inside fenced code blocks, mermaid diagrams, or inline code spans; Obsidian short-form links resolve correctly by basename); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 
 Source: /wiki-ingest runs | Maintained automatically by wiki commands
 
