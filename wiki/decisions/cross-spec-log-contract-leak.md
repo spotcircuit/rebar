@@ -20,8 +20,8 @@ PrePitch's streaming-TTS spec (CON-113) listed `ws.ts` as MUST-NOT-modify. A pri
 
 ## Related
 
-- [[persistent-claude-session]]
-- [[streaming-tts-mediasource]]
+- [[patterns/persistent-claude-session|Persistent Claude Session]] -- reuse pattern whose WS logs were added out-of-spec, triggering this finding
+- [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] -- the spec that relied on logs written by an earlier, out-of-scope session
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18

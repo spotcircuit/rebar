@@ -33,8 +33,8 @@ Proxy ElevenLabs' streaming TTS through the backend as a raw `ReadableStream`, p
 
 ## Related
 
-- [[persistent-claude-session]]
-- [[websocket-progress-pattern]]
+- [[patterns/persistent-claude-session|Persistent Claude Session]] -- sibling pattern from same CON-112/CON-113 cycle; reuse prompt cache for 3.5x lower per-turn latency
+- [[patterns/websocket-progress-pattern|WebSocket Progress Pattern]] -- WS channel used to push TTS interruption signals back to the frontend
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18

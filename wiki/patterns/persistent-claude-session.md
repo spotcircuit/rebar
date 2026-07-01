@@ -38,8 +38,8 @@ One persistent `claude` CLI subprocess per user session, reusing prompt cache ac
 
 ## Related
 
-- [[streaming-tts-mediasource]]
-- [[cross-spec-log-contract-leak]]
+- [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] -- first client of this pattern; shipped in the same CON-112/CON-113 latency cycle
+- [[decisions/cross-spec-log-contract-leak|Cross-Spec Log-Contract Leak]] -- evaluator finding triggered by out-of-scope WS logs added during this pattern's implementation
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18
