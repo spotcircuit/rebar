@@ -21,7 +21,7 @@ New to Rebar? Start here.
 
 Framework mechanics — the self-learn loop, knowledge layers, and command surface.
 
-- [[how-it-works/commands|Commands]] — all 26 slash commands across client/app management, development, wiki, and the self-learning harness
+- [[how-it-works/commands|Commands]] — all 30 slash commands across client/app management, development, wiki, self-learning harness, and maintenance
 - [[how-it-works/self-learn-loop|Self-Learn Loop]] — how observations get validated, promoted, or discarded
 - [[how-it-works/three-systems|Four Knowledge Systems]] — expertise.yaml + memory + skills + wiki (why they stay separate)
 - [[how-it-works/paperclip-integration|Paperclip Integration]] — autonomous agent orchestration layer

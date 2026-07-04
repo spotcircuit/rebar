@@ -2,7 +2,7 @@
 
 #rebar #commands #reference #slash-commands
 
-Rebar has 29 slash commands organized into five groups: client/app management, development workflow, wiki management, **self-learning harness**, and utilities.
+Rebar has 30 slash commands organized into six groups: client/app management, development workflow, wiki management, **self-learning harness**, utilities, and maintenance.
 
 All commands auto-resolve names from `clients/`, `apps/`, and `tools/` directories.
 
@@ -38,6 +38,9 @@ Phase 0 identified:
   - Credential nodes as special case (not returned by GET)
   - MQTT as inter-flow communication
 ```
+
+### `/prime <name>`
+Load the minimum context for working *inside* a client's external codebase. Reads a per-client `prime.md` file that lists the file groups to load. Use `/prime` when you're about to write code in the client's repo; use `/brief` when orienting yourself or handing off.
 
 ### `/brief <name>`
 Generate a standup/handoff summary from expertise.yaml. This is typically the first command at the start of each session.
@@ -104,6 +107,12 @@ Code review of recent changes for correctness, security, pattern compliance, and
 ### `/scout <app-name> <question>`
 Read-only codebase investigation. Analyzes issues, identifies root causes, suggests fixes without modifying files.
 
+### `/design <name> <init|adopt|extract|lint>`
+Create, adopt, extract, or lint a `DESIGN.md` for a client, app, or tool. Keeps UI visually consistent across sessions by giving agents a persistent design context file. Use `init` to generate from scratch, `adopt <brand>` to start from a known brand guide, `extract <url>` to derive from a live site, or `lint` to check an existing DESIGN.md.
+
+### `/dogfood <url> [name]`
+Exploratory web QA against a target URL. Drives a real browser through a 5-phase workflow (Plan → Explore → Evidence → Categorize → Report) and writes a structured markdown report, screenshots, and findings JSON into the target's `dogfood-{date}/` directory.
+
 ## Wiki Management
 
 ### `/wiki-ingest`
@@ -136,6 +145,11 @@ Enhanced planning with parallel context gathering. Deploys 8 scout agents (3 dee
 
 ### `/build-parallel <plan-file>`
 Parallel implementation. Reads a plan file and delegates file creation to parallel build agents, each handling one file with detailed specs. Faster than sequential `/build` for multi-file features.
+
+## Maintenance
+
+### `/harness-decay-audit [scope]`
+Quarterly audit of the harness components. As frontier models improve, scaffolding built for older models can become dead weight. This command reads `.claude/commands/`, `.claude/skills/`, and `system/agents/`, identifies decay candidates, and proposes kill-switch tests. Pass a scope (`commands`, `agents`, `skills`) or omit for a full audit. Run quarterly or when upgrading to a new model generation.
 
 ## Related
 
