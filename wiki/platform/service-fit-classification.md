@@ -17,8 +17,8 @@ Currently broken — everything shows "No Fit" because keyword matching in SERVI
 
 ## Related
 
-- [[reddit-publishing-pipeline]] -- posts that need fit scoring
-- [[managed-agents-setup]] -- automated agent needs working classification
+- [[platform/reddit-publishing-pipeline]] -- posts that need fit scoring
+- [[platform/managed-agents-setup]] -- automated agent needs working classification
 
 ---
 Source: raw/next-session.md | Ingested: 2026-04-13

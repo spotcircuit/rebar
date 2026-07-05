@@ -32,7 +32,7 @@ Located at `/home/spotcircuit/agentic/agent-experts/.claude/agents/`:
 
 ## Related
 
-- [[act-learn-reuse-testing]] -- the verify step feeds back into knowledge
+- [[patterns/act-learn-reuse-testing]] -- the verify step feeds back into knowledge
 - [[how-it-works/paperclip-integration|Paperclip Integration]] -- modern orchestration for this pattern
 
 ---

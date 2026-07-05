@@ -28,7 +28,7 @@ Same startup grace period logic being added to notification-service (DEMO-493) a
 
 ## Related
 
-- [[redis-circuit-breaker]] -- Redis resilience at the application layer
+- [[patterns/redis-circuit-breaker]] -- Redis resilience at the application layer
 - [[people/demo-corp-team|Demo Corp Team]] — DEMO-492/493/494 owners
 - [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]] — deployment approval context
 

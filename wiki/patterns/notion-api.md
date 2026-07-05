@@ -95,8 +95,8 @@ curl -s -X POST "https://api.notion.com/v1/pages" \
 
 ## Related
 
-- [[airtable-api]] — sister vendor pattern; different mental model (records vs blocks)
-- [[claude-json-extraction]] — useful if your agent emits Notion-bound payloads as JSON
+- [[patterns/airtable-api]] — sister vendor pattern; different mental model (records vs blocks)
+- [[patterns/claude-json-extraction]] — useful if your agent emits Notion-bound payloads as JSON
 
 ---
 Source: hermes-incorporation-action-items.md (P4 patterns) | Added: 2026-05-01 | CON-138

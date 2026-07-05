@@ -39,9 +39,9 @@ system/.venv/bin/python3 scripts/reddit-publish.py --topic "topic" --subs Claude
 
 ## Related
 
-- [[managed-agents-setup]] -- planned agent wrapping this pipeline
-- [[service-fit-classification]] -- broken filtering for automated scouting
-- [[social-outreach-extensions]] -- browser extensions for posting
+- [[platform/managed-agents-setup]] -- planned agent wrapping this pipeline
+- [[platform/service-fit-classification]] -- broken filtering for automated scouting
+- [[platform/social-outreach-extensions]] -- browser extensions for posting
 
 ---
 Source: raw/next-session.md | Ingested: 2026-04-13

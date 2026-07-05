@@ -16,8 +16,8 @@ Outreach agent as a managed agent: scout + comment + post pipeline. Replaces the
 
 ## Related
 
-- [[reddit-publishing-pipeline]] -- the posting half of the outreach pipeline
-- [[social-outreach-extensions]] -- browser extensions for LinkedIn/Reddit
+- [[platform/reddit-publishing-pipeline]] -- the posting half of the outreach pipeline
+- [[platform/social-outreach-extensions]] -- browser extensions for LinkedIn/Reddit
 
 ---
 Source: raw/next-session.md | Ingested: 2026-04-13

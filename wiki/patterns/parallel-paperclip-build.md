@@ -135,6 +135,6 @@ If you want a project to run hands-off, write a script that walks Phase 1 → 2 
 ## Related
 
 - [[tools/claude-skills-library|Claude Skills Library]] — sister integration (235 marketing skills via `alirezarezvani/claude-skills`)
-- [[design-md]] — DESIGN.md pattern that frontend reads before generating UI
+- [[patterns/design-md]] — DESIGN.md pattern that frontend reads before generating UI
 - Source: `system/agents/rebar-planner.yaml`, `system/agents/rebar-frontend.yaml`, `system/agents/rebar-backend.yaml`, `system/agents/rebar-tester.yaml`, `system/agents/rebar-reviewer.yaml`
 - Registry: `system/paperclip.yaml`

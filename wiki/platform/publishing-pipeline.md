@@ -76,8 +76,8 @@ Source: system/agents/blog-writer.yaml + session context 2026-04-16
 
 ## Related
 
-- [[claude-skills-library]] -- content-production + content-humanizer skills power the pipeline
-- [[reddit-publishing-pipeline]] -- Reddit-specific publishing (separate from cross-post)
-- [[social-outreach-extensions]] -- Chrome extensions for manual engagement
-- [[paperclip]] -- agent orchestration runs the blog-writer
+- [[tools/claude-skills-library]] -- content-production + content-humanizer skills power the pipeline
+- [[platform/reddit-publishing-pipeline]] -- Reddit-specific publishing (separate from cross-post)
+- [[platform/social-outreach-extensions]] -- Chrome extensions for manual engagement
+- [[tools/paperclip]] -- agent orchestration runs the blog-writer
 - ai-content-pipeline -- earlier content approach before skills integration (page not yet created)

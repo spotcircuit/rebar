@@ -28,7 +28,7 @@ Pipeline takes 30-60 seconds. Without WebSocket, user sees nothing until complet
 ## Related
 
 - [[patterns/persistent-browser-context|Persistent Browser Context]] — browser patterns in the same pipeline
-- [[correlation-id]] -- job_id serves as correlation across all steps
+- [[patterns/correlation-id]] -- job_id serves as correlation across all steps
 - [[patterns/streaming-tts-mediasource|Streaming TTS via MediaSource]] — related real-time streaming pattern
 
 ---

@@ -29,8 +29,8 @@ Browser extensions for LinkedIn and Reddit that integrate with the scout server 
 
 ## Related
 
-- [[reddit-publishing-pipeline]] -- posting side of Reddit outreach
-- [[managed-agents-setup]] -- planned agent orchestration
+- [[platform/reddit-publishing-pipeline]] -- posting side of Reddit outreach
+- [[platform/managed-agents-setup]] -- planned agent orchestration
 
 ---
 Source: raw/next-session.md | Ingested: 2026-04-13

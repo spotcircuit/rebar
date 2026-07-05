@@ -46,8 +46,8 @@ Source: tools/claude-skills/tool.yaml + tools/claude-skills/expertise.yaml | Eva
 
 ## Related
 
-- [[publishing-pipeline]] -- blog-writer agent uses these skills
-- [[paperclip]] -- agent orchestration runs the blog-writer
-- [[social-outreach-extensions]] -- social-content skill enhances engagement
+- [[platform/publishing-pipeline]] -- blog-writer agent uses these skills
+- [[tools/paperclip]] -- agent orchestration runs the blog-writer
+- [[platform/social-outreach-extensions]] -- social-content skill enhances engagement
 - [[decisions/session-2026-04-16|Session 2026-04-16]] -- session that evaluated and adopted the marketing skills pod
 - ai-content-pipeline -- predecessor content approach before skills integration (page not yet created)

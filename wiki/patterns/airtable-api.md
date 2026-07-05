@@ -67,8 +67,8 @@ curl -s -X PATCH "https://api.airtable.com/v0/$AIRTABLE_BASE_ID/tblXXXX/recXXXX"
 
 ## Related
 
-- [[notion-api]] — sister vendor pattern
-- [[linear-api]] — for issue-tracker integrations
+- [[patterns/notion-api]] — sister vendor pattern
+- [[patterns/linear-api]] — for issue-tracker integrations
 
 ---
 Source: hermes-incorporation-action-items.md (P4 patterns) | Added: 2026-05-01 | CON-138
