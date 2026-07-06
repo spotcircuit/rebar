@@ -58,7 +58,7 @@ These are optional but improve the experience:
 
 ### Framework Creates Pages, Obsidian Displays Them
 
-When you run `/wiki-ingest` or `/wiki-file`, the framework creates pages in `wiki/` with proper `[[wikilinks]]` and `#tags`. Obsidian picks them up instantly (or on the next sync cycle in WSL).
+When you run `/wiki-ingest` or `/wiki-file`, the framework creates pages in `wiki/` with proper `[[wikilinks]]` syntax and `#tags`. Obsidian picks them up instantly (or on the next sync cycle in WSL).
 
 ### Obsidian Edits Flow Back
 
