@@ -22,6 +22,7 @@
 | 2026-07-11 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (20 apparent broken links all confirmed inside fenced code blocks, mermaid diagrams, or inline code spans); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 | 2026-07-12 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (all apparent broken links confirmed inside fenced code blocks, mermaid diagrams, or inline code spans); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 | 2026-07-14 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (all 20 apparent broken links confirmed inside fenced code blocks, mermaid diagrams, or inline code spans); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
+| 2026-07-15 | /wiki-lint health check — 59 total files (58 indexed, index.md excluded); 0 index gaps; 0 real broken links (all apparent broken links — demo-api-architecture, aws-elasticache-setup, other-page, another-page, cross-links, double-bracket-syntax, wiki links, wikilinks — confirmed inside fenced code blocks, inline code spans, or mermaid diagrams); 0 pages missing Source: or ## Related; wiki structurally healthy | 0 | 0 |
 
 Source: /wiki-ingest runs | Maintained automatically by wiki commands
 
