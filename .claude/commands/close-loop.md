@@ -128,15 +128,31 @@ for human-in-loop review via `/meta-apply` in the main session.
 The close-loop report surfaces the queue file path so the operator knows to run
 `/meta-apply` after the cycle completes.
 
-### Step 4: /wiki-ingest
-Run `/wiki-ingest` to process all raw/ files into wiki pages.
+### Step 4: /wiki-ingest — the durable-memory step (harvest, then ingest)
 
-This picks up:
+The wiki is the SOURCE-OF-TRUTH durable memory and it **carves in here (in rebar)**:
+`wiki/` = public framework knowledge, `wiki-private/` = private client/app knowledge
+(**rebar-private remote only — never public**; enforced by the `publish-rebar.sh`
+whitelist, NOT by repo separation). Per-project working docs stay in their BUILD repo;
+only the curated DIGEST comes here. Rationale: [[where-the-wiki-lives]].
+
+**4a. Harvest (for work done in a separate build repo — e.g. a client's app repo).**
+The raw material (slice specs, observations, fast-follows) lives in the build repo and
+stays there as the team's working detail. At close, distill it into a `/wiki-file`
+update on the rebar side: write the durable INSIGHT (not a copy of the docs) and refresh
+the client page's slice-status + any genuinely-new lesson. One curated page per client
+that compounds — no duplication of the build-repo docs.
+
+**4b. Ingest.** Run `/wiki-ingest` to process all `raw/` files into wiki pages:
 - `raw/eval-{date}-{slug}.md` — evaluator findings → wiki/engineering/ or wiki/quality/
 - `raw/meta-improve-{date}.md` — template improvements → wiki/decisions/
 - Any other files dropped in raw/ this cycle
 
 Moves processed files to `raw/processed/` after ingest.
+
+**Enforcement:** the loop does not close until the durable knowledge is in the wiki. A
+shipped feature whose lessons live only in a build-repo doc has NOT been captured — the
+build repo is working memory, the rebar wiki is durable memory.
 
 ### Step 5: Report
 
