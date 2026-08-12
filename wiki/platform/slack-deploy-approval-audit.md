@@ -18,10 +18,9 @@ Sarah (CTO) requested audit trail for compliance reasons. Currently the reaction
 
 ## Related
 
-- demo-corp-sprint-14 -- DEMO-485 (sprint page not yet created)
-- [[platform/slack-block-kit-pagination]] -- related Slack bot patterns
-- [[people/demo-corp-team]] -- who can approve
-- [[platform/teams-transcript-ingestion|Teams Transcript Ingestion]] -- related async knowledge capture from meetings
+- [[demo-corp-sprint-14]] -- DEMO-485
+- [[slack-block-kit-pagination]] -- related Slack bot patterns
+- [[demo-corp-team]] -- who can approve
 
 ---
 Source: raw/demo-jira-notes.md | Ingested: 2026-04-13

@@ -52,3 +52,17 @@ clients/afterquery/repo/
 clients/afterquery/pydantic-assessment.zip
 clients/afterquery/bp-pydantic-task-01*.zip
 
+clients/*/client.yaml
+clients/*/research/
+
+# Client secrets bundles (extracted into the external repo clones, never committed here)
+clients/*/secrets.zip
+clients/*/secrets/
+clients/*/appsettings.*.json
+clients/*/*.local.ts
+
+# Ephemeral Agent-isolation worktrees — never commit
+.claude/worktrees/
+
+# RoboNuggets toolkit zip — local-only eval artifact, not for redistribution
+tools/brain-js-eval/*.zip

@@ -69,6 +69,23 @@ Sort descending by score.
 
 ---
 
+### Step 2b: Audit the always-loaded context against the 6 context-engineering shifts
+
+Components decay; so does the *always-loaded context itself*. Anthropic (Thariq, Jul 2026) cut ~80% of Claude Code's system prompt for the Claude 5 models with no eval loss. Run these 6 THEN→NOW checks against everything the workspace loads every session — `CLAUDE.md` and kin, auto-injected skill `DESCRIPTION.md`, `MEMORY.md`. **Audit the principle, not keywords**; read each file the way Claude receives it (what loads always vs on demand).
+
+| # | Shift (THEN → NOW) | Check for | Never flag |
+|---|---|---|---|
+| 1 | Rules → judgement | Constrained where judgement would serve? Smell: taste/style absolutes, or two directives pulling against each other. | Safety / money / destructive-action rules — keep. |
+| 2 | Examples → interfaces | Skills that box Claude into worked examples where a clearer interface (params, names, structure) would carry it. | — |
+| 3 | Upfront → progressive disclosure | Does every always-loaded line earn its place? Smell: occasionally-needed detail in a file that loads every session instead of an on-demand doc. | The core map + safety rules — keep inline. |
+| 4 | Repeats → one home | Each instruction has one authoritative home? Smell: the same guidance in several places, drifted apart. | — |
+| 5 | CLAUDE.md-memory → auto-memory | Facts about the user/work (prefs, dates, decisions) living as prose in guidance files instead of the memory system. | — |
+| 6 | Simple specs → rich references | Active builds steered by plain markdown where a higher-fidelity reference (code, tests, HTML mockup, rubric) exists or would be cheap. | — |
+
+For each shift: verdict PASS or FLAG with the specific file + passage that breaks the principle (cite it — no vibes; a zero-hit search is not proof, look again narrowed). Add a `## Context-engineering shifts` section to the REPORT (Step 5). **Report first, fix on approval, one shift at a time — never soften a safety rule.** Prior run: `tools/brain-js-eval/rebar-6shift-audit.md` (2026-08-11); the shift-3 CLAUDE.md → router refactor came out of it.
+
+---
+
 ### Step 3: Pick the top 3 suspects
 
 Take the three highest-scoring components that are NOT load-bearing (callers ≤ 1). Write a brief rationale for each:

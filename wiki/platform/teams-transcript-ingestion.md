@@ -20,9 +20,7 @@ Automated ingestion of Teams meeting transcripts via Microsoft Graph API.
 
 ## Related
 
-- [[people/demo-corp-team|Demo Corp Team]] — team whose meetings are transcribed
-- [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]] — related async knowledge capture
-- [[tools/jira-integration|Jira Integration]] — DEMO tickets extracted from transcript mentions
+- [[demo-corp-sprint-14]] -- DEMO-482
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

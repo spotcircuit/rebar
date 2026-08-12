@@ -131,10 +131,7 @@ silently. This pattern would have surfaced it on the next cold start.
 
 ## Related
 
-- [[patterns/idempotency-guard]] — another additive observability-first pattern for
+- [[idempotency-guard]] — another additive observability-first pattern for
   Stripe-adjacent code
-- [[patterns/correlation-id]] — same philosophy, different surface
+- [[correlation-id]] — same philosophy, different surface
 - wiki/platform for Stripe Connect specifics
-
----
-Source: Live marketplace launch sprint incident, 2026 | Added: 2026-05-23

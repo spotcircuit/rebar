@@ -1,7 +1,5 @@
 # Claude Desktop Integration
 
-#tools #claude #desktop #mcp
-
 Claude Desktop can access the full Rebar knowledge base through the MCP filesystem server. This gives Claude Desktop the same context available in Claude Code -- wiki pages, expertise.yaml, agent definitions, and client data.
 
 ## How It Works
@@ -91,9 +89,6 @@ The self-learn loop (expertise.yaml) and wiki grow through Claude Code sessions.
 
 ## Related
 
-- [[tools/obsidian|Obsidian]] -- local wiki editing
-- [[tools/quartz|Quartz]] -- wiki as a website
-- [[tools/paperclip|Paperclip]] -- agent orchestration
-
----
-Source: Claude Desktop MCP documentation, rebar framework docs | Added: 2026-05-23
+- [Obsidian](obsidian.md) -- local wiki editing
+- [Quartz](quartz.md) -- wiki as a website
+- [Paperclip](paperclip.md) -- agent orchestration

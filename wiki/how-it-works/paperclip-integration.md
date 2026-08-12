@@ -83,5 +83,5 @@ Source: designed 2026-04-07 as bridge between Clarity framework and Paperclip or
 
 ## Related
 
-- [[tools/paperclip|Paperclip]] -- agent configuration reference and setup
-- [[how-it-works/self-learn-loop|Self-Learn Loop]] -- what the Rebar Steward agent maintains
+- [[site-builder-overview]] -- primary app managed by the Site Builder Agent
+- [[ai-content-pipeline]] -- pipeline that Site Builder Agent monitors

@@ -105,8 +105,7 @@ State ids are per-team; fetch them once via `team(id:) { states { nodes { id nam
 
 ## Related
 
-- [[patterns/github-pr-fallback|GitHub PR Fallback]] — for code-side workflows that link Linear issues to PRs
-- [[patterns/notion-api|Notion API]] — comparable project-management API integration pattern
+- [[github-pr-fallback]] — for code-side workflows that link Linear issues to PRs
 
 ---
 Source: hermes-incorporation-action-items.md (P4 patterns) | Added: 2026-05-01 | CON-138

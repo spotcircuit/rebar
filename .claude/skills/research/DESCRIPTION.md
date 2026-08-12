@@ -4,7 +4,7 @@ Long-form research workflows: arxiv mining, blog watching, prediction-market sig
 
 ## Skills here
 
-_(Empty — staging Hermes ports.)_
+- `storm-research/` — Stanford STORM method adapted for rebar: panel of perspectives (human-edited before any search) → grounded interviews with follow-ups → synthesis that leaves the disagreements in → red-team your own brief. For vendor/competitor evals, build-vs-buy, due diligence — anything where a flat both-sides summary is useless. Engine-for-the-miles, method-to-steer (can call the `deep-research` Workflow for heavy coverage).
 
 Planned (per Hermes incorporation):
 - `arxiv/` — paper search/summarization.
@@ -20,4 +20,4 @@ Planned (per Hermes incorporation):
 
 ## Status
 
-Reserved namespace. No skills yet.
+One skill live (`storm-research`). Remaining namespace reserved for Hermes ports.

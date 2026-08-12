@@ -18,10 +18,6 @@ Integrations and supporting infrastructure.
 - [Obsidian](tools/obsidian.md) -- Use the wiki as an Obsidian vault with bidirectional sync
 - [Quartz](tools/quartz.md) -- Render the wiki as a searchable website via GitHub Pages
 - [Claude Desktop](tools/claude-desktop.md) -- Access framework knowledge from Claude Desktop via MCP
-- [Claude Skills Library](tools/claude-skills-library.md) -- 235 skills from alirezarezvani/claude-skills; six integrated into rebar (content-strategy, content-production, content-humanizer, ai-seo, copywriting, launch-strategy)
-- [GitHub Integration](tools/github-integration.md) -- PR workflows, CI integration, and GitHub MCP server patterns
-- [Jira Integration](tools/jira-integration.md) -- Jira MCP server for ticket context in wiki knowledge capture
-- [Slack Integration](tools/slack-integration.md) -- Channel monitoring and MCP server for wiki knowledge capture from Slack exports
 
 ## Diagrams
 
@@ -30,6 +26,13 @@ Visual architecture and workflow references.
 - [Architecture](diagrams/architecture.md) -- System overview, self-learn loop, four knowledge systems + close-loop harness, agent orchestration
 - [Command Flow](diagrams/command-flow.md) -- Client onboarding, development cycle, knowledge capture workflows
 
+## Examples
+
+Real output from real projects managed by the framework.
+
+- [Site Builder](examples/site-builder.md) -- A web app built across four Claude Code sessions. Shows how expertise.yaml grows from 5 lines to a complete operational reference.
+- [Acme Integration](examples/acme-integration.md) -- An enterprise client engagement (Node-RED trade compliance). Shows how the framework handles external engagements with live APIs and multi-tenant deployment.
+
 ## How It Works
 
 The mechanics behind the framework.
@@ -37,7 +40,7 @@ The mechanics behind the framework.
 - [The Self-Learn Loop](how-it-works/self-learn-loop.md) -- How observations get validated, promoted, or discarded. The per-observation feedback mechanism.
 - [Close-Loop Harness](diagrams/architecture.md#close-loop-harness-per-feature) -- The per-feature cycle: evaluator → release gate → /improve → /meta-improve queue → /meta-apply → /wiki-ingest.
 - [Four Knowledge Systems](how-it-works/three-systems.md) -- Why the framework uses YAML + memory + skills + wiki instead of one system. What each stores and why they stay separate.
-- [Commands](how-it-works/commands.md) -- All 30 slash commands with descriptions and example output, including the self-learning harness (/close-loop, /meta-improve, /meta-apply).
+- [Commands](how-it-works/commands.md) -- All 26 slash commands with descriptions and example output, including the self-learning harness (/close-loop, /meta-improve, /meta-apply).
 
 ## Patterns
 
@@ -56,8 +59,15 @@ Reusable engineering patterns captured through the wiki. These show the kind of 
 
 Architectural decisions with rationale.
 
-- [Cross-Spec Log-Contract Leak](decisions/cross-spec-log-contract-leak.md) -- Parallel specs sharing files through observability output; silent scope leak pattern.
-- [Session 2026-04-16](decisions/session-2026-04-16.md) -- Architectural decisions from the April 16 session.
+- [DORA Denormalization](decisions/dora-denormalization.md) -- Denormalize ticket numbers at write time for fast dashboard queries.
+- [Health Endpoint Startup Grace](decisions/health-endpoint-startup-grace.md) -- Return degraded status during startup.
+- [In-Memory Job Storage](decisions/in-memory-job-storage.md) -- No database for site-builder tool.
+- [Rebar Example Apps](decisions/rebar-example-apps.md) -- Plan to add more example apps to the public repo.
+
+## Clients
+
+- [Demo Corp Sprint 14](clients/demo-corp-sprint-14.md) -- Sprint overview with DORA, notifications, audit trail.
+- [Site Builder Session 3](clients/site-builder-session-3.md) -- Maps scraper, Claude JSON, Cloudflare deploy.
 
 ## People
 
@@ -73,14 +83,3 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
-- [ElevenLabs Agents](platform/elevenlabs-agents.md) -- Voice-AI agent platform; WebSocket SDK + webhooks, BYO telephony via Twilio/SIP, native HubSpot integration.
-- [Publishing Pipeline](platform/publishing-pipeline.md) -- Blog publishing pipeline: humanizer gate → Gemini image → spotcircuit-site → Medium/Substack/LinkedIn cross-post.
-
-Source: Rebar framework documentation | Added: 2026-04-07
-
-## Related
-
-- [[index]] -- full indexed navigation with descriptions for every page
-- [[getting-started]] -- 15-minute walkthrough from clone to working framework
-- [[how-it-works/commands]] -- all slash commands with descriptions
-- [[diagrams/architecture]] -- system overview and self-learn loop diagrams

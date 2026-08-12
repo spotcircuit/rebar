@@ -1,7 +1,5 @@
 # Pattern: Playwright E2E harness for PrePitch
 
-#patterns #playwright #testing #e2e #prepitch
-
 **Source:** `raw/eval-2026-04-19-prepitch-playwright.md` (CON-124 evaluator PASS, 7/9 strict).
 **Scope:** end-to-end browser + backend-WS tests for the PrePitch roleplay app.
 
@@ -50,11 +48,3 @@ PREPITCH_E2E_RUN_A2A_VOICE=1 bunx playwright test agent-vs-agent-voice
 - Eval report: `raw/processed/eval-2026-04-19-prepitch-playwright.md`
 - Evaluator log: `system/evaluator-log.md` (2026-04-19 CON-124 entry)
 - Source issues: [CON-120](/CON/issues/CON-120), [CON-123](/CON/issues/CON-123), [CON-124](/CON/issues/CON-124)
-
-Source: raw/processed/eval-2026-04-19-prepitch-playwright.md | CON-124 evaluator PASS, 7/9 strict | Added: 2026-04-19
-
-## Related
-
-- [[patterns/persistent-browser-context]] — browser session management patterns
-- [[patterns/mock-data-strategy]] — stubbing strategies used in test fixtures
-- [[patterns/error-handling]] — error boundary patterns tested by this harness
