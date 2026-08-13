@@ -159,3 +159,5 @@ The YAML files are the source of truth. The Paperclip API is a downstream consum
 - [Architecture](../diagrams/architecture.md) -- how agents fit into the overall system
 - [Commands](../how-it-works/commands.md) -- the slash commands agents execute
 - [Self-Learn Loop](../how-it-works/self-learn-loop.md) -- what Rebar Steward maintains
+
+Source: system/paperclip.yaml + tools/paperclip-sync.sh + Paperclip platform docs. Documented 2026.

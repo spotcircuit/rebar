@@ -114,3 +114,5 @@ End state: no JWT rotation, no Cloudflare 429s, no 60-day token rotations, no sc
 
 - [[patterns/ai-receptionist-to-hubspot-bridge]] — the polling-based predecessor pattern; use that only when a webhook-based platform isn't an option
 - [[platform/service-fit-classification]] — framework for deciding when a client's needs justify the migration cost
+
+Source: ElevenLabs platform docs + GoodCall migration engagement, 2026. Ingested 2026-08-12.
