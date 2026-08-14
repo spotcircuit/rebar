@@ -98,6 +98,15 @@ flowchart LR
 
 Two paths into the wiki: drop files in `raw/` and run `/wiki-ingest`, or capture conversation insights with `/wiki-file`. Both produce linked, indexed wiki pages. `/wiki-lint` keeps everything connected.
 
+## Related
+
+- [[diagrams/architecture]] -- system overview, four knowledge systems, close-loop harness
+- [[how-it-works/commands]] -- all commands in detail with descriptions and examples
+- [[how-it-works/self-learn-loop]] -- the loop that the Development Cycle diagram illustrates
+
+---
+Source: Core framework documentation, derived from CLAUDE.md command descriptions.
+
 ## Feature Workflow (Detailed)
 
 ```mermaid
