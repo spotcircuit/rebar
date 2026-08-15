@@ -31,6 +31,7 @@ Visual overviews of the framework.
 Reusable engineering patterns captured from real projects.
 
 - [[patterns/act-learn-reuse-testing|Act-Learn-Reuse Testing]]
+- [[patterns/ai-content-pipeline|AI Content Pipeline]] — deprecated direct-Claude-API approach for Site Builder content generation, superseded by the skills library
 - [[patterns/ai-receptionist-to-hubspot-bridge|AI Receptionist → HubSpot Bridge]] — polling-based bridge for receptionist platforms with no webhooks (GoodCall, etc.); legacy v1 engagements API + phone-format-resilient dedup
 - [[patterns/airtable-api|Airtable API]] — curl + scoped PAT pattern; reference for hitting Airtable from agents and skills
 - [[patterns/claude-json-extraction|Claude JSON Extraction]]
@@ -73,6 +74,7 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 
 - [[platform/dora-metrics-definitions|DORA Metrics Definitions]]
 - [[platform/elevenlabs-agents|ElevenLabs Agents]] — voice-AI agent platform; pricing, telephony paths (Twilio/SIP), HubSpot/Salesforce/Stripe integrations, migration off polling-based receptionists
+- [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/managed-agents-setup|Managed Agents Setup]]
 - [[platform/publishing-pipeline|Publishing Pipeline]]
 - [[platform/reddit-publishing-pipeline|Reddit Publishing Pipeline]]
@@ -88,7 +90,9 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 Per-tool guides for everything rebar integrates with.
 
 - [[tools/claude-desktop|Claude Desktop]]
+- [[tools/claude-skills-integration|Claude Skills Integration]] — `alirezarezvani/claude-skills` library (235 marketing/eng skills); sister to design-md; distinct from rebar's own `.claude/skills/`
 - [[tools/claude-skills-library|Claude Skills Library]]
+- [[tools/frontend-design-skill|Frontend Design Skill]] — Claude skill for UI/component generation; loads DESIGN.md first for design-system awareness
 - [[tools/github-integration|GitHub Integration]]
 - [[tools/jira-integration|Jira Integration]]
 - [[tools/obsidian|Obsidian]]
