@@ -50,4 +50,4 @@ Source: Reddit post analysis, April 2026
 ## Related
 
 - [[site-builder-overview]] — Maps scraper uses Playwright stealth
-- [[leadfinder-overview]] — lead scraper uses anti-detection
+- Lead Finder — lead scraper uses anti-detection (not yet documented in wiki)

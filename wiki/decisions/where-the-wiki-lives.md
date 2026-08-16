@@ -22,6 +22,6 @@ Conversation 2026-08-12 — wiring the wiki as the close-loop durable-memory ste
 
 ## Related
 
-- [[safeway]] — the first client page that exercised this (private)
+- SafeWay — the first client page that exercised this (in wiki-private, not public wiki)
 - [[self-learn-loop]] — the loop this durable-memory step closes
 - [[three-systems]] — expertise.yaml + memory + wiki, why they stay separate

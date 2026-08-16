@@ -19,7 +19,7 @@ Google Maps shows a "limited view" (only Overview + About tabs) when the browser
 
 ## Related
 
-- [[site-builder-session-3]] -- where this was implemented
+- Site Builder Session 3 -- where this was implemented (client session, not in wiki)
 - [[claude-json-extraction]] -- another site-builder pattern
 
 ---

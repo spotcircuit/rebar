@@ -16,7 +16,7 @@ Used in `site_generator.py` `_extract_json_from_response()`. The SiteContent pyd
 
 ## Related
 
-- [[site-builder-session-3]] -- where this was implemented
+- Site Builder Session 3 -- where this was implemented (client session, not in wiki)
 - [[persistent-browser-context]] -- another site-builder pattern
 
 ---
