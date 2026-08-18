@@ -38,9 +38,7 @@ localhostForwarding=true
 - In NAT mode the **WSL→Windows** direction uses the NAT *gateway IP* (e.g. Chrome CDP at `http://172.20.x.1:9222`), and the subnet can shift per boot — keep that URL configurable (`CHROME_CDP_URL`).
 - Tunnels remain useful **only for sharing links externally**; never as a localhost workaround again.
 
-## Source
-
-Conversation 2026-06-10 — debugging why every WSL UI needed a tunnel; clean-room test matrix proved the mirrored loopback layer dead and NAT restored `localhost` end-to-end (SafeWay dogfood :3000, Paperclip :3100 confirmed in the Windows browser).
+Source: Conversation 2026-06-10 — debugging why every WSL UI needed a tunnel; clean-room test matrix proved the mirrored loopback layer dead and NAT restored `localhost` end-to-end (SafeWay dogfood :3000, Paperclip :3100 confirmed in the Windows browser).
 
 ## Related
 

@@ -16,9 +16,7 @@ The wiki's **source of truth carves IN to rebar** (`wiki/` + `wiki-private/`); o
 
 **When to revisit (carve OUT the private knowledge):** only if (a) client-private knowledge grows large enough to bloat rebar-private, (b) the wiki is needed as a standalone lookup *service* without the rebar tree checked out, or (c) non-rebar systems must read/write it. None true yet → carving out now is cost with no payoff.
 
-## Source
-
-Conversation 2026-08-12 — wiring the wiki as the close-loop durable-memory step during the SafeWay engagement; "carve-in or carve-out, and why?"
+Source: Conversation 2026-08-12 — wiring the wiki as the close-loop durable-memory step during the SafeWay engagement; "carve-in or carve-out, and why?"
 
 ## Related
 
