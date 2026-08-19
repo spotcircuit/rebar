@@ -26,13 +26,6 @@ Visual architecture and workflow references.
 - [Architecture](diagrams/architecture.md) -- System overview, self-learn loop, four knowledge systems + close-loop harness, agent orchestration
 - [Command Flow](diagrams/command-flow.md) -- Client onboarding, development cycle, knowledge capture workflows
 
-## Examples
-
-Real output from real projects managed by the framework.
-
-- [Site Builder](examples/site-builder.md) -- A web app built across four Claude Code sessions. Shows how expertise.yaml grows from 5 lines to a complete operational reference.
-- [Acme Integration](examples/acme-integration.md) -- An enterprise client engagement (Node-RED trade compliance). Shows how the framework handles external engagements with live APIs and multi-tenant deployment.
-
 ## How It Works
 
 The mechanics behind the framework.
@@ -59,15 +52,9 @@ Reusable engineering patterns captured through the wiki. These show the kind of 
 
 Architectural decisions with rationale.
 
-- [DORA Denormalization](decisions/dora-denormalization.md) -- Denormalize ticket numbers at write time for fast dashboard queries.
-- [Health Endpoint Startup Grace](decisions/health-endpoint-startup-grace.md) -- Return degraded status during startup.
-- [In-Memory Job Storage](decisions/in-memory-job-storage.md) -- No database for site-builder tool.
-- [Rebar Example Apps](decisions/rebar-example-apps.md) -- Plan to add more example apps to the public repo.
-
-## Clients
-
-- [Demo Corp Sprint 14](clients/demo-corp-sprint-14.md) -- Sprint overview with DORA, notifications, audit trail.
-- [Site Builder Session 3](clients/site-builder-session-3.md) -- Maps scraper, Claude JSON, Cloudflare deploy.
+- [Cross-Spec Log-Contract Leak](decisions/cross-spec-log-contract-leak.md) -- Scope and observability decision for parallel spec execution.
+- [Session 2026-04-16](decisions/session-2026-04-16.md) -- Session notes and decisions captured 2026-04-16.
+- [Where the Wiki Lives](decisions/where-the-wiki-lives.md) -- Carve-in source, carve-out render; the wiki as rebar's durable-memory layer.
 
 ## People
 
