@@ -10,6 +10,12 @@ Start with **[Getting Started](getting-started)** if you're new. The rest of thi
 
 ---
 
+## 🚀 Getting Started
+
+New to Rebar? Begin here — 15-minute walkthrough from clone to a working framework.
+
+- [[getting-started|Getting Started]] — clone, configure, and run your first `/discover` in under 15 minutes
+
 ## 🔧 How it works
 
 Framework mechanics — the self-learn loop, knowledge layers, and command surface.
