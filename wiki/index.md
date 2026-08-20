@@ -83,6 +83,7 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 - [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/managed-agents-setup|Managed Agents Setup]]
 - [[platform/publishing-pipeline|Publishing Pipeline]]
+- [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/reddit-publishing-pipeline|Reddit Publishing Pipeline]]
 - [[platform/service-fit-classification|Service Fit Classification]]
 - [[platform/slack-block-kit-pagination|Slack Block Kit Pagination]]
