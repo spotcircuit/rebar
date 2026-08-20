@@ -80,11 +80,10 @@ Platform-level knowledge — API behavior, integration gotchas, pipeline designs
 
 - [[platform/dora-metrics-definitions|DORA Metrics Definitions]]
 - [[platform/elevenlabs-agents|ElevenLabs Agents]] — voice-AI agent platform; pricing, telephony paths (Twilio/SIP), HubSpot/Salesforce/Stripe integrations, migration off polling-based receptionists
-- [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/managed-agents-setup|Managed Agents Setup]]
 - [[platform/publishing-pipeline|Publishing Pipeline]]
-- [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/reddit-publishing-pipeline|Reddit Publishing Pipeline]]
+- [[platform/site-builder-overview|Site Builder Overview]] — internal app: Maps scraping → AI content generation → inline editing → Cloudflare Pages deploy, managed by Paperclip Site Builder Agent
 - [[platform/service-fit-classification|Service Fit Classification]]
 - [[platform/slack-block-kit-pagination|Slack Block Kit Pagination]]
 - [[platform/slack-deploy-approval-audit|Slack Deploy Approval Audit]]
