@@ -1,5 +1,7 @@
 # Ingest Log
 
+Source: auto-maintained by /wiki-ingest and /wiki-file
+
 | Date | Source File | Pages Created | Pages Updated |
 |------|-------------|---------------|---------------|
 | 2026-04-18 | raw/eval-2026-04-18-prepitch-latency.md | 3 | 0 |
