@@ -33,7 +33,7 @@ Proxy ElevenLabs' streaming TTS through the backend as a raw `ReadableStream`, p
 
 ## Related
 
-- [[persistent-claude-session]]
+- [[patterns/persistent-claude-session]]
 - [[websocket-progress-pattern]]
 
 ---

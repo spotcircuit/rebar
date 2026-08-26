@@ -31,7 +31,7 @@ This is a good [[idempotency-guard]] pattern — the operation self-heals rather
 
 ## Related
 
-- [[site-builder-overview]] -- full pipeline context
+- [[platform/site-builder-overview]] -- full pipeline context
 - [[idempotency-guard]] -- self-healing pattern parallel
 
 ---

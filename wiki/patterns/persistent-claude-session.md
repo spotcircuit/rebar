@@ -38,8 +38,8 @@ One persistent `claude` CLI subprocess per user session, reusing prompt cache ac
 
 ## Related
 
-- [[streaming-tts-mediasource]]
-- [[cross-spec-log-contract-leak]]
+- [[patterns/streaming-tts-mediasource]]
+- [[decisions/cross-spec-log-contract-leak]]
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18

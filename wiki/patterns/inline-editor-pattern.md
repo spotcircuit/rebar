@@ -30,8 +30,8 @@ Pinia store compares `editableData` vs `savedDataSnapshot` via JSON comparison. 
 
 ## Related
 
-- [[site-builder-overview]] -- full system context
-- [[ai-content-pipeline]] -- AI generation used for section regeneration
+- [[platform/site-builder-overview]] -- full system context
+- [[patterns/ai-content-pipeline]] -- AI generation used for section regeneration
 
 ---
 Source: raw/site-builder-editor.md | Ingested: 2026-04-08

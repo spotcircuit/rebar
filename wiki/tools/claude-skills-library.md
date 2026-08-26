@@ -46,7 +46,7 @@ Source: tools/claude-skills/tool.yaml + tools/claude-skills/expertise.yaml | Eva
 
 ## Related
 
-- [[publishing-pipeline]] -- blog-writer agent uses these skills
-- [[paperclip]] -- agent orchestration runs the blog-writer
-- [[social-outreach-extensions]] -- social-content skill enhances engagement
-- [[ai-content-pipeline]] -- predecessor content approach before skills integration
+- [[platform/publishing-pipeline]] -- blog-writer agent uses these skills
+- [[tools/paperclip]] -- agent orchestration runs the blog-writer
+- [[platform/social-outreach-extensions]] -- social-content skill enhances engagement
+- [[patterns/ai-content-pipeline]] -- predecessor content approach before skills integration

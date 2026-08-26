@@ -20,8 +20,8 @@ PrePitch's streaming-TTS spec (CON-113) listed `ws.ts` as MUST-NOT-modify. A pri
 
 ## Related
 
-- [[persistent-claude-session]]
-- [[streaming-tts-mediasource]]
+- [[patterns/persistent-claude-session]]
+- [[patterns/streaming-tts-mediasource]]
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18

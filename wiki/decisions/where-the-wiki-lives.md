@@ -12,7 +12,7 @@ The wiki's **source of truth carves IN to rebar** (`wiki/` + `wiki-private/`); o
 
 **Published HTML → carve-OUT (the only real carve).** Quartz builds `wiki/` into a separate published site repo. Authoring co-locates with the project; *serving* is a separate concern and build artifacts don't belong in the source tree. Private knowledge renders to a private Quartz instance or stays Obsidian-local.
 
-**The real gap is the raw, not the location.** Raw material (slice specs, observations) is generated in the build repos (e.g. a client's app repo) while the wiki lives in rebar. The fix is a **harvest-at-close step** (distill build-repo docs into a `/wiki-file` update on the rebar side — the durable insight, not a copy), NOT a repo move. Enforced in [[commands|/close-loop]] Step 4. Build-repo docs = working memory; rebar wiki = durable memory.
+**The real gap is the raw, not the location.** Raw material (slice specs, observations) is generated in the build repos (e.g. a client's app repo) while the wiki lives in rebar. The fix is a **harvest-at-close step** (distill build-repo docs into a `/wiki-file` update on the rebar side — the durable insight, not a copy), NOT a repo move. Enforced in [[how-it-works/commands|/close-loop]] Step 4. Build-repo docs = working memory; rebar wiki = durable memory.
 
 **When to revisit (carve OUT the private knowledge):** only if (a) client-private knowledge grows large enough to bloat rebar-private, (b) the wiki is needed as a standalone lookup *service* without the rebar tree checked out, or (c) non-rebar systems must read/write it. None true yet → carving out now is cost with no payoff.
 
@@ -21,5 +21,5 @@ Source: Conversation 2026-08-12 — wiring the wiki as the close-loop durable-me
 ## Related
 
 - SafeWay — the first client page that exercised this (in wiki-private, not public wiki)
-- [[self-learn-loop]] — the loop this durable-memory step closes
-- [[three-systems]] — expertise.yaml + memory + wiki, why they stay separate
+- [[how-it-works/self-learn-loop]] — the loop this durable-memory step closes
+- [[how-it-works/three-systems]] — expertise.yaml + memory + wiki, why they stay separate
