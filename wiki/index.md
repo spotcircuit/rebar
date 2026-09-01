@@ -134,6 +134,10 @@ tags: [pattern, example]
 
 Cross-link liberally with `[[double-bracket-syntax]]` — that's the Obsidian / Quartz convention.
 
+## 📄 Meta
+
+- [[README|GitHub README]] — simplified navigation index for browsing the wiki on GitHub; mirrors this page
+
 ## 📋 Ingest Log
 
 - [[log|Ingest Log]] — running record of all files processed by `/wiki-ingest` and `/wiki-file`

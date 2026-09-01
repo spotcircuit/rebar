@@ -70,3 +70,12 @@ Architectural decisions with rationale.
 - [Slack Deploy Approval Audit](platform/slack-deploy-approval-audit.md) -- Audit trail for :rocket: approvals.
 - [Social Outreach Extensions](platform/social-outreach-extensions.md) -- Chrome extensions for LinkedIn/Reddit.
 - [Teams Transcript Ingestion](platform/teams-transcript-ingestion.md) -- MS Graph API transcript polling.
+
+## Related
+
+- [[index]] — full Quartz/Obsidian index with all pages; this file mirrors it for GitHub navigation
+- [[getting-started]] — first stop for new users
+- [[log]] — ingest log tracking all /wiki-ingest and /wiki-file runs
+
+---
+Source: wiki/README.md | Maintained: manually
