@@ -112,10 +112,6 @@ Who's who on active engagements.
 
 - [[people/demo-corp-team|Demo Corp Team]]
 
-## 📄 Meta
-
-- [[README|GitHub README]] — simplified navigation index for browsing the wiki on GitHub; mirrors this page
-
 ---
 
 ## Using this wiki
