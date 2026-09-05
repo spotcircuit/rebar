@@ -141,3 +141,13 @@ Cross-link liberally with `[[double-bracket-syntax]]` — that's the Obsidian / 
 ## 📋 Ingest Log
 
 - [[log|Ingest Log]] — running record of all files processed by `/wiki-ingest` and `/wiki-file`
+
+## Related
+
+- [[README|GitHub README]] — GitHub-navigable mirror of this index
+- [[getting-started]] — first stop for new users and the 15-minute walkthrough
+- [[log|Ingest Log]] — running record of all `/wiki-ingest` and `/wiki-file` runs
+- [[how-it-works/commands|Commands]] — all slash commands including wiki management
+
+---
+Source: wiki/index.md | Maintained: manually via wiki-lint and wiki-file commands
