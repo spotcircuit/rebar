@@ -34,7 +34,7 @@ This is the same self-learn loop as Clarity's `/improve`: observations → valid
 ## Related
 
 - [[platform/site-builder-overview]] -- the system being tested
-- [[pre-release-checklist]] -- production gate that depends on passing tests
+- [[patterns/pre-release-checklist]] -- production gate that depends on passing tests
 
 ---
 Source: raw/site-builder-testing.md | Ingested: 2026-04-08

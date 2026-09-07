@@ -34,7 +34,7 @@ Proxy ElevenLabs' streaming TTS through the backend as a raw `ReadableStream`, p
 ## Related
 
 - [[patterns/persistent-claude-session]]
-- [[websocket-progress-pattern]]
+- [[patterns/websocket-progress-pattern]]
 
 ---
 Source: raw/eval-2026-04-18-prepitch-latency.md | Ingested: 2026-04-18
