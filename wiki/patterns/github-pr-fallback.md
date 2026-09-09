@@ -115,8 +115,8 @@ curl -s -X PUT "https://api.github.com/repos/$OWNER/$REPO/pulls/$PR_NUMBER/merge
 
 ## Related
 
-- [[linear-api]] — link PRs to Linear issues via branch name (`ENG-123-fix-cache`) for auto-pickup
-- [[scout-build-verify]] — ensures the branch builds before opening a PR
+- [[patterns/linear-api]] — link PRs to Linear issues via branch name (`ENG-123-fix-cache`) for auto-pickup
+- [[patterns/scout-build-verify]] — ensures the branch builds before opening a PR
 
 ---
 Source: hermes-incorporation-action-items.md (P4 patterns) | Added: 2026-05-01 | CON-138

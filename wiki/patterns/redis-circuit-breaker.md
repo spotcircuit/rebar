@@ -16,7 +16,7 @@ Sarah (CTO) flagged this should be a pattern across all services, not just auth 
 
 ## Related
 
-- [[ecs-health-check-grace-period]] -- related Redis startup timing issue
+- [[patterns/ecs-health-check-grace-period]] -- related Redis startup timing issue
 - [[people/demo-corp-team]] -- Priya built this pattern
 
 ---

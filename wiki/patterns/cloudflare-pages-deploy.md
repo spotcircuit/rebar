@@ -22,7 +22,7 @@ Cloudflare has an account-level project limit. When error code 8000027 fires:
 2. Delete the oldest project
 3. Retry creation
 
-This is a good [[idempotency-guard]] pattern — the operation self-heals rather than failing.
+This is a good [[patterns/idempotency-guard]] pattern — the operation self-heals rather than failing.
 
 ## Env Vars
 
@@ -32,7 +32,7 @@ This is a good [[idempotency-guard]] pattern — the operation self-heals rather
 ## Related
 
 - [[platform/site-builder-overview]] -- full pipeline context
-- [[idempotency-guard]] -- self-healing pattern parallel
+- [[patterns/idempotency-guard]] -- self-healing pattern parallel
 
 ---
 Source: raw/site-builder-deployment.md | Ingested: 2026-04-08
