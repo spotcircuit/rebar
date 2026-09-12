@@ -16,7 +16,7 @@ Slack's unfurl behavior shows a preview of the thread reply in the parent messag
 ## Related
 
 - demo-corp-sprint-14 -- DEMO-470
-- [[slack-deploy-approval-audit]] -- related Slack bot behavior
+- [[platform/slack-deploy-approval-audit]] -- related Slack bot behavior
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13
