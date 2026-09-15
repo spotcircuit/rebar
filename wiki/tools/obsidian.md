@@ -85,6 +85,8 @@ Source: who confirmed, when, or raw/filename
 - [[another-page]] -- how it relates
 ```
 
+Source: rebar framework documentation; wiki setup guide
+
 ## Related
 
 - [Quartz](quartz.md) -- render the wiki as a website
