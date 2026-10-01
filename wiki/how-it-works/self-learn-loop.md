@@ -82,7 +82,7 @@ The loop works because observations are cheap to write and expensive to promote.
 
 - [Three Knowledge Systems](three-systems.md) -- Where expertise.yaml fits alongside memory and wiki
 - [Commands](commands.md) -- `/improve`, `/brief`, and other commands that drive the loop
-- [Site Builder](../examples/site-builder.md) -- Four sessions showing the loop in action
+- [Site Builder Overview](../platform/site-builder-overview.md) -- Real project showing the loop across multiple sessions
 
 ---
 Source: Core framework mechanic; described in CLAUDE.md and rebar documentation.
