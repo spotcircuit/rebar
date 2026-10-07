@@ -181,3 +181,5 @@ The GTM Agent sets the day's strategy. The Social Media Agent executes it. The O
 - [Architecture](architecture.md) -- system-level diagrams
 - [Commands](../how-it-works/commands.md) -- full command reference
 - [Paperclip](../tools/paperclip.md) -- agent setup
+
+Source: Core framework documentation, derived from CLAUDE.md command descriptions.

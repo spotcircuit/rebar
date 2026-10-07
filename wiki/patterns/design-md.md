@@ -91,3 +91,5 @@ For most rebar projects, the 4-section starter (Theme, Colors, Components, Do's/
 - [[tools/claude-skills-integration]] — sister integration (235 marketing/eng skills); does not include design-md
 - Upstream: https://github.com/VoltAgent/awesome-design-md
 - Spec: https://stitch.withgoogle.com/docs/design-md/overview/
+
+Source: who confirmed: Brian, integrated 2026-05-06 from VoltAgent/awesome-design-md (70K stars in 5 weeks) + Google Stitch open-sourced spec (2026-04-21, Apache 2.0).
