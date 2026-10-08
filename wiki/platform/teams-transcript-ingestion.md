@@ -21,6 +21,8 @@ Automated ingestion of Teams meeting transcripts via Microsoft Graph API.
 ## Related
 
 - demo-corp-sprint-14 -- DEMO-482
+- [[tools/jira-integration|Jira Integration]] -- ticket extraction from transcript mentions
+- [[how-it-works/paperclip-integration|Paperclip Integration]] -- agent that processes raw/ drop zone
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13
