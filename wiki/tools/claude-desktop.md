@@ -91,8 +91,8 @@ The self-learn loop (expertise.yaml) and wiki grow through Claude Code sessions.
 
 ## Related
 
-- [Obsidian](obsidian.md) -- local wiki editing
-- [Quartz](quartz.md) -- wiki as a website
-- [Paperclip](paperclip.md) -- agent orchestration
+- [[tools/obsidian|Obsidian]] -- local wiki editing
+- [[tools/quartz|Quartz]] -- wiki as a website
+- [[tools/paperclip|Paperclip]] -- agent orchestration
 
 Source: MCP filesystem server docs + rebar framework setup. Documented 2026.

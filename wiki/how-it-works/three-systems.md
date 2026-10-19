@@ -51,9 +51,9 @@ The site-builder project discovered that Cloudflare Pages project names must be 
 
 ## Related
 
-- [The Self-Learn Loop](self-learn-loop.md) -- How expertise.yaml accumulates knowledge
-- [Commands](commands.md) -- Which commands update which system
-- [Site Builder Overview](../platform/site-builder-overview.md) -- Real project showing all three systems in use
+- [[how-it-works/self-learn-loop|The Self-Learn Loop]] -- How expertise.yaml accumulates knowledge
+- [[how-it-works/commands|Commands]] -- Which commands update which system
+- [[platform/site-builder-overview|Site Builder Overview]] -- Real project showing all three systems in use
 
 ---
 Source: Core framework design principle from rebar documentation and CLAUDE.md.

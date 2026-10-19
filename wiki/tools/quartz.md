@@ -113,8 +113,8 @@ The `raw/` directory is never synced (it contains unprocessed intake files).
 
 ## Related
 
-- [Obsidian](obsidian.md) -- edit the wiki locally with Obsidian
-- [Wiki Curator](paperclip.md#wiki-curator) -- the agent that keeps the wiki healthy
-- [Three Knowledge Systems](../how-it-works/three-systems.md) -- where the wiki fits
+- [[tools/obsidian|Obsidian]] -- edit the wiki locally with Obsidian
+- [[tools/paperclip|Wiki Curator]] -- the agent that keeps the wiki healthy
+- [[how-it-works/three-systems|Three Knowledge Systems]] -- where the wiki fits
 
 Source: Quartz v4 docs + scripts/wiki-sync.sh. Documented 2026.
