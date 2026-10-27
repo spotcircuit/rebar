@@ -26,6 +26,7 @@ Four DORA metrics as defined for the Demo Corp deployment automation platform.
 ## Related
 
 - [[decisions/where-the-wiki-lives]] -- why structured wiki pages capture decisions like this one
+- [[platform/slack-deploy-approval-audit]] -- deployment approval audit feeds into DORA change-failure-rate
 
 ---
 Source: raw/demo-jira-notes.md, raw/demo-meeting-transcript.md | Ingested: 2026-04-13

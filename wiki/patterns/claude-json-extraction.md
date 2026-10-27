@@ -18,6 +18,7 @@ Used in `site_generator.py` `_extract_json_from_response()`. The SiteContent pyd
 
 - Site Builder Session 3 -- where this was implemented (client session, not in wiki)
 - [[patterns/persistent-browser-context]] -- another site-builder pattern
+- [[patterns/error-handling]] -- handle malformed JSON responses as error cases
 
 ---
 Source: raw/example-meeting-notes.md | Ingested: 2026-04-13

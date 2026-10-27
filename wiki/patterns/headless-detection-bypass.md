@@ -50,4 +50,5 @@ Source: Reddit post analysis, April 2026
 ## Related
 
 - [[platform/site-builder-overview]] — Maps scraper uses Playwright stealth
+- [[patterns/persistent-browser-context]] — persistent session pairs with stealth to avoid detection resets
 - Lead Finder — lead scraper uses anti-detection (not yet documented in wiki)

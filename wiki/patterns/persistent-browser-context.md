@@ -21,6 +21,7 @@ Google Maps shows a "limited view" (only Overview + About tabs) when the browser
 
 - Site Builder Session 3 -- where this was implemented (client session, not in wiki)
 - [[patterns/claude-json-extraction]] -- another site-builder pattern
+- [[patterns/headless-detection-bypass]] -- stealth techniques to pair with persistent session
 
 ---
 Source: raw/example-meeting-notes.md | Ingested: 2026-04-13

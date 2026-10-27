@@ -29,6 +29,7 @@ Same startup grace period logic being added to notification-service (DEMO-493) a
 ## Related
 
 - [[patterns/redis-circuit-breaker]] -- Redis resilience at the application layer
+- [[patterns/idempotency-guard]] -- idempotency matters during cold-start retry windows
 - health-endpoint-startup-grace -- the decision behind this approach
 
 ---
